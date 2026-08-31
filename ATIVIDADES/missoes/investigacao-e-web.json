@@ -1,0 +1,407 @@
+{
+ "pacote": "Investigacao e Web",
+ "missoes": [
+  {
+   "id": "w01",
+   "dificuldade": "normal",
+   "cenario": "nave-alpha",
+   "titulo": "Turista na Rede da Frota",
+   "fala_intro": "Antes de investigar, aprenda a andar. Abra o navegador, va ao portal frota.orb, clique no link do mural e depois volte digitando o endereco do manual na barra.",
+   "fala_sucesso": "Voce navegou por link e por endereco digitado. Sao os dois jeitos de chegar a qualquer lugar da internet.",
+   "passos": [
+    {
+     "acao": "navegar_url",
+     "texto": "Acessar frota.orb",
+     "dica": "Digite frota.orb na barra de endereco e aperte Enter.",
+     "url": "frota.orb"
+    },
+    {
+     "acao": "clicar_link",
+     "texto": "Clicar no link do mural da tripulacao",
+     "dica": "O link fica na lista da pagina inicial.",
+     "alvo": "mural.frota.orb"
+    },
+    {
+     "acao": "navegar_url",
+     "texto": "Acessar manual.frota.orb",
+     "dica": "Digite o endereco na barra e aperte Enter.",
+     "url": "manual.frota.orb"
+    }
+   ],
+   "trilhas": [
+    "seguranca",
+    "mouse"
+   ]
+  },
+  {
+   "id": "w02",
+   "dificuldade": "normal",
+   "cenario": "nave-alpha",
+   "titulo": "Endereco Errado, Calma",
+   "fala_intro": "Todo mundo digita endereco errado. Tente acessar frotta.orb, com dois tes, veja a pagina de erro, e depois acerte. Errar endereco nao quebra nada.",
+   "fala_sucesso": "Pagina nao encontrada nao e virus nem defeito: e endereco digitado errado, na maioria absoluta das vezes.",
+   "passos": [
+    {
+     "acao": "navegar_url",
+     "texto": "Tentar acessar frotta.orb",
+     "dica": "Digite frotta.orb, com dois tes, de proposito.",
+     "url": "frotta.orb"
+    },
+    {
+     "acao": "navegar_url",
+     "texto": "Acessar frota.orb corretamente",
+     "dica": "Agora com um te so.",
+     "url": "frota.orb"
+    }
+   ],
+   "trilhas": [
+    "seguranca"
+   ]
+  },
+  {
+   "id": "w03",
+   "dificuldade": "normal",
+   "cenario": "nave-alpha",
+   "titulo": "O Que Tem Por Tras",
+   "fala_intro": "Toda pagina tem codigo escondido. Va ao manual da frota, clique com o botao direito e escolha Inspecionar codigo. Tem um codigo de acesso comentado ali dentro.",
+   "fala_sucesso": "Inspecionar mostra o que a tela nao mostra. E publico, legal, e todo navegador tem.",
+   "passos": [
+    {
+     "acao": "navegar_url",
+     "texto": "Acessar manual.frota.orb",
+     "dica": "Digite o endereco na barra.",
+     "url": "manual.frota.orb"
+    },
+    {
+     "acao": "abrir_inspetor",
+     "texto": "Inspecionar o codigo da pagina",
+     "dica": "Botao direito na pagina, Inspecionar codigo.",
+     "url": "manual.frota.orb"
+    }
+   ],
+   "trilhas": [
+    "seguranca",
+    "mouse"
+   ]
+  },
+  {
+   "id": "w04",
+   "dificuldade": "dificil",
+   "cenario": "nave-alpha",
+   "titulo": "Cacada ao Deposito",
+   "fala_intro": "Investigacao completa. Va ao mural, inspecione o codigo para achar o endereco secreto, visite ele, anote o codigo do container que aparece la e salve num arquivo chamado achado.txt no Bloco de Notas.",
+   "fala_sucesso": "Voce achou uma pagina que nao aparece em menu nenhum e documentou. Isso e trabalho de investigador.",
+   "passos": [
+    {
+     "acao": "navegar_url",
+     "texto": "Acessar mural.frota.orb",
+     "dica": "Digite o endereco na barra.",
+     "url": "mural.frota.orb"
+    },
+    {
+     "acao": "abrir_inspetor",
+     "texto": "Inspecionar o codigo do mural",
+     "dica": "Botao direito, Inspecionar codigo.",
+     "url": "mural.frota.orb"
+    },
+    {
+     "acao": "navegar_url",
+     "texto": "Visitar o endereco secreto",
+     "dica": "O codigo revelou deposito.frota.orb.",
+     "url": "deposito.frota.orb"
+    },
+    {
+     "acao": "salvar_arquivo",
+     "texto": "Salvar o achado como achado.txt",
+     "dica": "Bloco de Notas, escreva o codigo e salve.",
+     "nome": "contem:achado"
+    }
+   ],
+   "trilhas": [
+    "seguranca",
+    "arquivos"
+   ],
+   "pontos_base": 105
+  },
+  {
+   "id": "w05",
+   "dificuldade": "dificil",
+   "cenario": "nave-alpha",
+   "titulo": "Tres Paginas, Tres Segredos",
+   "fala_intro": "Cada pagina da frota esconde um comentario no codigo. Inspecione o portal, a loja e o mural. Depois escreva um arquivo chamado segredos.txt com o que voce encontrou.",
+   "fala_sucesso": "Tres paginas vasculhadas e um relatorio escrito. Curiosidade com metodo se chama pesquisa.",
+   "passos": [
+    {
+     "acao": "abrir_inspetor",
+     "texto": "Inspecionar o codigo de frota.orb",
+     "dica": "Acesse a pagina e use o botao direito.",
+     "url": "frota.orb"
+    },
+    {
+     "acao": "abrir_inspetor",
+     "texto": "Inspecionar o codigo de loja.frota.orb",
+     "dica": "Acesse a loja e inspecione.",
+     "url": "loja.frota.orb"
+    },
+    {
+     "acao": "abrir_inspetor",
+     "texto": "Inspecionar o codigo de mural.frota.orb",
+     "dica": "Acesse o mural e inspecione.",
+     "url": "mural.frota.orb"
+    },
+    {
+     "acao": "salvar_arquivo",
+     "texto": "Salvar segredos.txt no Bloco de Notas",
+     "dica": "Escreva o que achou e salve.",
+     "nome": "contem:segredos"
+    }
+   ],
+   "trilhas": [
+    "seguranca"
+   ],
+   "pontos_base": 115,
+   "ordem": "livre"
+  },
+  {
+   "id": "w06",
+   "dificuldade": "dificil",
+   "cenario": "laboratorio-beta",
+   "titulo": "Rede Caida, Investigacao em Pe",
+   "fala_intro": "O laboratorio esta sem rede e voce precisa navegar. Ligue a rede, acesse o manual, role a pagina inteira, inspecione o codigo e depois teste se a nave alpha responde com ping no terminal.",
+   "fala_sucesso": "Conexao restaurada, documentacao lida e alvo testado. Esse e o roteiro de quem resolve problema de rede.",
+   "passos": [
+    {
+     "acao": "alternar_rede",
+     "texto": "Ligar a rede orbital",
+     "dica": "Configuracoes, aba Rede.",
+     "estado": "ligada"
+    },
+    {
+     "acao": "navegar_url",
+     "texto": "Acessar manual.frota.orb",
+     "dica": "Orbital Explorer, barra de endereco.",
+     "url": "manual.frota.orb"
+    },
+    {
+     "acao": "rolar",
+     "texto": "Rolar a pagina do manual",
+     "dica": "Roda do mouse dentro da pagina.",
+     "area": "navegador"
+    },
+    {
+     "acao": "abrir_inspetor",
+     "texto": "Inspecionar o codigo do manual",
+     "dica": "Botao direito, Inspecionar codigo.",
+     "url": "manual.frota.orb"
+    },
+    {
+     "acao": "comando_terminal",
+     "texto": "Testar a alpha com ping",
+     "dica": "Escreva: ping 10.42.7.1",
+     "comando": "re:^ping\\s+10\\.42\\.7\\.1"
+    }
+   ],
+   "trilhas": [
+    "seguranca",
+    "terminal"
+   ],
+   "pontos_base": 125
+  },
+  {
+   "id": "w07",
+   "dificuldade": "dificil",
+   "cenario": "oficina-orbital",
+   "titulo": "Golpe, Servidor e Prova",
+   "fala_intro": "Missao de contra-espionagem. Marque o email falso como golpe, leia o email verdadeiro do deposito, entre no servidor com a senha certa, baixe o inventario e mande em anexo para vilma@frota.orb.",
+   "fala_sucesso": "Falso barrado, verdadeiro aproveitado, prova entregue. Voce separou joio de trigo numa caixa de entrada.",
+   "passos": [
+    {
+     "acao": "marcar_golpe",
+     "texto": "Marcar o email falso como golpe",
+     "dica": "Botao direito na mensagem que pede senha.",
+     "id": "o2",
+     "correto": true
+    },
+    {
+     "acao": "ler_email",
+     "texto": "Ler a mensagem do deposito",
+     "dica": "Assunto sobre liberacao de acesso.",
+     "id": "o1"
+    },
+    {
+     "acao": "ftp_conectar",
+     "texto": "Conectar em deposito.frota.orb",
+     "dica": "A senha e alpha9902.",
+     "servidor": "deposito.frota.orb"
+    },
+    {
+     "acao": "ftp_baixar",
+     "texto": "Baixar o inventario.txt",
+     "dica": "Lista da direita, botao Baixar.",
+     "nome": "contem:inventario"
+    },
+    {
+     "acao": "anexar_arquivo",
+     "texto": "Anexar o inventario numa nova mensagem",
+     "dica": "Correio Orbital, campo Anexo.",
+     "nome": "contem:inventario"
+    },
+    {
+     "acao": "enviar_email",
+     "texto": "Enviar para vilma@frota.orb",
+     "dica": "Campo Para, depois Enviar.",
+     "para": "vilma@frota.orb"
+    }
+   ],
+   "trilhas": [
+    "seguranca"
+   ],
+   "pontos_base": 150
+  },
+  {
+   "id": "w08",
+   "dificuldade": "dificil",
+   "cenario": "nave-alpha",
+   "titulo": "A Senha Vergonhosa",
+   "fala_intro": "Licao seria com roupa de brincadeira. Abra o senha_do_wifi.txt e veja a senha da nave. Instale o quebra-senha3000, rode ele, e veja quanto tempo leva. Depois escreva num arquivo chamado senha_nova.txt uma senha longa e dificil que voce inventar.",
+   "fala_sucesso": "Senha curta cai em segundos, senha longa nao. Essa e a licao mais util que este treino inteiro tem para te dar.",
+   "passos": [
+    {
+     "acao": "abrir_arquivo",
+     "texto": "Abrir o senha_do_wifi.txt",
+     "dica": "Ele esta em /lar/cadete/documentos.",
+     "nome": "contem:senha_do_wifi"
+    },
+    {
+     "acao": "instalar_pacote",
+     "texto": "Instalar o quebra-senha3000",
+     "dica": "Central de Pacotes ou apt install.",
+     "pacote": "quebra-senha3000"
+    },
+    {
+     "acao": "ferramenta_ficticia",
+     "texto": "Rodar o quebra-senha3000",
+     "dica": "Escreva o comando no terminal e aperte Enter.",
+     "nome": "quebra-senha3000"
+    },
+    {
+     "acao": "salvar_arquivo",
+     "texto": "Escrever senha_nova.txt com uma senha longa",
+     "dica": "Bloco de Notas, escreva e salve.",
+     "nome": "contem:senha_nova"
+    }
+   ],
+   "trilhas": [
+    "seguranca",
+    "terminal"
+   ],
+   "pontos_base": 120
+  },
+  {
+   "id": "w09",
+   "dificuldade": "dificil",
+   "cenario": "oficina-orbital",
+   "titulo": "Dossie da Investigacao",
+   "fala_intro": "Junte tudo o que voce sabe. Crie a pasta investigacao, leia o relatorio da ponte, entre no deposito com a senha, baixe o inventario, mova ele para a pasta nova e faca um desenho de capa chamado capa_dossie.png tambem dentro dela.",
+   "fala_sucesso": "Dossie fechado: prova, documento e capa. Se um dia voce fizer trabalho de escola assim, tira nota cheia.",
+   "passos": [
+    {
+     "acao": "criar_pasta",
+     "texto": "Criar a pasta investigacao em /lar/cadete",
+     "dica": "Botao direito no vazio, Nova pasta.",
+     "caminho": "/lar/cadete",
+     "nome": "investigacao"
+    },
+    {
+     "acao": "abrir_arquivo",
+     "texto": "Ler o relatorio_da_ponte.txt",
+     "dica": "Ele esta em documentos.",
+     "nome": "relatorio_da_ponte.txt"
+    },
+    {
+     "acao": "ftp_conectar",
+     "texto": "Conectar em deposito.frota.orb",
+     "dica": "A senha e alpha9902.",
+     "servidor": "deposito.frota.orb"
+    },
+    {
+     "acao": "ftp_baixar",
+     "texto": "Baixar o inventario.txt",
+     "dica": "Lista da direita, botao Baixar.",
+     "nome": "contem:inventario"
+    },
+    {
+     "acao": "mover",
+     "texto": "Mover o inventario para a pasta investigacao",
+     "dica": "Ele foi salvo em documentos.",
+     "nome": "contem:inventario",
+     "destino": "/lar/cadete/investigacao"
+    },
+    {
+     "acao": "salvar_desenho",
+     "texto": "Salvar um desenho como capa_dossie.png",
+     "dica": "Pinguim Pincel, Salvar como.",
+     "nome": "contem:capa_dossie"
+    }
+   ],
+   "trilhas": [
+    "seguranca",
+    "arquivos",
+    "mouse"
+   ],
+   "pontos_base": 155
+  },
+  {
+   "id": "w10",
+   "dificuldade": "dificil",
+   "cenario": "nave-alpha",
+   "titulo": "Caca ao Tesouro Total",
+   "fala_intro": "Missao de investigacao completa. Inspecione o mural para achar o endereco secreto, visite ele, leia o relatorio da ponte, use o codigo para entrar no deposito, baixe o inventario e copie tudo para o pendrive. Seis passos de pura investigacao.",
+   "fala_sucesso": "Do comentario escondido ate a copia de seguranca. Voce seguiu uma pista ate o fim, cadete.",
+   "passos": [
+    {
+     "acao": "abrir_inspetor",
+     "texto": "Inspecionar o codigo do mural",
+     "dica": "Acesse mural.frota.orb e use o botao direito.",
+     "url": "mural.frota.orb"
+    },
+    {
+     "acao": "navegar_url",
+     "texto": "Visitar deposito.frota.orb no navegador",
+     "dica": "O endereco apareceu no codigo.",
+     "url": "deposito.frota.orb"
+    },
+    {
+     "acao": "abrir_arquivo",
+     "texto": "Ler o relatorio_da_ponte.txt",
+     "dica": "Ele esta em documentos.",
+     "nome": "relatorio_da_ponte.txt"
+    },
+    {
+     "acao": "ftp_conectar",
+     "texto": "Conectar no servidor deposito.frota.orb",
+     "dica": "A senha e o codigo do container: alpha9902.",
+     "servidor": "deposito.frota.orb"
+    },
+    {
+     "acao": "ftp_baixar",
+     "texto": "Baixar o inventario.txt",
+     "dica": "Lista da direita, botao Baixar.",
+     "nome": "contem:inventario"
+    },
+    {
+     "acao": "colar",
+     "texto": "Copiar o inventario para o /midia/pendrive",
+     "dica": "Ctrl+C no arquivo, Ctrl+V no pendrive.",
+     "destino": "/midia/pendrive"
+    }
+   ],
+   "trilhas": [
+    "seguranca",
+    "terminal",
+    "copiar"
+   ],
+   "pontos_base": 160
+  }
+ ]
+}

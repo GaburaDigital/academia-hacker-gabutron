@@ -26,6 +26,8 @@ export const estado = {
   feitos: [],
   usadas: new Set(),
   inicioMissao: 0,
+  vistos: new Set(),
+  falhou: false,
   pulosRestantes: 2,
   nivelDica: 0,
   emTreino: false,
@@ -146,7 +148,8 @@ function pintarPassos() {
     const li = document.createElement('li');
     li.textContent = p.texto || descreverPasso(p);
     li.dataset.feito = estado.feitos[i] ? '1' : '0';
-    li.dataset.atual = (!estado.feitos[i] && i === estado.passoAtual) ? '1' : '0';
+    li.dataset.atual = (!estado.feitos[i] && i === estado.passoAtual && !estado.falhou) ? '1' : '0';
+    li.dataset.falhou = (!estado.feitos[i] && estado.falhou) ? '1' : '0';
     ul.appendChild(li);
   });
 }
@@ -175,6 +178,84 @@ function descreverPasso(p) {
   return mapa[p.acao] || 'Executar acao no sistema';
 }
 
+/* ---------- deteccao de missao impossivel ----------
+   Um passo que depende de um arquivo vira impossivel se aquele arquivo, depois
+   de ter existido durante a missao, sumir de vez (lixeira esvaziada, por exemplo).
+   Só acusamos falha se o recurso ja foi visto presente: assim um passo que ainda
+   vai criar o arquivo nao dispara alarme falso. */
+
+function recursoDoPasso(passo) {
+  if (passo.acao === 'excluir' || passo.acao === 'esvaziar_lixeira') return null;
+  return passo.caminho || passo.nome || null;
+}
+
+function checarImpossivel() {
+  for (let i = 0; i < estado.atual.passos.length; i++) {
+    if (estado.feitos[i]) continue;
+    const alvo = recursoDoPasso(estado.atual.passos[i]);
+    if (!alvo) continue;
+    const existe = !!vfs.procurar(alvo);
+    if (existe) { estado.vistos.add(i); continue; }
+    if (estado.vistos.has(i)) {
+      const nome = String(alvo).replace(/^contem:/, '');
+      return `O item "${nome}" nao existe mais em lugar nenhum, e o passo ` +
+             `"${estado.atual.passos[i].texto || descreverPasso(estado.atual.passos[i])}" ` +
+             `precisava dele.`;
+    }
+  }
+  return null;
+}
+
+function checarFalhaDeclarada(ev) {
+  for (const regra of estado.atual.falha || []) {
+    if (regra.acao !== ev.acao) continue;
+    let bateTudo = true;
+    for (const [chave, valor] of Object.entries(regra)) {
+      if (chave === 'acao' || chave === 'motivo' || chave === 'so_se_pendente') continue;
+      if (!bate(valor, ev[chave])) { bateTudo = false; break; }
+    }
+    if (!bateTudo) continue;
+    if (regra.so_se_pendente !== undefined && estado.feitos[regra.so_se_pendente]) continue;
+    return regra.motivo || 'Essa acao tornou a missao impossivel.';
+  }
+  return null;
+}
+
+export function falharMissao(motivo) {
+  if (estado.falhou) return;
+  estado.falhou = true;
+  sessao.falhadas = (sessao.falhadas || 0) + 1;
+  
+  tocar('falha');
+  humor('erro');
+  pintarPassos();
+  dizer(
+    'MISSAO FALHOU.\n\n' + motivo +
+    '\n\nAcontece, cadete. No computador de verdade tambem tem acao sem volta, e ' +
+    'agora voce sabe disso na pratica. Use "Refazer missao" para tentar de novo do ' +
+    'zero, ou "Proxima missao" para seguir em frente. Nao gastei nenhum dos seus pulos.',
+    'erro');
+  const prox = document.getElementById('btn-proximo');
+  if (prox) prox.disabled = false;
+  const refazer = document.getElementById('btn-refazer');
+  if (refazer) refazer.disabled = false;
+}
+
+export function refazerMissao() {
+  if (!estado.atual) return;
+  const missao = estado.atual;
+  estado.passoAtual = 0;
+  estado.feitos = missao.passos.map(() => false);
+  estado.nivelDica = 0;
+  estado.falhou = false;
+  estado.vistos = new Set();
+  estado.inicioMissao = Date.now();
+  montarCenario(missao.cenario);
+  pintarPassos();
+  atualizarBotoes();
+  dizer('Tudo de volta ao inicio, cadete.\n\n' + missao.fala_intro, 'falando');
+}
+
 /* ---------- ciclo da missao ---------- */
 
 export function proximaMissao() {
@@ -188,6 +269,8 @@ export function proximaMissao() {
   estado.passoAtual = 0;
   estado.feitos = missao.passos.map(() => false);
   estado.nivelDica = 0;
+  estado.falhou = false;
+  estado.vistos = new Set();
   estado.inicioMissao = Date.now();
 
   montarCenario(missao.cenario);
@@ -233,7 +316,7 @@ function aoAgir(ev) {
     return;
   }
 
-  if (!estado.atual) return;
+  if (!estado.atual || estado.falhou) return;
   sessao.acoes++;
 
   const livre = estado.atual.ordem === 'livre';
@@ -256,9 +339,19 @@ function aoAgir(ev) {
     atualizarIconeLixeira();
 
     if (estado.feitos.every(Boolean)) concluirMissao();
+    else {
+      const motivo = checarImpossivel();
+      if (motivo) falharMissao(motivo);
+    }
     return;
   }
+
   atualizarIconeLixeira();
+
+  const declarada = checarFalhaDeclarada(ev);
+  if (declarada) { falharMissao(declarada); return; }
+  const motivo = checarImpossivel();
+  if (motivo) falharMissao(motivo);
 }
 
 /* ---------- dicas ---------- */
@@ -308,6 +401,8 @@ function atualizarBotoes() {
   }
   const prox = document.getElementById('btn-proximo');
   if (prox) prox.disabled = true;
+  const refazer = document.getElementById('btn-refazer');
+  if (refazer) refazer.disabled = false;
 }
 
 /* ---------- cronometro ---------- */

@@ -147,6 +147,29 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 .modal__texto { margin: 0 0 16px; font-size: 14px; }
 .modal__acoes { display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap; }
 
+.modal__caixa--largo { max-width: 780px; }
+#diploma-arte { margin-bottom: 12px; }
+#diploma-arte svg { display: block; width: 100%; height: auto; }
+
+/* ---------- impressao: so o diploma vai para o papel ---------- */
+
+@media print {
+  body * { visibility: hidden !important; }
+  #modal-diploma, #modal-diploma * { visibility: visible !important; }
+  #modal-diploma {
+    display: block !important;
+    position: absolute; inset: 0;
+    background: #ffffff; padding: 0;
+  }
+  #modal-diploma .modal__caixa {
+    max-width: none; width: 100%; border: 0; padding: 0;
+  }
+  #modal-diploma .modal__titulo,
+  #modal-diploma .modal__acoes,
+  #modal-diploma p { display: none !important; }
+  @page { size: landscape; margin: 10mm; }
+}
+
 /* ---------- utilitarios ---------- */
 
 .oculto { display: none !important; }

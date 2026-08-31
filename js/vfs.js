@@ -211,3 +211,30 @@ export function colarDaArea(destinoPasta) {
   if (ok && transferencia.modo === 'recortar') { transferencia.caminho = null; transferencia.modo = null; }
   return ok;
 }
+
+
+/* Procura um item em qualquer lugar da arvore, inclusive na lixeira.
+   Usado pelo motor de missoes para descobrir se um arquivo necessario
+   deixou de existir e a missao virou impossivel. */
+export function procurar(padrao) {
+  if (!raiz || !padrao) return null;
+  const alvo = String(padrao).toLowerCase();
+  const contem = alvo.startsWith('contem:') ? alvo.slice(7) : null;
+  const caminhoDireto = alvo.startsWith('/');
+
+  let achado = null;
+  (function varrer(no, caminho) {
+    if (achado) return;
+    for (const filho of no.filhos || []) {
+      const c = caminho + '/' + filho.nome;
+      const nome = filho.nome.toLowerCase();
+      if (caminhoDireto ? c.toLowerCase() === alvo
+                        : contem ? nome.includes(contem) : nome === alvo) {
+        achado = { no: filho, caminho: c };
+        return;
+      }
+      if (filho.tipo === 'pasta') varrer(filho, c);
+    }
+  })(raiz, '');
+  return achado;
+}

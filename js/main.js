@@ -9,6 +9,7 @@ import { prepararP95, montarP95 } from './p95.js';
 import { encaixarTodas } from './wm.js';
 import * as missao from './mission.js';
 import { sessao, zerarSessao, pintarPontos, lerPlacar, gravarPlacar, zerarPlacar } from './score.js';
+import { abrirDiploma } from './diploma.js';
 
 const $ = (id) => document.getElementById(id);
 
@@ -149,6 +150,12 @@ function ligarGabutron() {
     if (completarFala()) return;
     missao.proximaMissao();
   });
+  $('btn-refazer').addEventListener('click', async () => {
+    if (!missao.estado.emTreino || !missao.estado.atual) return;
+    if (missao.estado.falhou || await confirmar('Recomecar esta missao do zero?')) {
+      missao.refazerMissao();
+    }
+  });
   $('btn-pular').addEventListener('click', async () => {
     if (!missao.estado.emTreino) return;
     if (!missao.podePular()) {
@@ -185,6 +192,15 @@ bus.on('treino:fim', ({ motivo }) => {
   tocar('sucesso');
   dizer('Turno encerrado, cadete. ' + sessao.pontos + ' pontos. A frota agradece, meio desconfiada.', 'feliz');
 });
+
+function ligarDiploma() {
+  $('btn-fim-diploma').addEventListener('click', () => {
+    $('modal-fim').dataset.aberto = '0';
+    abrirDiploma();
+  });
+  $('btn-fechar-diploma').addEventListener('click', () => { $('modal-diploma').dataset.aberto = '0'; });
+  $('btn-imprimir-diploma').addEventListener('click', () => window.print());
+}
 
 function ligarFim() {
   $('btn-fim-placar').addEventListener('click', () => { $('modal-fim').dataset.aberto = '0'; abrirPlacar(); });
@@ -255,6 +271,7 @@ async function iniciar() {
   ligarPlacar();
   ligarGabutron();
   ligarFim();
+  ligarDiploma();
   ligarFoco();
   vigiarTamanho();
   registrarSW();

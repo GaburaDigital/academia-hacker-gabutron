@@ -51,6 +51,9 @@ ensina invasão, ela usa a fantasia para forçar o aluno a operar o computador.
 - Durante o treino aparecem **janelas intrometidas** (propaganda, falso antivírus,
   pedido de senha). Fechar sem clicar na isca vale 8 pontos. Clicar na isca não
   castiga: mostra a explicação de por que aquilo era golpe.
+- No fim do turno o aluno pode **emitir um diploma** com o codinome, a patente e
+  os números da sessão. O botão Imprimir manda só o diploma para o papel.
+- O terminal tem **comandos escondidos**. Alunos que exploram acabam achando.
 - Som ligado por padrão, com efeitos curtos gerados pelo próprio navegador.
   A voz do GabuTRON só toca quando o aluno clica em Ouvir.
 
@@ -148,7 +151,39 @@ Comparação de valores nos passos:
 | `"min:10"` | número igual ou maior |
 | `"*"` | qualquer valor não vazio |
 
-### 3. Vocabulário de ações
+### 3. Quando a missão fica impossível
+
+Ações irreversíveis existem no computador de verdade, e o aluno precisa aprender
+isso. Se ele esvaziar a lixeira antes de restaurar o arquivo que a missão pedia,
+o GabuTRON declara **missão falhada**, explica o motivo, e libera os botões
+**Refazer missão** e **Próxima missão**. Nenhum pulo é consumido.
+
+Isso funciona de dois jeitos:
+
+**Automático.** Depois de cada ação, o motor confere os passos pendentes. Se um
+passo depende de um arquivo que existiu durante a missão e agora sumiu de vez,
+a missão é declarada impossível. Passos que ainda vão *criar* o arquivo não
+disparam alarme falso, e passos cuja própria ação é destruir (`excluir`,
+`esvaziar_lixeira`) são ignorados na checagem.
+
+**Declarado no JSON.** Para casos que você quer explicar com suas palavras,
+acrescente um campo `falha` à missão:
+
+```json
+"falha": [
+  {
+    "acao": "esvaziar_lixeira",
+    "so_se_pendente": 2,
+    "motivo": "A lixeira foi esvaziada antes do resgate. O arquivo sumiu de vez."
+  }
+]
+```
+
+`so_se_pendente` é o índice do passo (começando em zero) que ainda precisa estar
+por fazer para a regra valer. Sem esse campo, a regra vale a qualquer momento
+enquanto a missão estiver em andamento.
+
+### 4. Vocabulário de ações
 
 O sistema simulado emite estes eventos. Use o nome exato em `"acao"`.
 
@@ -195,7 +230,7 @@ O sistema simulado emite estes eventos. Use o nome exato em `"acao"`.
 | `fechar_popup` | `tipo`, `correto` |
 | `popup_apareceu`, `cair_no_golpe` | `tipo` |
 
-### 4. Criar um cenário
+### 5. Criar um cenário
 
 ```json
 {
@@ -227,7 +262,7 @@ naquele cenário. Sem ele, o padrão é `pinguim-pincel` e `transmissor-orbital`
 A pasta `/lixeira` é criada sozinha. Marque `"protegido": true` no que não pode
 ser apagado nem renomeado.
 
-### 5. Publicar a atualização
+### 6. Publicar a atualização
 
 Depois de mudar qualquer arquivo, abra `sw.js` e incremente a constante `VERSAO`
 (por exemplo de `gabutron-v1` para `gabutron-v2`). Sem isso, quem já abriu a
@@ -261,6 +296,7 @@ js/settings.js          preferências no navegador
 js/sound.js             bipes gerados por Web Audio e voz opcional
 js/icons.js             dois conjuntos de ícones SVG, um para cada estética
 js/boot.js              sequência de inicialização
+js/diploma.js           certificado SVG imprimível
 js/main.js              liga tudo
 js/apps/                explorador, terminal, email, navegador, configurações,
                         desenho, ftp, utilitarios (pacotes e notas), interrupcoes
@@ -313,13 +349,32 @@ https://sites.google.com/view/links-gabura
 
 ## Estado do projeto
 
-**Fase 1 concluída.** Motor, casca da Academia, Pinguim 95x com Explorador,
-Terminal, Correio, Navegador, Configurações e Lixeira. 40 missões.
+Projeto completo nas três fases planejadas.
 
-**Fase 2 concluída.** Pinguim Pincel, Transmissor Orbital, Central de Pacotes,
-Bloco de Notas, janelas intrometidas, patentes, tela do sistema em 4:3, botão de
-tela cheia e checklist na lateral. 80 missões no total: 26 fáceis, 31 normais e
-23 difíceis, distribuídas em 8 pacotes e 4 cenários.
+**Fase 1.** Motor de missões, casca da Academia, Pinguim 95x com Explorador,
+Terminal, Correio Orbital, Orbital Explorer, Configurações e Lixeira.
 
-**Fase 3 planejada.** Completar para 40 missões em cada dificuldade, diploma SVG
-imprimível, easter eggs no terminal e ajuste final de desempenho.
+**Fase 2.** Pinguim Pincel, Transmissor Orbital, Central de Pacotes, Bloco de
+Notas, janelas intrometidas, patentes, tela do sistema em 4:3, botão de tela
+cheia e checklist na lateral.
+
+**Fase 3.** Sistema de missão falhada com explicação e botão de refazer,
+diploma imprimível, comandos escondidos no terminal e limpeza de ouvintes.
+
+**Conteúdo:** 120 missões e 477 passos, distribuídas em 12 pacotes e 4 cenários,
+com 40 missões em cada dificuldade.
+
+| Pacote | Dificuldade | Foco |
+|---|---|---|
+| Primeiros Cliques | fácil | um clique contra dois, botão direito, arrastar |
+| Mouse e Janelas | fácil | etiquetas, rolagem, minimizar e maximizar |
+| Teclado e Atalhos | fácil | Ctrl+C, Ctrl+X, Ctrl+V, Ctrl+A, F2, Delete |
+| Arquivos e Organização | fácil | criar, renomear, mover, lixeira |
+| Desenho e Documentos | fácil | pincel, bloco de notas, copiar texto |
+| Terminal - Primeiros Passos | normal | ls, cd, cat, mkdir, mv, cp, rm, git, apt |
+| Rede, Email e Golpes | normal | anexos, phishing, rede, bluetooth |
+| Transmissão e Servidores | normal | conectar, enviar e baixar arquivos |
+| Pacotes e Manutenção | normal | instalar, remover, hardware, atualizar |
+| Investigação e Web | difícil | navegar, inspecionar código, seguir pistas |
+| Missões Chefe | difícil | cadeias longas entre vários programas |
+| Operações Finais | difícil | tudo o que o cadete aprendeu |

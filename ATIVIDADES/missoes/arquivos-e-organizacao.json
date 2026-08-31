@@ -169,6 +169,13 @@
    "trilhas": [
     "arquivos",
     "geral"
+   ],
+   "falha": [
+    {
+     "acao": "esvaziar_lixeira",
+     "so_se_pendente": 2,
+     "motivo": "A lixeira foi esvaziada antes do resgate. O importante.txt sumiu de vez, e era exatamente ele que voce precisava trazer de volta."
+    }
    ]
   },
   {
@@ -289,7 +296,14 @@
     "arquivos",
     "mouse"
    ],
-   "pontos_base": 65
+   "pontos_base": 65,
+   "falha": [
+    {
+     "acao": "esvaziar_lixeira",
+     "so_se_pendente": 3,
+     "motivo": "O registro que voce ia mover foi apagado de vez junto com a lixeira."
+    }
+   ]
   },
   {
    "id": "a10",

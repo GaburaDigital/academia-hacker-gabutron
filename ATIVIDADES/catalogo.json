@@ -1,6 +1,6 @@
 {
  "titulo": "Academia Hacker GabuTRON",
- "versao": 2,
+ "versao": 3,
  "cenario_padrao": "nave-alpha",
  "cenarios": [
   "nave-alpha.json",
@@ -86,6 +86,52 @@
    "arquivo": "missoes-chefe.json",
    "nome": "Missoes Chefe",
    "descricao": "Desafios longos que combinam varios programas. Muitos pontos.",
+   "dificuldade": "dificil",
+   "trilhas": [
+    "geral",
+    "mouse",
+    "arquivos",
+    "terminal",
+    "seguranca"
+   ]
+  },
+  {
+   "arquivo": "primeiros-cliques.json",
+   "nome": "Primeiros Cliques",
+   "descricao": "Para quem nunca usou computador: um clique, dois cliques, botao direito, arrastar.",
+   "dificuldade": "facil",
+   "trilhas": [
+    "mouse",
+    "arquivos",
+    "geral"
+   ]
+  },
+  {
+   "arquivo": "teclado-e-atalhos.json",
+   "nome": "Teclado e Atalhos",
+   "descricao": "Ctrl+C, Ctrl+X, Ctrl+V, Ctrl+A, F2, Delete e selecao multipla.",
+   "dificuldade": "facil",
+   "trilhas": [
+    "copiar",
+    "arquivos",
+    "mouse"
+   ]
+  },
+  {
+   "arquivo": "investigacao-e-web.json",
+   "nome": "Investigacao e Web",
+   "descricao": "Navegar, inspecionar codigo, seguir pistas, senhas e reconhecer golpe.",
+   "dificuldade": "dificil",
+   "trilhas": [
+    "seguranca",
+    "mouse",
+    "terminal"
+   ]
+  },
+  {
+   "arquivo": "operacoes-finais.json",
+   "nome": "Operacoes Finais",
+   "descricao": "Missoes longas que exigem tudo o que o cadete aprendeu.",
    "dificuldade": "dificil",
    "trilhas": [
     "geral",

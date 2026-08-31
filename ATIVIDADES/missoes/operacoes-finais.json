@@ -1,0 +1,565 @@
+{
+ "pacote": "Operacoes Finais",
+ "missoes": [
+  {
+   "id": "z01",
+   "dificuldade": "dificil",
+   "cenario": "nave-alpha",
+   "titulo": "Silencio na Ponte",
+   "fala_intro": "Operacao final numero um. A ponte da Alpha esta vazando informacao. Crie a pasta cofre em documentos, mova a senha do wifi e o relatorio da ponte para dentro, renomeie o cofre incluindo TRANCADO e mande o aviso por email para engenharia@frota.orb.",
+   "fala_sucesso": "Documentos sensiveis guardados e engenharia avisada. Guardar arquivo importante em lugar separado e habito de gente que ja perdeu coisa.",
+   "passos": [
+    {
+     "acao": "criar_pasta",
+     "texto": "Criar a pasta cofre em /lar/cadete/documentos",
+     "dica": "Entre em documentos, botao direito, Nova pasta.",
+     "caminho": "/lar/cadete/documentos",
+     "nome": "cofre"
+    },
+    {
+     "acao": "mover",
+     "texto": "Mover senha_do_wifi.txt para o cofre",
+     "dica": "Arraste ou use recortar e colar.",
+     "nome": "contem:senha_do_wifi",
+     "destino": "/lar/cadete/documentos/cofre"
+    },
+    {
+     "acao": "mover",
+     "texto": "Mover relatorio_da_ponte.txt para o cofre",
+     "dica": "Arraste ou use recortar e colar.",
+     "nome": "contem:relatorio_da_ponte",
+     "destino": "/lar/cadete/documentos/cofre"
+    },
+    {
+     "acao": "renomear",
+     "texto": "Renomear a pasta cofre incluindo TRANCADO",
+     "dica": "Selecione a pasta e aperte F2.",
+     "para": "contem:TRANCADO"
+    },
+    {
+     "acao": "enviar_email",
+     "texto": "Avisar engenharia@frota.orb",
+     "dica": "Correio Orbital, Nova mensagem.",
+     "para": "engenharia@frota.orb"
+    }
+   ],
+   "trilhas": [
+    "arquivos",
+    "seguranca"
+   ],
+   "pontos_base": 145
+  },
+  {
+   "id": "z02",
+   "dificuldade": "dificil",
+   "cenario": "oficina-orbital",
+   "titulo": "Linha de Montagem",
+   "fala_intro": "Operacao de producao. Faca um desenho e salve como peca_a.png, faca outro e salve como peca_b.png, crie a pasta montagem e mande as duas para la. Depois escreva instrucoes.txt na mesma pasta.",
+   "fala_sucesso": "Duas pecas, uma pasta e um manual. Voce montou um projeto inteiro do zero.",
+   "passos": [
+    {
+     "acao": "salvar_desenho",
+     "texto": "Salvar o primeiro desenho como peca_a.png",
+     "dica": "Pinguim Pincel, Salvar como.",
+     "nome": "contem:peca_a"
+    },
+    {
+     "acao": "salvar_desenho",
+     "texto": "Salvar o segundo desenho como peca_b.png",
+     "dica": "Limpe a tela e desenhe de novo.",
+     "nome": "contem:peca_b"
+    },
+    {
+     "acao": "criar_pasta",
+     "texto": "Criar a pasta montagem em /lar/cadete",
+     "dica": "Botao direito no vazio, Nova pasta.",
+     "caminho": "/lar/cadete",
+     "nome": "montagem"
+    },
+    {
+     "acao": "mover",
+     "texto": "Mover peca_a.png para a pasta montagem",
+     "dica": "Ela foi salva em imagens.",
+     "nome": "contem:peca_a",
+     "destino": "/lar/cadete/montagem"
+    },
+    {
+     "acao": "mover",
+     "texto": "Mover peca_b.png para a pasta montagem",
+     "dica": "Ela foi salva em imagens.",
+     "nome": "contem:peca_b",
+     "destino": "/lar/cadete/montagem"
+    },
+    {
+     "acao": "salvar_arquivo",
+     "texto": "Escrever e salvar instrucoes.txt",
+     "dica": "Bloco de Notas, escreva e salve.",
+     "nome": "contem:instrucoes"
+    }
+   ],
+   "trilhas": [
+    "mouse",
+    "arquivos"
+   ],
+   "pontos_base": 165
+  },
+  {
+   "id": "z03",
+   "dificuldade": "dificil",
+   "cenario": "nave-alpha",
+   "titulo": "Terminal Sem Rede de Seguranca",
+   "fala_intro": "Operacao so no teclado. Pelo terminal: entre em receitas, renomeie a sopa com mv marcando INFECTADA, copie para o pendrive com cp, volte para casa com cd, crie a pasta relatorios com mkdir e leia o leiame com cat.",
+   "fala_sucesso": "Seis comandos, zero cliques. O terminal virou ferramenta na sua mao, e nao mais um bicho de sete cabecas.",
+   "passos": [
+    {
+     "acao": "comando_terminal",
+     "texto": "Entrar na pasta receitas",
+     "dica": "Escreva cd receitas.",
+     "comando": "re:^cd\\s+receitas"
+    },
+    {
+     "acao": "renomear",
+     "texto": "Renomear a sopa com mv marcando INFECTADA",
+     "dica": "Escreva: mv sopa.txt sopa_INFECTADA.txt",
+     "para": "contem:INFECTADA"
+    },
+    {
+     "acao": "comando_terminal",
+     "texto": "Copiar para o pendrive com cp",
+     "dica": "Escreva: cp sopa_INFECTADA.txt /midia/pendrive",
+     "comando": "re:^cp\\s+"
+    },
+    {
+     "acao": "comando_terminal",
+     "texto": "Voltar para /lar/cadete",
+     "dica": "Escreva cd .. ou cd /lar/cadete.",
+     "comando": "re:^cd\\s"
+    },
+    {
+     "acao": "comando_terminal",
+     "texto": "Criar a pasta relatorios com mkdir",
+     "dica": "Escreva mkdir relatorios.",
+     "comando": "re:^mkdir\\s+relatorios"
+    },
+    {
+     "acao": "comando_terminal",
+     "texto": "Ler o leiame.txt com cat",
+     "dica": "Escreva cat leiame.txt.",
+     "comando": "re:^cat\\s+leiame"
+    }
+   ],
+   "trilhas": [
+    "terminal"
+   ],
+   "pontos_base": 170
+  },
+  {
+   "id": "z04",
+   "dificuldade": "dificil",
+   "cenario": "laboratorio-beta",
+   "titulo": "Reconstrucao do Laboratorio",
+   "fala_intro": "O laboratorio precisa voltar do zero. Ligue a rede, atualize o sistema, clone o repositorio, atualize com git pull, instale o antivirus-boreal, crie a pasta backup e reinicie a maquina.",
+   "fala_sucesso": "Laboratorio reconstruido inteiro. Voce fez o que um tecnico faz num chamado de verdade.",
+   "passos": [
+    {
+     "acao": "alternar_rede",
+     "texto": "Ligar a rede orbital",
+     "dica": "Configuracoes, aba Rede.",
+     "estado": "ligada"
+    },
+    {
+     "acao": "atualizar_sistema",
+     "texto": "Instalar as atualizacoes",
+     "dica": "Aba Manutencao."
+    },
+    {
+     "acao": "clonar_repo",
+     "texto": "Clonar o repositorio escudo-orbital",
+     "dica": "Terminal, git clone com o endereco das notas.",
+     "nome": "escudo-orbital"
+    },
+    {
+     "acao": "git_pull",
+     "texto": "Atualizar com git pull",
+     "dica": "No terminal escreva: git pull"
+    },
+    {
+     "acao": "instalar_pacote",
+     "texto": "Instalar o antivirus-boreal",
+     "dica": "Central de Pacotes ou apt install.",
+     "pacote": "antivirus-boreal"
+    },
+    {
+     "acao": "criar_pasta",
+     "texto": "Criar a pasta backup em /lar/cadete",
+     "dica": "Explorador, botao direito, Nova pasta.",
+     "caminho": "/lar/cadete",
+     "nome": "backup"
+    },
+    {
+     "acao": "reiniciar",
+     "texto": "Reiniciar o computador",
+     "dica": "Configuracoes, aba Manutencao."
+    }
+   ],
+   "trilhas": [
+    "terminal",
+    "geral"
+   ],
+   "pontos_base": 180
+  },
+  {
+   "id": "z05",
+   "dificuldade": "dificil",
+   "cenario": "oficina-orbital",
+   "titulo": "Ponte Aerea",
+   "fala_intro": "Logistica pesada. Conecte na Alpha, baixe o mapa e a escala de turnos, desconecte, conecte na Beta e envie os dois para la. A Beta nunca soube que horas trabalhar nem onde ficava.",
+   "fala_sucesso": "Dois arquivos atravessaram a frota passando por voce. Servidor para servidor, com escala na sua maquina.",
+   "passos": [
+    {
+     "acao": "ftp_conectar",
+     "texto": "Conectar em alpha.frota.orb",
+     "dica": "Senha alpha.",
+     "servidor": "alpha.frota.orb"
+    },
+    {
+     "acao": "ftp_baixar",
+     "texto": "Baixar o mapa_da_frota.txt",
+     "dica": "Lista da direita, botao Baixar.",
+     "nome": "contem:mapa_da_frota"
+    },
+    {
+     "acao": "ftp_baixar",
+     "texto": "Baixar a escala_de_turnos.txt",
+     "dica": "Lista da direita, botao Baixar.",
+     "nome": "contem:escala_de_turnos"
+    },
+    {
+     "acao": "ftp_conectar",
+     "texto": "Conectar em beta.frota.orb",
+     "dica": "Feche e reabra o Transmissor. Senha beta.",
+     "servidor": "beta.frota.orb"
+    },
+    {
+     "acao": "ftp_enviar",
+     "texto": "Enviar o mapa para a Beta",
+     "dica": "Lista da esquerda, botao Enviar.",
+     "nome": "contem:mapa_da_frota"
+    },
+    {
+     "acao": "ftp_enviar",
+     "texto": "Enviar a escala para a Beta",
+     "dica": "Lista da esquerda, botao Enviar.",
+     "nome": "contem:escala_de_turnos"
+    }
+   ],
+   "trilhas": [
+    "seguranca",
+    "arquivos"
+   ],
+   "pontos_base": 170
+  },
+  {
+   "id": "z06",
+   "dificuldade": "dificil",
+   "cenario": "estacao-sucata",
+   "titulo": "Zero Bagunca",
+   "fala_intro": "Faxina definitiva da Estacao Sucata. Mande as fotos para fotos, os textos para textos, crie a pasta descarte, mande o apagar_isso.txt para la, apague o copia_de_copia.txt e so entao esvazie a lixeira. Ordem livre, mas pense antes de esvaziar.",
+   "fala_sucesso": "Estacao impecavel. Cada arquivo num lugar que faz sentido e o lixo fora de vez.",
+   "passos": [
+    {
+     "acao": "mover",
+     "texto": "Mover foto1.png para fotos",
+     "dica": "Arraste para a pasta fotos.",
+     "nome": "contem:foto1",
+     "destino": "/lar/cadete/fotos"
+    },
+    {
+     "acao": "mover",
+     "texto": "Mover foto2.png para fotos",
+     "dica": "Arraste para a pasta fotos.",
+     "nome": "contem:foto2",
+     "destino": "/lar/cadete/fotos"
+    },
+    {
+     "acao": "mover",
+     "texto": "Mover recibo.txt para textos",
+     "dica": "Arraste para a pasta textos.",
+     "nome": "contem:recibo",
+     "destino": "/lar/cadete/textos"
+    },
+    {
+     "acao": "criar_pasta",
+     "texto": "Criar a pasta descarte em /lar/cadete",
+     "dica": "Botao direito no vazio, Nova pasta.",
+     "caminho": "/lar/cadete",
+     "nome": "descarte"
+    },
+    {
+     "acao": "mover",
+     "texto": "Mover apagar_isso.txt para descarte",
+     "dica": "Arraste ou recorte e cole.",
+     "nome": "contem:apagar_isso",
+     "destino": "/lar/cadete/descarte"
+    },
+    {
+     "acao": "excluir",
+     "texto": "Apagar o copia_de_copia.txt",
+     "dica": "Selecione e aperte Delete.",
+     "nome": "contem:copia_de_copia"
+    },
+    {
+     "acao": "esvaziar_lixeira",
+     "texto": "Esvaziar a lixeira",
+     "dica": "Abra a Lixeira e use Esvaziar lixeira."
+    }
+   ],
+   "trilhas": [
+    "arquivos",
+    "mouse"
+   ],
+   "pontos_base": 175
+  },
+  {
+   "id": "z07",
+   "dificuldade": "dificil",
+   "cenario": "nave-alpha",
+   "titulo": "Alarme das Tres da Manha",
+   "fala_intro": "Um cadete anonimo pediu ajuda no mural para desligar o alarme. Investigue: acesse o mural, leia o pedido, veja as configuracoes do sistema, altere a rede, escreva a solucao num arquivo chamado solucao_alarme.txt e mande por email para a cozinha, que e quem liga o alarme.",
+   "fala_sucesso": "Problema investigado, documentado e comunicado a quem podia resolver. Isso vale mais que qualquer comando decorado.",
+   "passos": [
+    {
+     "acao": "navegar_url",
+     "texto": "Acessar mural.frota.orb",
+     "dica": "Orbital Explorer, barra de endereco.",
+     "url": "mural.frota.orb"
+    },
+    {
+     "acao": "config_ver",
+     "texto": "Ver a ficha tecnica do computador",
+     "dica": "Configuracoes, aba Sobre o computador.",
+     "secao": "hardware"
+    },
+    {
+     "acao": "alternar_rede",
+     "texto": "Alternar o estado da rede",
+     "dica": "Configuracoes, aba Rede.",
+     "estado": "*"
+    },
+    {
+     "acao": "salvar_arquivo",
+     "texto": "Escrever solucao_alarme.txt",
+     "dica": "Bloco de Notas, escreva e salve.",
+     "nome": "contem:solucao_alarme"
+    },
+    {
+     "acao": "anexar_arquivo",
+     "texto": "Anexar o arquivo numa nova mensagem",
+     "dica": "Correio Orbital, campo Anexo.",
+     "nome": "contem:solucao_alarme"
+    },
+    {
+     "acao": "enviar_email",
+     "texto": "Enviar para cozinha@frota.orb",
+     "dica": "Campo Para, depois Enviar.",
+     "para": "cozinha@frota.orb"
+    }
+   ],
+   "trilhas": [
+    "seguranca",
+    "geral"
+   ],
+   "pontos_base": 160
+  },
+  {
+   "id": "z08",
+   "dificuldade": "dificil",
+   "cenario": "oficina-orbital",
+   "titulo": "Arsenal e Faxina",
+   "fala_intro": "Duas frentes ao mesmo tempo. Instale frota-scan e worminator, rode os dois, remova o cafe-virtual se estiver instalado, crie a pasta ferramentas e reinicie no fim. Instalar e desinstalar com criterio e manutencao de verdade.",
+   "fala_sucesso": "Arsenal montado, inutil removido, maquina reiniciada. Computador limpo roda melhor.",
+   "passos": [
+    {
+     "acao": "instalar_pacote",
+     "texto": "Instalar o frota-scan",
+     "dica": "Central de Pacotes ou apt install.",
+     "pacote": "frota-scan"
+    },
+    {
+     "acao": "instalar_pacote",
+     "texto": "Instalar o worminator",
+     "dica": "Central de Pacotes ou apt install.",
+     "pacote": "worminator"
+    },
+    {
+     "acao": "ferramenta_ficticia",
+     "texto": "Rodar o frota-scan no terminal",
+     "dica": "Escreva frota-scan e aperte Enter.",
+     "nome": "frota-scan"
+    },
+    {
+     "acao": "instalar_pacote",
+     "texto": "Instalar o cafe-virtual para depois remover",
+     "dica": "Central de Pacotes.",
+     "pacote": "cafe-virtual"
+    },
+    {
+     "acao": "remover_pacote",
+     "texto": "Remover o cafe-virtual",
+     "dica": "Mesmo lugar, botao Remover.",
+     "pacote": "cafe-virtual"
+    },
+    {
+     "acao": "criar_pasta",
+     "texto": "Criar a pasta ferramentas em /lar/cadete",
+     "dica": "Explorador, botao direito, Nova pasta.",
+     "caminho": "/lar/cadete",
+     "nome": "ferramentas"
+    },
+    {
+     "acao": "reiniciar",
+     "texto": "Reiniciar o computador",
+     "dica": "Configuracoes, aba Manutencao."
+    }
+   ],
+   "trilhas": [
+    "terminal",
+    "geral"
+   ],
+   "pontos_base": 175
+  },
+  {
+   "id": "z09",
+   "dificuldade": "dificil",
+   "cenario": "laboratorio-beta",
+   "titulo": "Tudo ao Mesmo Tempo",
+   "fala_intro": "A missao mais longa que eu tenho. Marque o golpe, ligue a rede, ligue o bluetooth, pareie o fone, clone o repositorio, leia o erro.log, crie a pasta entrega, e mande o log em anexo para a engenharia. Oito acoes. Respira.",
+   "fala_sucesso": "Oito acoes encadeadas sem se perder. Voce nao e mais o aluno que travava no clique duplo, cadete.",
+   "passos": [
+    {
+     "acao": "marcar_golpe",
+     "texto": "Marcar o email de suporte falso como golpe",
+     "dica": "Botao direito na mensagem que pede senha.",
+     "id": "b2",
+     "correto": true
+    },
+    {
+     "acao": "alternar_rede",
+     "texto": "Ligar a rede orbital",
+     "dica": "Configuracoes, aba Rede.",
+     "estado": "ligada"
+    },
+    {
+     "acao": "bluetooth",
+     "texto": "Ligar o radio bluetooth",
+     "dica": "Aba Bluetooth.",
+     "estado": "ligado"
+    },
+    {
+     "acao": "parear",
+     "texto": "Parear com o Fone do Cadete",
+     "dica": "Botao Parear na linha do fone.",
+     "dispositivo": "Fone do Cadete"
+    },
+    {
+     "acao": "clonar_repo",
+     "texto": "Clonar o repositorio escudo-orbital",
+     "dica": "Terminal, git clone com o endereco das notas.",
+     "nome": "escudo-orbital"
+    },
+    {
+     "acao": "comando_terminal",
+     "texto": "Ler o erro.log com cat",
+     "dica": "Entre em projetos com cd e use cat erro.log.",
+     "comando": "re:^cat\\s+erro"
+    },
+    {
+     "acao": "criar_pasta",
+     "texto": "Criar a pasta entrega em /lar/cadete",
+     "dica": "Explorador, botao direito, Nova pasta.",
+     "caminho": "/lar/cadete",
+     "nome": "entrega"
+    },
+    {
+     "acao": "enviar_email",
+     "texto": "Enviar o erro.log em anexo para engenharia@frota.orb",
+     "dica": "Correio Orbital, campo Anexo e campo Para.",
+     "para": "engenharia@frota.orb",
+     "anexo": "erro.log"
+    }
+   ],
+   "trilhas": [
+    "terminal",
+    "seguranca"
+   ],
+   "pontos_base": 200
+  },
+  {
+   "id": "z10",
+   "dificuldade": "dificil",
+   "cenario": "oficina-orbital",
+   "titulo": "O Ultimo Turno",
+   "fala_intro": "Fim da linha, cadete. Quero tudo: desenhe seu emblema e salve, escreva sua ficha, crie a pasta formatura, mova o emblema para la, conecte na Alpha, envie a ficha para o servidor, marque o golpe da caixa de entrada e reinicie a maquina no fim. Oito acoes e o treinamento acaba.",
+   "fala_sucesso": "Acabou. Voce chegou aqui sem saber a diferenca entre um clique e dois, e esta saindo com mouse, janelas, arquivos, teclado, terminal, servidor e faro para golpe. Emita seu diploma no fim do turno. E depois ensina alguem.",
+   "passos": [
+    {
+     "acao": "salvar_desenho",
+     "texto": "Salvar o emblema como emblema.png",
+     "dica": "Pinguim Pincel, Salvar como.",
+     "nome": "contem:emblema"
+    },
+    {
+     "acao": "salvar_arquivo",
+     "texto": "Escrever e salvar ficha_final.txt",
+     "dica": "Bloco de Notas, escreva e salve.",
+     "nome": "contem:ficha_final"
+    },
+    {
+     "acao": "criar_pasta",
+     "texto": "Criar a pasta formatura em /lar/cadete",
+     "dica": "Explorador, botao direito, Nova pasta.",
+     "caminho": "/lar/cadete",
+     "nome": "formatura"
+    },
+    {
+     "acao": "mover",
+     "texto": "Mover o emblema para a pasta formatura",
+     "dica": "Ele foi salvo em imagens.",
+     "nome": "contem:emblema",
+     "destino": "/lar/cadete/formatura"
+    },
+    {
+     "acao": "ftp_conectar",
+     "texto": "Conectar em alpha.frota.orb",
+     "dica": "Transmissor Orbital, senha alpha.",
+     "servidor": "alpha.frota.orb"
+    },
+    {
+     "acao": "ftp_enviar",
+     "texto": "Enviar a ficha_final.txt para o servidor",
+     "dica": "Lista da esquerda, botao Enviar.",
+     "nome": "contem:ficha_final"
+    },
+    {
+     "acao": "marcar_golpe",
+     "texto": "Marcar o email falso como golpe",
+     "dica": "Botao direito na mensagem que pede senha.",
+     "id": "o2",
+     "correto": true
+    },
+    {
+     "acao": "reiniciar",
+     "texto": "Reiniciar o computador",
+     "dica": "Configuracoes, aba Manutencao."
+    }
+   ],
+   "trilhas": [
+    "mouse",
+    "arquivos",
+    "terminal",
+    "seguranca"
+   ],
+   "pontos_base": 220
+  }
+ ]
+}

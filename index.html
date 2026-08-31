@@ -112,6 +112,7 @@
           <button class="btn" id="btn-ouvir" type="button">Ouvir</button>
           <button class="btn" id="btn-dica" type="button">Dica</button>
           <button class="btn" id="btn-proximo" type="button" disabled>Proxima missao</button>
+          <button class="btn" id="btn-refazer" type="button">Refazer missao</button>
           <button class="btn btn--perigo" id="btn-pular" type="button">Pular missao (2)</button>
           <button class="btn btn--perigo" id="btn-desistir" type="button">Desistir</button>
         </div>
@@ -233,8 +234,22 @@
     <h2 class="modal__titulo" id="t-fim">Fim do turno</h2>
     <p class="modal__texto" id="fim-texto"></p>
     <div class="modal__acoes">
+      <button class="btn" id="btn-fim-diploma" type="button">Emitir diploma</button>
       <button class="btn" id="btn-fim-placar" type="button">Ver placar</button>
       <button class="btn btn--destaque" id="btn-fim-novo" type="button">Novo treino</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal-diploma" role="dialog" aria-modal="true" aria-labelledby="t-diploma">
+  <div class="modal__caixa modal__caixa--largo">
+    <h2 class="modal__titulo" id="t-diploma">Diploma do cadete</h2>
+    <div id="diploma-arte"></div>
+    <p style="font-size:12px;color:var(--tinta-fraca)">
+      Escreva o codinome em Ajustes antes de imprimir, senao o diploma sai como Cadete Anonimo.</p>
+    <div class="modal__acoes">
+      <button class="btn" id="btn-fechar-diploma" type="button">Fechar</button>
+      <button class="btn btn--destaque" id="btn-imprimir-diploma" type="button">Imprimir</button>
     </div>
   </div>
 </div>

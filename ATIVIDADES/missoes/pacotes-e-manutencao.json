@@ -171,6 +171,13 @@
    "trilhas": [
     "arquivos",
     "geral"
+   ],
+   "falha": [
+    {
+     "acao": "esvaziar_lixeira",
+     "so_se_pendente": 2,
+     "motivo": "Voce esvaziou a lixeira antes de restaurar o quadro_de_avisos.txt. Nem o resgata-arquivo traz de volta o que foi apagado de vez."
+    }
    ]
   },
   {

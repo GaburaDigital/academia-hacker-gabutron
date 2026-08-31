@@ -252,6 +252,13 @@
      "dica": "Selecione o arquivo dentro da lixeira e use Restaurar selecionado.",
      "nome": "contem:apagar_isso"
     }
+   ],
+   "falha": [
+    {
+     "acao": "esvaziar_lixeira",
+     "so_se_pendente": 2,
+     "motivo": "Voce esvaziou a lixeira antes de restaurar o arquivo. Esvaziar a lixeira apaga de vez: nao existe mais nada para restaurar."
+    }
    ]
   },
   {

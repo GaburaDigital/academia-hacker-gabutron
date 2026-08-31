@@ -25,7 +25,9 @@ const AJUDA = `Comandos disponiveis neste terminal:
   apt update           atualiza a lista de pacotes
   git clone <url>      clona um repositorio
   git status | pull | commit -m "..." | push
-  ajuda                mostra esta lista`;
+  ajuda                mostra esta lista
+
+Ha alguns comandos escondidos neste terminal. Quem procura, acha.`;
 
 export function abrirTerminal(pastaInicial = '/lar/cadete') {
   const jan = criarJanela({
@@ -228,6 +230,58 @@ export function abrirTerminal(pastaInicial = '/lar/cadete') {
 
       case 'pinguim':
         escreve('   (o<   Pinguim 95x, versao 3026.2\n   /)_)  "roda ate em torradeira"\n    ""');
+        break;
+
+      /* --- brincadeiras escondidas: quem explora o terminal merece achar algo --- */
+      case 'whoami':
+        escreve('cadete\n(um humano tentando entender computador. Corajoso.)');
+        break;
+
+      case 'history':
+        escreve('  1  ls\n  2  cd ..\n  3  cd ..\n  4  cd ..\n  5  onde eu estou\n' +
+                '  6  socorro\n  7  ls\n  8  pwd\n  9  ah ta\n\n' +
+                '(historico do cadete anterior. Ele ficou bem.)', 'dim');
+        break;
+
+      case 'cowsay': case 'pinguimsay': {
+        const frase = partes.slice(1).join(' ') || 'sem cafe nao ha revolucao';
+        const linha2 = '-'.repeat(frase.length + 2);
+        escreve(` ${linha2}\n< ${frase} >\n ${linha2}\n   \\\n    \\  (o<\n       /)_)\n        ""`);
+        break;
+      }
+
+      case 'cafe':
+        escreve('Erro 402: cafe indisponivel desde o ciclo 402.\nCoincidencia? A frota acha que nao.', 'ruim');
+        break;
+
+      case 'hackear': case 'hack':
+        escreve('acessando mainframe...', 'dim');
+        escreve('ha ha. Nao existe botao de hackear, cadete.\n' +
+                'O que existe e gente que sabe onde ficam os arquivos e gente que nao sabe.\n' +
+                'Voce esta virando o primeiro tipo. Continua.', 'ok');
+        break;
+
+      case '42':
+        escreve('A resposta esta correta. A pergunta e que ninguem lembra.');
+        break;
+
+      case 'date': case 'data':
+        escreve('31 de fevereiro de 3026, 42:05\n(sim, o relogio de bordo esta assim faz tempo)');
+        break;
+
+      case 'neofetch': case 'sobre':
+        escreve('       (o<     cadete@pinguim95x\n' +
+                '       /)_)    ------------------\n' +
+                '        ""     SO: Pinguim 95x 3026.2\n' +
+                '               Nucleo: Antartico 486 DX\n' +
+                '               Memoria: 32 MB (4 MB num jogo de cartas)\n' +
+                '               Tela: 640x480, 256 cores\n' +
+                '               Cafe: 0 ml');
+        break;
+
+      case 'exit': case 'sair':
+        escreve('Para fechar o terminal, use o X no canto da janela.\n' +
+                'Sim, eu poderia fechar sozinho. Mas ai voce nao treinava o clique.', 'dim');
         break;
 
       default:

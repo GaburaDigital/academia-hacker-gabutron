@@ -120,6 +120,8 @@ body[data-foco="1"] #faixa-ia { display: none; }
 #passos li[data-feito="1"]::before { content: "[x]"; color: var(--destaque); }
 #passos li[data-atual="1"] { color: var(--frente); }
 #passos li[data-atual="1"]::before { content: "[>]"; color: var(--destaque); }
+#passos li[data-falhou="1"] { color: var(--erro); }
+#passos li[data-falhou="1"]::before { content: "[!]"; color: var(--erro); }
 
 /* ---------- 4. area do computador simulado ---------- */
 

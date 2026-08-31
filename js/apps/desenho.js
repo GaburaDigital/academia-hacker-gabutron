@@ -76,7 +76,9 @@ export function abrirDesenho() {
     ctx.stroke();
     if (!jaDesenhou) { jaDesenhou = true; acao('desenhar', {}); }
   });
-  document.addEventListener('mouseup', () => { pintando = false; });
+  const soltarGlobal = () => { pintando = false; };
+  document.addEventListener('mouseup', soltarGlobal);
+  jan.aoFechar = () => document.removeEventListener('mouseup', soltarGlobal);
 
   jan.fita.addEventListener('click', async (ev) => {
     const f = ev.target.dataset.fita;

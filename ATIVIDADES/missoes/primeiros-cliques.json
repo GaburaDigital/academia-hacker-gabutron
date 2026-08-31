@@ -1,0 +1,257 @@
+{
+ "pacote": "Primeiros Cliques",
+ "missoes": [
+  {
+   "id": "n01",
+   "dificuldade": "facil",
+   "cenario": "nave-alpha",
+   "titulo": "Um Clique, Nao Dois",
+   "fala_intro": "Cadete novato, primeira licao e a mais confundida de todas. Um clique SELECIONA. Dois cliques ABREM. Clique uma vez no icone do Terminal, so uma, e veja ele ficar marcado. Depois abra o Manual da Frota pelo menu Iniciar.",
+   "fala_sucesso": "Um clique marca, dois cliques abrem. Guarde isso: metade dos problemas de informatica mora aqui.",
+   "passos": [
+    {
+     "acao": "selecionar_icone",
+     "texto": "Clicar UMA vez no icone do Terminal",
+     "dica": "Um clique so. O nome do icone fica com fundo azul.",
+     "dica2": "Encoste o ponteiro no icone preto do Terminal e de um unico clique com o botao esquerdo. Nao clique de novo.",
+     "alvo": "terminal"
+    },
+    {
+     "acao": "menu_iniciar",
+     "texto": "Abrir o Manual da Frota pelo menu Iniciar",
+     "dica": "Botao do pinguim, depois Manual da Frota.",
+     "alvo": "manual"
+    }
+   ],
+   "trilhas": [
+    "mouse"
+   ]
+  },
+  {
+   "id": "n02",
+   "dificuldade": "facil",
+   "cenario": "nave-alpha",
+   "titulo": "A Roda Serve para Alguma Coisa",
+   "fala_intro": "Aquele rolinho no meio do mouse nao e enfeite. Abra o Explorador, entre no arquivo_morto e gire a roda para descer a lista. Depois volte uma pasta apertando a tecla Backspace.",
+   "fala_sucesso": "Roda para descer, Backspace para voltar. Duas teclas e um rolinho ja te economizam muito clique.",
+   "passos": [
+    {
+     "acao": "navegar_pasta",
+     "texto": "Entrar na pasta arquivo_morto",
+     "dica": "Explorador, dois cliques na pasta.",
+     "caminho": "/lar/cadete/arquivo_morto"
+    },
+    {
+     "acao": "rolar",
+     "texto": "Rolar a lista com a roda do mouse",
+     "dica": "Ponteiro dentro da lista, gire a roda para baixo.",
+     "area": "explorador"
+    },
+    {
+     "acao": "navegar_pasta",
+     "texto": "Voltar para /lar/cadete",
+     "dica": "Aperte Backspace ou use o botao Acima.",
+     "caminho": "/lar/cadete"
+    }
+   ],
+   "trilhas": [
+    "mouse"
+   ]
+  },
+  {
+   "id": "n03",
+   "dificuldade": "facil",
+   "cenario": "nave-alpha",
+   "titulo": "O Botao que Ninguem Usa",
+   "fala_intro": "O botao direito do mouse e o mais ignorado e o mais util. Clique com ele em cima do leiame.txt e escolha Propriedades para ver o tamanho do arquivo. Informacao que estava ali o tempo todo.",
+   "fala_sucesso": "Botao direito mostra o que da para fazer com aquele item. Sempre que travar, tente ele.",
+   "passos": [
+    {
+     "acao": "menu_contexto",
+     "texto": "Clicar com o botao direito no leiame.txt",
+     "dica": "Ele esta em /lar/cadete.",
+     "dica2": "O botao direito e o do outro lado do que voce usa normalmente. Clique com ele em cima do arquivo.",
+     "alvo": "contem:leiame"
+    }
+   ],
+   "trilhas": [
+    "mouse"
+   ]
+  },
+  {
+   "id": "n04",
+   "dificuldade": "facil",
+   "cenario": "nave-alpha",
+   "titulo": "Abrindo de Verdade",
+   "fala_intro": "Agora sim, dois cliques. Abra a pasta documentos e depois abra o arquivo piada_do_capitao.txt. Se a piada nao tiver graca, a culpa e do capitao, nao sua.",
+   "fala_sucesso": "Pasta aberta, arquivo aberto. O clique duplo tem que ser rapido e sem mexer o mouse no meio.",
+   "passos": [
+    {
+     "acao": "navegar_pasta",
+     "texto": "Abrir a pasta documentos",
+     "dica": "Dois cliques rapidos, sem mover o mouse entre eles.",
+     "caminho": "/lar/cadete/documentos"
+    },
+    {
+     "acao": "abrir_arquivo",
+     "texto": "Abrir a piada_do_capitao.txt",
+     "dica": "Dois cliques no arquivo.",
+     "nome": "contem:piada"
+    }
+   ],
+   "trilhas": [
+    "mouse"
+   ]
+  },
+  {
+   "id": "n05",
+   "dificuldade": "facil",
+   "cenario": "nave-alpha",
+   "titulo": "Tres Botoes no Canto",
+   "fala_intro": "Toda janela tem tres botoezinhos no canto de cima. Abra o Manual da Frota, minimize, traga de volta pela barra de baixo e feche. Aprenda a diferenca entre esconder e fechar.",
+   "fala_sucesso": "Minimizar esconde, fechar encerra. Muita gente fecha achando que escondeu e perde o trabalho.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Manual da Frota",
+     "dica": "Icone de livro ou menu Iniciar.",
+     "app": "manual"
+    },
+    {
+     "acao": "minimizar",
+     "texto": "Minimizar a janela",
+     "dica": "Botao com o tracinho baixo.",
+     "app": "manual"
+    },
+    {
+     "acao": "fechar_app",
+     "texto": "Fechar a janela",
+     "dica": "Clique no nome na barra de baixo e depois no botao X.",
+     "app": "manual"
+    }
+   ],
+   "trilhas": [
+    "mouse"
+   ]
+  },
+  {
+   "id": "n06",
+   "dificuldade": "facil",
+   "cenario": "estacao-sucata",
+   "titulo": "Arrastar e Soltar",
+   "fala_intro": "Segurar e arrastar e o movimento que mais trava aluno. Pegue o sem_nome.txt na pasta bagunca e arraste ate a pasta textos. Segure o botao esquerdo o tempo todo e so solte em cima da pasta.",
+   "fala_sucesso": "Arrastado e solto. Esse mesmo movimento move janela, seleciona texto e desenha.",
+   "passos": [
+    {
+     "acao": "mover",
+     "texto": "Arrastar sem_nome.txt para a pasta textos",
+     "dica": "Segure o botao esquerdo em cima do arquivo e arraste sem soltar.",
+     "dica2": "Aponte no arquivo, aperte o botao esquerdo e mantenha apertado. Mova o mouse ate a pasta textos. So entao solte.",
+     "nome": "contem:sem_nome",
+     "destino": "/lar/cadete/textos"
+    }
+   ],
+   "trilhas": [
+    "mouse",
+    "arquivos"
+   ]
+  },
+  {
+   "id": "n07",
+   "dificuldade": "facil",
+   "cenario": "nave-alpha",
+   "titulo": "Barra de Pesquisa",
+   "fala_intro": "Ninguem precisa decorar onde fica cada programa. Abra o menu Iniciar, digite parte do nome na barra de pesquisa e abra o Correio Orbital por ali.",
+   "fala_sucesso": "Pesquisar e mais rapido que procurar. Vale para o menu Iniciar e para qualquer lugar com uma lupa.",
+   "passos": [
+    {
+     "acao": "abrir_menu_iniciar",
+     "texto": "Abrir o menu Iniciar",
+     "dica": "Botao do pinguim no canto de baixo."
+    },
+    {
+     "acao": "menu_iniciar",
+     "texto": "Achar e abrir o Correio Orbital",
+     "dica": "Digite correio na barra de pesquisa.",
+     "alvo": "email"
+    }
+   ],
+   "trilhas": [
+    "mouse"
+   ]
+  },
+  {
+   "id": "n08",
+   "dificuldade": "facil",
+   "cenario": "nave-alpha",
+   "titulo": "Etiqueta Antes do Clique",
+   "fala_intro": "Antes de clicar em qualquer coisa desconhecida, passe o mouse por cima e leia. Faca isso com o icone do Transmissor Orbital e com a Central de Pacotes.",
+   "fala_sucesso": "Ler antes de clicar evita meia hora de confusao. Vale no computador e vale na internet.",
+   "passos": [
+    {
+     "acao": "hover_tooltip",
+     "texto": "Passar o mouse sobre o Transmissor Orbital",
+     "dica": "Encoste e espere um segundo.",
+     "alvo": "ftp"
+    },
+    {
+     "acao": "hover_tooltip",
+     "texto": "Passar o mouse sobre a Central de Pacotes",
+     "dica": "Encoste e espere um segundo.",
+     "alvo": "pacotes"
+    }
+   ],
+   "trilhas": [
+    "mouse"
+   ],
+   "ordem": "livre"
+  },
+  {
+   "id": "n09",
+   "dificuldade": "facil",
+   "cenario": "estacao-sucata",
+   "titulo": "Nome que Faz Sentido",
+   "fala_intro": "Arquivo chamado sem_nome.txt nao ajuda ninguem. Renomeie ele para algo que diga o que e, incluindo a palavra nota no nome. Nome bom e o que voce entende daqui a seis meses.",
+   "fala_sucesso": "Renomeado com sentido. Se voce fizer isso com seus proprios arquivos, vai se agradecer depois.",
+   "passos": [
+    {
+     "acao": "renomear",
+     "texto": "Renomear sem_nome.txt incluindo a palavra nota",
+     "dica": "Selecione e aperte F2, ou botao direito e Renomear.",
+     "dica2": "Um clique no arquivo, tecla F2, escreva o nome novo com a palavra nota e aperte Enter.",
+     "para": "contem:nota"
+    }
+   ],
+   "trilhas": [
+    "arquivos"
+   ]
+  },
+  {
+   "id": "n10",
+   "dificuldade": "facil",
+   "cenario": "estacao-sucata",
+   "titulo": "Primeira Pasta da Sua Vida",
+   "fala_intro": "Pasta e uma gaveta. Crie uma chamada minhas_coisas em lar/cadete e coloque o recibo dentro. Simples assim, e e o comeco de todo computador organizado.",
+   "fala_sucesso": "Gaveta criada e usada. A partir daqui e so repetir com mais gaveta e mais criterio.",
+   "passos": [
+    {
+     "acao": "criar_pasta",
+     "texto": "Criar a pasta minhas_coisas em /lar/cadete",
+     "dica": "Botao direito num espaco vazio, Nova pasta.",
+     "caminho": "/lar/cadete",
+     "nome": "minhas_coisas"
+    },
+    {
+     "acao": "mover",
+     "texto": "Colocar o recibo.txt dentro dela",
+     "dica": "Arraste o arquivo para a pasta nova.",
+     "nome": "contem:recibo",
+     "destino": "/lar/cadete/minhas_coisas"
+    }
+   ],
+   "trilhas": [
+    "arquivos"
+   ]
+  }
+ ]
+}

@@ -2,7 +2,7 @@
    Ao publicar uma atualizacao, mude a VERSAO abaixo.
    Isso e o suficiente para o navegador buscar tudo de novo. */
 
-const VERSAO = 'gabutron-v2';
+const VERSAO = 'gabutron-v3';
 
 const ARQUIVOS = [
   './',
@@ -25,6 +25,7 @@ const ARQUIVOS = [
   './js/gabutron.js',
   './js/mission.js',
   './js/score.js',
+  './js/diploma.js',
   './js/apps/index.js',
   './js/apps/explorador.js',
   './js/apps/terminal.js',
@@ -53,6 +54,10 @@ const ARQUIVOS = [
   './ATIVIDADES/missoes/transmissao-e-servidores.json',
   './ATIVIDADES/missoes/pacotes-e-manutencao.json',
   './ATIVIDADES/missoes/missoes-chefe.json',
+  './ATIVIDADES/missoes/primeiros-cliques.json',
+  './ATIVIDADES/missoes/teclado-e-atalhos.json',
+  './ATIVIDADES/missoes/investigacao-e-web.json',
+  './ATIVIDADES/missoes/operacoes-finais.json',
   './ATIVIDADES/cenarios/nave-alpha.json',
   './ATIVIDADES/cenarios/estacao-sucata.json',
   './ATIVIDADES/cenarios/laboratorio-beta.json',

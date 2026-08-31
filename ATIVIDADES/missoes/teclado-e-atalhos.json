@@ -1,0 +1,349 @@
+{
+ "pacote": "Teclado e Atalhos",
+ "missoes": [
+  {
+   "id": "k01",
+   "dificuldade": "facil",
+   "cenario": "estacao-sucata",
+   "titulo": "Ctrl e C, Juntos",
+   "fala_intro": "Copiar com o teclado e mais rapido que com o menu. Selecione o importante.txt, aperte Ctrl e C ao mesmo tempo, entre no pendrive e aperte Ctrl e V. Segurar Ctrl e apertar a letra: nao e apertar uma depois da outra.",
+   "fala_sucesso": "Copiado e colado sem tocar em menu nenhum. Esses dois atalhos funcionam em quase todo programa do mundo.",
+   "passos": [
+    {
+     "acao": "atalho",
+     "texto": "Copiar com Ctrl+C",
+     "dica": "Clique no arquivo primeiro, depois segure Ctrl e aperte C.",
+     "tecla": "ctrl+c"
+    },
+    {
+     "acao": "colar",
+     "texto": "Colar no /midia/pendrive",
+     "dica": "Entre no pendrive e aperte Ctrl+V.",
+     "destino": "/midia/pendrive"
+    }
+   ],
+   "trilhas": [
+    "copiar"
+   ]
+  },
+  {
+   "id": "k02",
+   "dificuldade": "facil",
+   "cenario": "estacao-sucata",
+   "titulo": "Recortar Nao E Copiar",
+   "fala_intro": "Ctrl+X recorta: o arquivo some do lugar antigo. Ctrl+C copia: fica nos dois. Recorte o nao_apagar.txt e cole na pasta organizados. Repare que ele sai da bagunca.",
+   "fala_sucesso": "Recortar move, copiar duplica. Confundir os dois e como perder o arquivo sem perceber.",
+   "passos": [
+    {
+     "acao": "recortar",
+     "texto": "Recortar nao_apagar.txt com Ctrl+X",
+     "dica": "Selecione o arquivo e aperte Ctrl+X.",
+     "nome": "contem:nao_apagar"
+    },
+    {
+     "acao": "colar",
+     "texto": "Colar em /lar/cadete/organizados",
+     "dica": "Entre na pasta e aperte Ctrl+V.",
+     "destino": "/lar/cadete/organizados"
+    }
+   ],
+   "trilhas": [
+    "copiar"
+   ]
+  },
+  {
+   "id": "k03",
+   "dificuldade": "facil",
+   "cenario": "estacao-sucata",
+   "titulo": "F2, a Tecla Secreta",
+   "fala_intro": "Existe uma tecla so para renomear: F2. Fica na fileira de cima do teclado. Selecione o rascunho.txt, aperte F2 e coloque a palavra revisado no nome.",
+   "fala_sucesso": "F2 renomeia. Nunca mais precise procurar no menu.",
+   "passos": [
+    {
+     "acao": "atalho",
+     "texto": "Usar a tecla F2",
+     "dica": "Clique no arquivo uma vez e aperte F2.",
+     "tecla": "f2"
+    },
+    {
+     "acao": "renomear",
+     "texto": "Renomear incluindo a palavra revisado",
+     "dica": "Escreva o nome novo e aperte Enter.",
+     "para": "contem:revisado"
+    }
+   ],
+   "trilhas": [
+    "arquivos"
+   ]
+  },
+  {
+   "id": "k04",
+   "dificuldade": "facil",
+   "cenario": "nave-alpha",
+   "titulo": "Delete Nao E Apagar de Vez",
+   "fala_intro": "A tecla Delete manda para a lixeira, nao apaga. Selecione a piada_do_capitao.txt, aperte Delete, e depois traga ela de volta. A frota nao sobrevive sem humor.",
+   "fala_sucesso": "Delete manda para a lixeira. Apagar de vez so quando voce esvazia, e ai nao tem volta.",
+   "passos": [
+    {
+     "acao": "atalho",
+     "texto": "Apertar Delete com o arquivo selecionado",
+     "dica": "Clique no arquivo e aperte Delete.",
+     "tecla": "delete"
+    },
+    {
+     "acao": "restaurar",
+     "texto": "Restaurar pela Lixeira",
+     "dica": "Abra a Lixeira, selecione e use Restaurar selecionado.",
+     "nome": "contem:piada"
+    }
+   ],
+   "trilhas": [
+    "arquivos"
+   ],
+   "falha": [
+    {
+     "acao": "esvaziar_lixeira",
+     "so_se_pendente": 1,
+     "motivo": "A lixeira foi esvaziada antes do resgate. A piada do capitao se perdeu para sempre, e a frota nunca mais riu."
+    }
+   ]
+  },
+  {
+   "id": "k05",
+   "dificuldade": "normal",
+   "cenario": "nave-alpha",
+   "titulo": "Selecionar Tudo e Copiar Tudo",
+   "fala_intro": "Missao de volume. Entre no arquivo_morto, role ate o fim, selecione os vinte e quatro registros com Ctrl+A, copie com Ctrl+C e cole tudo no pendrive de uma vez.",
+   "fala_sucesso": "Vinte e quatro arquivos numa tacada. Fazer um por um levaria a aula inteira.",
+   "passos": [
+    {
+     "acao": "navegar_pasta",
+     "texto": "Entrar no arquivo_morto",
+     "dica": "Dois cliques na pasta.",
+     "caminho": "/lar/cadete/arquivo_morto"
+    },
+    {
+     "acao": "rolar",
+     "texto": "Rolar ate o fim da lista",
+     "dica": "Roda do mouse dentro da lista.",
+     "area": "explorador"
+    },
+    {
+     "acao": "atalho",
+     "texto": "Selecionar tudo com Ctrl+A",
+     "dica": "Clique na lista e aperte Ctrl+A.",
+     "tecla": "ctrl+a",
+     "quantidade": "min:20"
+    },
+    {
+     "acao": "atalho",
+     "texto": "Copiar com Ctrl+C",
+     "dica": "Segure Ctrl e aperte C.",
+     "tecla": "ctrl+c"
+    },
+    {
+     "acao": "colar",
+     "texto": "Colar no /midia/pendrive",
+     "dica": "Entre no pendrive e aperte Ctrl+V.",
+     "destino": "/midia/pendrive"
+    }
+   ],
+   "trilhas": [
+    "copiar",
+    "mouse"
+   ],
+   "pontos_base": 75
+  },
+  {
+   "id": "k06",
+   "dificuldade": "normal",
+   "cenario": "nave-alpha",
+   "titulo": "Selecao Escolhida",
+   "fala_intro": "Nem sempre voce quer tudo. Segure a tecla Ctrl e clique em tres arquivos diferentes dentro de documentos: so os que voce clicar ficam marcados. Depois copie para o pendrive.",
+   "fala_sucesso": "Ctrl mais clique escolhe a dedo. Muito mais util que selecionar tudo e depois desmarcar.",
+   "passos": [
+    {
+     "acao": "navegar_pasta",
+     "texto": "Entrar em documentos",
+     "dica": "Dois cliques na pasta.",
+     "caminho": "/lar/cadete/documentos"
+    },
+    {
+     "acao": "selecionar",
+     "texto": "Selecionar tres arquivos segurando Ctrl",
+     "dica": "Clique no primeiro, segure Ctrl e clique nos outros dois.",
+     "dica2": "Clique normalmente no primeiro arquivo. Agora segure a tecla Ctrl e, sem soltar, clique no segundo e no terceiro.",
+     "quantidade": "min:3"
+    },
+    {
+     "acao": "atalho",
+     "texto": "Copiar com Ctrl+C",
+     "dica": "Segure Ctrl e aperte C.",
+     "tecla": "ctrl+c"
+    },
+    {
+     "acao": "colar",
+     "texto": "Colar no /midia/pendrive",
+     "dica": "Entre no pendrive e aperte Ctrl+V.",
+     "destino": "/midia/pendrive"
+    }
+   ],
+   "trilhas": [
+    "copiar",
+    "mouse"
+   ],
+   "pontos_base": 70
+  },
+  {
+   "id": "k07",
+   "dificuldade": "normal",
+   "cenario": "oficina-orbital",
+   "titulo": "Texto Tambem Se Copia",
+   "fala_intro": "Nao e so arquivo que se copia: texto tambem. Abra o relatorio_da_ponte.txt, selecione o texto arrastando o mouse, copie com Ctrl+C e cole num arquivo novo do Bloco de Notas chamado copia_relatorio.txt.",
+   "fala_sucesso": "Selecionar texto arrastando e copiar resolve trabalho de escola, pesquisa e formulario a vida inteira.",
+   "passos": [
+    {
+     "acao": "abrir_arquivo",
+     "texto": "Abrir o relatorio_da_ponte.txt",
+     "dica": "Ele esta em documentos.",
+     "nome": "relatorio_da_ponte.txt"
+    },
+    {
+     "acao": "copiar_texto",
+     "texto": "Selecionar o texto e copiar com Ctrl+C",
+     "dica": "Arraste o mouse por cima do texto e aperte Ctrl+C.",
+     "nome": "relatorio_da_ponte.txt"
+    },
+    {
+     "acao": "salvar_arquivo",
+     "texto": "Colar e salvar como copia_relatorio.txt",
+     "dica": "Bloco de Notas, Ctrl+V, depois Salvar.",
+     "nome": "contem:copia_relatorio"
+    }
+   ],
+   "trilhas": [
+    "copiar",
+    "arquivos"
+   ],
+   "pontos_base": 65
+  },
+  {
+   "id": "k08",
+   "dificuldade": "normal",
+   "cenario": "nave-alpha",
+   "titulo": "Teclado Contra Mouse",
+   "fala_intro": "Vamos comparar. Faca a mesma coisa duas vezes: crie uma pasta pelo mouse chamada pelo_mouse, e outra pelo terminal chamada pelo_teclado. Depois me diga qual foi mais rapida.",
+   "fala_sucesso": "Duas pastas, dois caminhos. Nao existe jeito certo: existe o jeito que voce domina.",
+   "passos": [
+    {
+     "acao": "criar_pasta",
+     "texto": "Criar a pasta pelo_mouse com o Explorador",
+     "dica": "Botao direito no vazio, Nova pasta.",
+     "caminho": "/lar/cadete",
+     "nome": "pelo_mouse"
+    },
+    {
+     "acao": "comando_terminal",
+     "texto": "Criar a pasta pelo_teclado no terminal",
+     "dica": "Escreva mkdir pelo_teclado.",
+     "comando": "re:^mkdir\\s+pelo_teclado"
+    }
+   ],
+   "trilhas": [
+    "terminal",
+    "arquivos"
+   ]
+  },
+  {
+   "id": "k09",
+   "dificuldade": "normal",
+   "cenario": "estacao-sucata",
+   "titulo": "Desfazer o Estrago",
+   "fala_intro": "Missao de recuperacao com atalhos. Selecione tudo na bagunca com Ctrl+A, apague tudo com Delete, e depois restaure pelo menos um arquivo pela lixeira. Errar rapido e consertar rapido.",
+   "fala_sucesso": "Apagou tudo e recuperou. A lixeira e a sua rede de seguranca, use sem medo mas nao esvazie sem pensar.",
+   "passos": [
+    {
+     "acao": "navegar_pasta",
+     "texto": "Entrar na pasta bagunca",
+     "dica": "Dois cliques na pasta.",
+     "caminho": "/lar/cadete/bagunca"
+    },
+    {
+     "acao": "atalho",
+     "texto": "Selecionar tudo com Ctrl+A",
+     "dica": "Clique na lista e aperte Ctrl+A.",
+     "tecla": "ctrl+a"
+    },
+    {
+     "acao": "excluir",
+     "texto": "Apagar com a tecla Delete",
+     "dica": "Com tudo selecionado, aperte Delete.",
+     "nome": "*"
+    },
+    {
+     "acao": "restaurar",
+     "texto": "Restaurar um arquivo pela Lixeira",
+     "dica": "Abra a Lixeira, selecione e use Restaurar selecionado.",
+     "nome": "*"
+    }
+   ],
+   "trilhas": [
+    "arquivos",
+    "copiar"
+   ],
+   "pontos_base": 70,
+   "falha": [
+    {
+     "acao": "esvaziar_lixeira",
+     "so_se_pendente": 3,
+     "motivo": "Voce esvaziou a lixeira com tudo dentro. Nao sobrou nada para restaurar, e a bagunca virou vazio."
+    }
+   ]
+  },
+  {
+   "id": "k10",
+   "dificuldade": "normal",
+   "cenario": "oficina-orbital",
+   "titulo": "Atalhos em Toda Parte",
+   "fala_intro": "Ultima do pacote e a mais util. Use Ctrl+A, Ctrl+C e Ctrl+V dentro de documentos para copiar a pasta inteira para o pendrive, e depois use F2 para renomear um dos arquivos copiados marcando com BACKUP.",
+   "fala_sucesso": "Quatro atalhos numa missao. Voce agora opera mais rapido que a maioria dos adultos que eu conheco.",
+   "passos": [
+    {
+     "acao": "navegar_pasta",
+     "texto": "Entrar em documentos",
+     "dica": "Dois cliques na pasta.",
+     "caminho": "/lar/cadete/documentos"
+    },
+    {
+     "acao": "atalho",
+     "texto": "Selecionar tudo com Ctrl+A",
+     "dica": "Clique na lista e aperte Ctrl+A.",
+     "tecla": "ctrl+a"
+    },
+    {
+     "acao": "atalho",
+     "texto": "Copiar com Ctrl+C",
+     "dica": "Segure Ctrl e aperte C.",
+     "tecla": "ctrl+c"
+    },
+    {
+     "acao": "colar",
+     "texto": "Colar no /midia/pendrive",
+     "dica": "Entre no pendrive e aperte Ctrl+V.",
+     "destino": "/midia/pendrive"
+    },
+    {
+     "acao": "renomear",
+     "texto": "Renomear um arquivo copiado incluindo BACKUP",
+     "dica": "Selecione no pendrive e aperte F2.",
+     "para": "contem:BACKUP"
+    }
+   ],
+   "trilhas": [
+    "copiar",
+    "arquivos"
+   ],
+   "pontos_base": 80
+  }
+ ]
+}
