@@ -1,0 +1,366 @@
+{
+ "pacote": "Pacotes e Manutencao",
+ "missoes": [
+  {
+   "id": "m01",
+   "dificuldade": "facil",
+   "cenario": "oficina-orbital",
+   "titulo": "Loja de Programas",
+   "fala_intro": "Instalar programa nao precisa de site duvidoso. Abra a Central de Pacotes, procure o frota-scan na barra de busca e instale. E a mesma ideia da loja de aplicativos do celular, so que mais velha.",
+   "fala_sucesso": "Instalado pela janela. Se voce abrir o terminal agora, o frota-scan ja responde.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir a Central de Pacotes",
+     "dica": "Icone da caixa marrom.",
+     "app": "pacotes"
+    },
+    {
+     "acao": "instalar_pacote",
+     "texto": "Instalar o frota-scan",
+     "dica": "Digite scan na busca e clique em Instalar.",
+     "pacote": "frota-scan",
+     "origem": "janela"
+    }
+   ],
+   "trilhas": [
+    "geral"
+   ]
+  },
+  {
+   "id": "m02",
+   "dificuldade": "facil",
+   "cenario": "oficina-orbital",
+   "titulo": "Desinstalando o Inutil",
+   "fala_intro": "O cafe-virtual nao produz cafe, so mostra a foto de um. Instale, descubra a decepcao e remova. Saber desinstalar libera espaco e paciencia.",
+   "fala_sucesso": "Instalado e removido. Programa que nao serve sai do computador, e nao fica ocupando lugar por educacao.",
+   "passos": [
+    {
+     "acao": "instalar_pacote",
+     "texto": "Instalar o cafe-virtual",
+     "dica": "Central de Pacotes, busque cafe.",
+     "pacote": "cafe-virtual",
+     "origem": "janela"
+    },
+    {
+     "acao": "remover_pacote",
+     "texto": "Remover o cafe-virtual",
+     "dica": "Mesmo lugar, agora o botao diz Remover.",
+     "pacote": "cafe-virtual"
+    }
+   ],
+   "trilhas": [
+    "geral"
+   ]
+  },
+  {
+   "id": "m03",
+   "dificuldade": "facil",
+   "cenario": "oficina-orbital",
+   "titulo": "Duas Portas, Um Programa",
+   "fala_intro": "Curiosidade util: da para instalar pela janela ou pelo teclado. Instale o antivirus-boreal pela Central de Pacotes e depois instale o resgata-arquivo pelo terminal com apt install. Sao dois caminhos para o mesmo lugar.",
+   "fala_sucesso": "Janela e terminal fazem a mesma coisa. Escolha o que for mais rapido no momento.",
+   "passos": [
+    {
+     "acao": "instalar_pacote",
+     "texto": "Instalar o antivirus-boreal pela Central de Pacotes",
+     "dica": "Busque boreal e clique em Instalar.",
+     "pacote": "antivirus-boreal",
+     "origem": "janela"
+    },
+    {
+     "acao": "comando_terminal",
+     "texto": "Instalar o resgata-arquivo pelo terminal",
+     "dica": "Escreva: apt install resgata-arquivo",
+     "comando": "re:^apt\\s+install\\s+resgata-arquivo"
+    }
+   ],
+   "trilhas": [
+    "terminal",
+    "geral"
+   ]
+  },
+  {
+   "id": "m04",
+   "dificuldade": "facil",
+   "cenario": "oficina-orbital",
+   "titulo": "Ficha Tecnica da Nave",
+   "fala_intro": "Todo tecnico comeca perguntando o que a maquina tem dentro. Abra as Configuracoes e veja a aba Sobre o computador. Depois me diga quantos megabytes de memoria estao sendo gastos num jogo de cartas.",
+   "fala_sucesso": "Quatro megabytes num jogo de cartas. Saber ver a ficha tecnica ajuda a entender por que o computador esta lento.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir as Configuracoes do Sistema",
+     "dica": "Icone da engrenagem.",
+     "app": "config"
+    },
+    {
+     "acao": "config_ver",
+     "texto": "Abrir a aba Sobre o computador",
+     "dica": "Clique na aba Sobre o computador.",
+     "secao": "hardware"
+    }
+   ],
+   "trilhas": [
+    "geral"
+   ]
+  },
+  {
+   "id": "m05",
+   "dificuldade": "normal",
+   "cenario": "oficina-orbital",
+   "titulo": "Manutencao Completa",
+   "fala_intro": "Rotina de manutencao, cadete. Veja a ficha tecnica, instale as atualizacoes pendentes, reinicie a maquina e depois confira que a rede continua ligada. Quatro passos que todo computador de escola precisaria uma vez por mes.",
+   "fala_sucesso": "Maquina revisada. Isso e o que um tecnico faz antes de dizer que o problema e do usuario.",
+   "passos": [
+    {
+     "acao": "config_ver",
+     "texto": "Ver a ficha tecnica",
+     "dica": "Configuracoes, aba Sobre o computador.",
+     "secao": "hardware"
+    },
+    {
+     "acao": "atualizar_sistema",
+     "texto": "Instalar as atualizacoes",
+     "dica": "Aba Manutencao, botao Atualizar sistema."
+    },
+    {
+     "acao": "reiniciar",
+     "texto": "Reiniciar o computador",
+     "dica": "Aba Manutencao, botao Reiniciar computador."
+    },
+    {
+     "acao": "alternar_rede",
+     "texto": "Conferir a rede alternando o estado",
+     "dica": "Aba Rede.",
+     "estado": "*"
+    }
+   ],
+   "trilhas": [
+    "geral"
+   ],
+   "pontos_base": 65
+  },
+  {
+   "id": "m06",
+   "dificuldade": "normal",
+   "cenario": "oficina-orbital",
+   "titulo": "Resgate com Ferramenta",
+   "fala_intro": "Instale o resgata-arquivo, apague o quadro_de_avisos.txt, entre em panico, e depois recupere ele pela lixeira. A ferramenta e enfeite; quem salva mesmo e a lixeira.",
+   "fala_sucesso": "Recuperado. Licao escondida: antes de procurar programa milagroso, olhe na lixeira.",
+   "passos": [
+    {
+     "acao": "instalar_pacote",
+     "texto": "Instalar o resgata-arquivo",
+     "dica": "Central de Pacotes ou apt install.",
+     "pacote": "resgata-arquivo"
+    },
+    {
+     "acao": "excluir",
+     "texto": "Apagar o quadro_de_avisos.txt",
+     "dica": "Ele esta em /lar/cadete. Selecione e aperte Delete.",
+     "nome": "contem:quadro_de_avisos"
+    },
+    {
+     "acao": "restaurar",
+     "texto": "Restaurar o arquivo pela Lixeira",
+     "dica": "Abra a Lixeira, selecione e use Restaurar selecionado.",
+     "nome": "contem:quadro_de_avisos"
+    }
+   ],
+   "trilhas": [
+    "arquivos",
+    "geral"
+   ]
+  },
+  {
+   "id": "m07",
+   "dificuldade": "normal",
+   "cenario": "laboratorio-beta",
+   "titulo": "Bluetooth e Rede na Mesma Missao",
+   "fala_intro": "Dois radios diferentes, duas funcoes diferentes. Ligue a rede orbital, ligue o bluetooth, pareie com o Teclado da Ponte e desligue o bluetooth no fim. Rede leva dados longe; bluetooth conecta o que esta perto.",
+   "fala_sucesso": "Rede para longe, bluetooth para perto. Muita gente adulta confunde os dois a vida inteira.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir as Configuracoes do Sistema",
+     "dica": "Icone da engrenagem.",
+     "app": "config"
+    },
+    {
+     "acao": "alternar_rede",
+     "texto": "Ligar a rede orbital",
+     "dica": "Aba Rede, botao Conectar.",
+     "estado": "ligada"
+    },
+    {
+     "acao": "bluetooth",
+     "texto": "Ligar o radio bluetooth",
+     "dica": "Aba Bluetooth, botao Ligar radio.",
+     "estado": "ligado"
+    },
+    {
+     "acao": "parear",
+     "texto": "Parear com o Teclado da Ponte",
+     "dica": "Clique em Parear na linha do teclado.",
+     "dispositivo": "Teclado da Ponte"
+    },
+    {
+     "acao": "bluetooth",
+     "texto": "Desligar o radio bluetooth",
+     "dica": "Botao Desligar radio.",
+     "estado": "desligado"
+    }
+   ],
+   "trilhas": [
+    "geral",
+    "seguranca"
+   ],
+   "pontos_base": 70
+  },
+  {
+   "id": "m08",
+   "dificuldade": "dificil",
+   "cenario": "oficina-orbital",
+   "titulo": "Kit Completo do Saboteador",
+   "fala_intro": "Monte seu arsenal. Instale frota-scan, worminator e quebra-senha3000, e rode os tres no terminal. Aviso: sao todos falsos, existem so para o treino, e o quebra-senha vai te mostrar por que a senha do wifi da nave e uma vergonha.",
+   "fala_sucesso": "Arsenal montado e testado. E a licao real: senha curta e obvia cai em segundos.",
+   "passos": [
+    {
+     "acao": "instalar_pacote",
+     "texto": "Instalar o frota-scan",
+     "dica": "Central de Pacotes ou apt install.",
+     "pacote": "frota-scan"
+    },
+    {
+     "acao": "instalar_pacote",
+     "texto": "Instalar o worminator",
+     "dica": "Central de Pacotes ou apt install.",
+     "pacote": "worminator"
+    },
+    {
+     "acao": "instalar_pacote",
+     "texto": "Instalar o quebra-senha3000",
+     "dica": "Central de Pacotes ou apt install.",
+     "pacote": "quebra-senha3000"
+    },
+    {
+     "acao": "ferramenta_ficticia",
+     "texto": "Rodar o frota-scan no terminal",
+     "dica": "Escreva frota-scan e aperte Enter.",
+     "nome": "frota-scan"
+    },
+    {
+     "acao": "ferramenta_ficticia",
+     "texto": "Rodar o quebra-senha3000",
+     "dica": "Escreva quebra-senha3000 e aperte Enter.",
+     "nome": "quebra-senha3000"
+    }
+   ],
+   "trilhas": [
+    "terminal",
+    "seguranca"
+   ],
+   "pontos_base": 100
+  },
+  {
+   "id": "m09",
+   "dificuldade": "dificil",
+   "cenario": "oficina-orbital",
+   "titulo": "Diagnostico da Oficina",
+   "fala_intro": "Um chamado tecnico de verdade. Veja a ficha tecnica, atualize o sistema, instale o antivirus-boreal, escreva um relatorio no Bloco de Notas chamado diagnostico.txt e mande ele em anexo para engenharia@frota.orb.",
+   "fala_sucesso": "Diagnostico completo e entregue. Esse e o fluxo real de um chamado de suporte, do exame ao relatorio.",
+   "passos": [
+    {
+     "acao": "config_ver",
+     "texto": "Ver a ficha tecnica",
+     "dica": "Configuracoes, aba Sobre o computador.",
+     "secao": "hardware"
+    },
+    {
+     "acao": "atualizar_sistema",
+     "texto": "Instalar as atualizacoes",
+     "dica": "Aba Manutencao."
+    },
+    {
+     "acao": "instalar_pacote",
+     "texto": "Instalar o antivirus-boreal",
+     "dica": "Central de Pacotes.",
+     "pacote": "antivirus-boreal"
+    },
+    {
+     "acao": "salvar_arquivo",
+     "texto": "Escrever e salvar diagnostico.txt",
+     "dica": "Bloco de Notas, botao Salvar.",
+     "nome": "contem:diagnostico"
+    },
+    {
+     "acao": "anexar_arquivo",
+     "texto": "Anexar o diagnostico numa nova mensagem",
+     "dica": "Correio Orbital, campo Anexo.",
+     "nome": "contem:diagnostico"
+    },
+    {
+     "acao": "enviar_email",
+     "texto": "Enviar para engenharia@frota.orb",
+     "dica": "Preencha o campo Para e envie.",
+     "para": "engenharia@frota.orb"
+    }
+   ],
+   "trilhas": [
+    "seguranca",
+    "geral"
+   ],
+   "pontos_base": 130
+  },
+  {
+   "id": "m10",
+   "dificuldade": "dificil",
+   "cenario": "laboratorio-beta",
+   "titulo": "Nave Zerada",
+   "fala_intro": "Missao de faxina geral. Ligue a rede, atualize o sistema, remova o transmissor-orbital, instale de volta, crie a pasta manutencao e reinicie a maquina. Sim, remover e instalar de novo resolve mais coisa do que deveria.",
+   "fala_sucesso": "Nave zerada e funcionando. Voce fez uma manutencao completa sozinho, sem chamar ninguem.",
+   "passos": [
+    {
+     "acao": "alternar_rede",
+     "texto": "Ligar a rede orbital",
+     "dica": "Configuracoes, aba Rede.",
+     "estado": "ligada"
+    },
+    {
+     "acao": "atualizar_sistema",
+     "texto": "Instalar as atualizacoes",
+     "dica": "Aba Manutencao."
+    },
+    {
+     "acao": "remover_pacote",
+     "texto": "Remover o transmissor-orbital",
+     "dica": "Central de Pacotes, botao Remover.",
+     "pacote": "transmissor-orbital"
+    },
+    {
+     "acao": "instalar_pacote",
+     "texto": "Instalar o transmissor-orbital de volta",
+     "dica": "Mesmo lugar, botao Instalar.",
+     "pacote": "transmissor-orbital"
+    },
+    {
+     "acao": "criar_pasta",
+     "texto": "Criar a pasta manutencao em /lar/cadete",
+     "dica": "Explorador, botao direito, Nova pasta.",
+     "caminho": "/lar/cadete",
+     "nome": "manutencao"
+    },
+    {
+     "acao": "reiniciar",
+     "texto": "Reiniciar o computador",
+     "dica": "Configuracoes, aba Manutencao."
+    }
+   ],
+   "trilhas": [
+    "geral"
+   ],
+   "pontos_base": 125
+  }
+ ]
+}

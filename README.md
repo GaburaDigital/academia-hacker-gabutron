@@ -22,7 +22,11 @@ conteúdo real é uso de mouse, janelas, arquivos, terminal e noções de segura
 | Teclado | Ctrl+C, Ctrl+X, Ctrl+V, Ctrl+A, F2, Delete, Backspace |
 | Terminal | pwd, ls, cd, cat, mkdir, touch, mv, cp, rm, apt, git, ip, ping |
 | Rede e sistema | ligar e desligar rede, parear bluetooth, ver hardware, atualizar, reiniciar |
-| Segurança | reconhecer golpe por email, senha fraca, anexo suspeito, inspecionar código de página |
+| Segurança | reconhecer golpe por email, senha fraca, anexo suspeito, inspecionar código de página, fechar janela intrometida sem clicar na isca |
+| Desenho | arrastar com o botão pressionado, escolher ferramenta, salvar arquivo novo |
+| Texto | escrever, abrir por caminho, editar e regravar um documento |
+| Servidores | conectar com credencial, enviar e baixar arquivos, entender o que é um servidor |
+| Programas | instalar e remover pela janela e pelo terminal, buscar por nome |
 
 Os comandos de terminal são reais e operam sobre o mesmo sistema de arquivos que
 as janelas mostram. As ferramentas de "ataque" (`worminator`, `frota-scan`,
@@ -40,6 +44,13 @@ ensina invasão, ela usa a fantasia para forçar o aluno a operar o computador.
   máquina. Ficam guardados apenas os ajustes e o Placar da Máquina.
 - O Placar guarda os 5 melhores codinomes daquele computador e tem botão de zerar.
 - Cada aluno pode escrever um codinome em Ajustes antes de começar.
+- A patente sobe conforme os pontos: Recruta, Cadete, Aspirante, Sabotador Júnior,
+  Fantasma da Órbita e Lenda da Frota.
+- O botão **Tela cheia** esconde o GabuTRON e amplia o computador simulado. O
+  checklist da missão continua visível na lateral. Esc volta ao tamanho normal.
+- Durante o treino aparecem **janelas intrometidas** (propaganda, falso antivírus,
+  pedido de senha). Fechar sem clicar na isca vale 8 pontos. Clicar na isca não
+  castiga: mostra a explicação de por que aquilo era golpe.
 - Som ligado por padrão, com efeitos curtos gerados pelo próprio navegador.
   A voz do GabuTRON só toca quando o aluno clica em Ouvir.
 
@@ -56,11 +67,16 @@ ATIVIDADES/
 │   ├── mouse-e-janelas.json
 │   ├── arquivos-e-organizacao.json
 │   ├── terminal-primeiros-passos.json
-│   └── rede-email-e-golpes.json
+│   ├── rede-email-e-golpes.json
+│   ├── desenho-e-documentos.json
+│   ├── transmissao-e-servidores.json
+│   ├── pacotes-e-manutencao.json
+│   └── missoes-chefe.json
 └── cenarios/              estados iniciais do Pinguim 95x, reutilizáveis
     ├── nave-alpha.json
     ├── estacao-sucata.json
-    └── laboratorio-beta.json
+    ├── laboratorio-beta.json
+    └── oficina-orbital.json
 ```
 
 ### 1. Registrar no catálogo
@@ -168,6 +184,16 @@ O sistema simulado emite estes eventos. Use o nome exato em `"acao"`.
 | `parear`, `desparear` | `dispositivo` |
 | `config_ver` | `secao` |
 | `atualizar_sistema`, `reiniciar`, `ler_manual`, `mover_janela` | — |
+| `desenhar` | — |
+| `salvar_desenho` | `nome`, `caminho` |
+| `editar_texto` | `caminho` |
+| `salvar_arquivo` | `caminho`, `nome` |
+| `ftp_conectar`, `ftp_falha` | `servidor` |
+| `ftp_enviar`, `ftp_baixar` | `nome`, `servidor` |
+| `remover_pacote` | `pacote` |
+| `instalar_pacote` | `pacote`, `origem` (`janela` quando feito pela Central) |
+| `fechar_popup` | `tipo`, `correto` |
+| `popup_apareceu`, `cair_no_golpe` | `tipo` |
 
 ### 4. Criar um cenário
 
@@ -192,6 +218,9 @@ O sistema simulado emite estes eventos. Use o nome exato em `"acao"`.
   ]
 }
 ```
+
+O campo opcional `"pacotes_instalados"` define quais programas já vêm instalados
+naquele cenário. Sem ele, o padrão é `pinguim-pincel` e `transmissor-orbital`.
 
 Ícones de arquivo disponíveis: `arquivo`, `imagem`, `pacote`, `executavel`, `pasta`.
 Ícones de área de trabalho: qualquer chave de `APPS` em `js/apps/index.js`.
@@ -233,7 +262,8 @@ js/sound.js             bipes gerados por Web Audio e voz opcional
 js/icons.js             dois conjuntos de ícones SVG, um para cada estética
 js/boot.js              sequência de inicialização
 js/main.js              liga tudo
-js/apps/                explorador, terminal, email, navegador, configurações
+js/apps/                explorador, terminal, email, navegador, configurações,
+                        desenho, ftp, utilitarios (pacotes e notas), interrupcoes
 ```
 
 O ponto central do desenho é que os aplicativos não conhecem as missões. Eles
@@ -277,3 +307,19 @@ MIT.
 
 Criado por GABURA. Mais exercícios em
 https://sites.google.com/view/links-gabura
+
+
+---
+
+## Estado do projeto
+
+**Fase 1 concluída.** Motor, casca da Academia, Pinguim 95x com Explorador,
+Terminal, Correio, Navegador, Configurações e Lixeira. 40 missões.
+
+**Fase 2 concluída.** Pinguim Pincel, Transmissor Orbital, Central de Pacotes,
+Bloco de Notas, janelas intrometidas, patentes, tela do sistema em 4:3, botão de
+tela cheia e checklist na lateral. 80 missões no total: 26 fáceis, 31 normais e
+23 difíceis, distribuídas em 8 pacotes e 4 cenários.
+
+**Fase 3 planejada.** Completar para 40 missões em cada dificuldade, diploma SVG
+imprimível, easter eggs no terminal e ajuste final de desempenho.

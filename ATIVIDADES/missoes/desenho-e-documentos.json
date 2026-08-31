@@ -1,0 +1,379 @@
+{
+ "pacote": "Desenho e Documentos",
+ "missoes": [
+  {
+   "id": "d01",
+   "dificuldade": "facil",
+   "cenario": "oficina-orbital",
+   "titulo": "Rabisco Oficial da Frota",
+   "fala_intro": "Cadete, a Sargento Vilma quer um desenho da peca nova para a reuniao. Abra o Pinguim Pincel, segure o botao esquerdo do mouse e arraste para desenhar. Depois salve com o nome peca_nova.png. Arrastar com o botao pressionado e um movimento que muita gente nunca aprendeu direito.",
+   "fala_sucesso": "Desenho salvo. Arrastar segurando o botao e a base de mover janela, selecionar texto e mil outras coisas.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Pinguim Pincel",
+     "dica": "Icone do lapis amarelo na area de trabalho.",
+     "app": "desenho"
+    },
+    {
+     "acao": "desenhar",
+     "texto": "Desenhar alguma coisa na tela",
+     "dica": "Segure o botao esquerdo e mova o mouse sem soltar.",
+     "dica2": "Coloque o ponteiro sobre a area branca, aperte o botao esquerdo e mantenha apertado enquanto move o mouse. So solte no fim do traco."
+    },
+    {
+     "acao": "salvar_desenho",
+     "texto": "Salvar com o nome peca_nova.png",
+     "dica": "Use Salvar como na barra do programa.",
+     "nome": "contem:peca_nova"
+    }
+   ],
+   "trilhas": [
+    "mouse",
+    "geral"
+   ]
+  },
+  {
+   "id": "d02",
+   "dificuldade": "facil",
+   "cenario": "oficina-orbital",
+   "titulo": "Bloco de Notas do Cadete",
+   "fala_intro": "Todo bom saboteador anota. Abra o Bloco de Notas, escreva qualquer coisa e salve com o nome plano_secreto.txt. Nao precisa ser um plano de verdade. Lista de compras serve.",
+   "fala_sucesso": "Anotado e salvo. Repare que o arquivo aparece no Explorador na hora.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Bloco de Notas",
+     "dica": "Icone de folha na area de trabalho ou no menu Iniciar.",
+     "app": "notas"
+    },
+    {
+     "acao": "editar_texto",
+     "texto": "Escrever alguma coisa no documento",
+     "dica": "Clique dentro da area branca e digite."
+    },
+    {
+     "acao": "salvar_arquivo",
+     "texto": "Salvar com o nome plano_secreto.txt",
+     "dica": "Botao Salvar na barra do programa.",
+     "nome": "contem:plano_secreto"
+    }
+   ],
+   "trilhas": [
+    "arquivos",
+    "geral"
+   ]
+  },
+  {
+   "id": "d03",
+   "dificuldade": "facil",
+   "cenario": "oficina-orbital",
+   "titulo": "Leitura Obrigatoria",
+   "fala_intro": "Antes de abrir qualquer porta, leia a instrucao. Abra o quadro_de_avisos.txt e o relatorio_da_ponte.txt. Um deles tem o codigo do container que voce vai precisar depois.",
+   "fala_sucesso": "Dois arquivos lidos. Ler antes de agir economiza missao inteira.",
+   "passos": [
+    {
+     "acao": "abrir_arquivo",
+     "texto": "Abrir o quadro_de_avisos.txt",
+     "dica": "Clique duas vezes no arquivo em /lar/cadete.",
+     "nome": "quadro_de_avisos.txt"
+    },
+    {
+     "acao": "abrir_arquivo",
+     "texto": "Abrir o relatorio_da_ponte.txt",
+     "dica": "Ele esta na pasta documentos.",
+     "nome": "relatorio_da_ponte.txt"
+    }
+   ],
+   "trilhas": [
+    "arquivos",
+    "geral"
+   ],
+   "ordem": "livre"
+  },
+  {
+   "id": "d04",
+   "dificuldade": "facil",
+   "cenario": "oficina-orbital",
+   "titulo": "Editar e Regravar",
+   "fala_intro": "Documento nao e pedra: da para mudar. Abra o pedido_de_pecas.txt no Bloco de Notas, acrescente uma linha pedindo cafe e salve por cima.",
+   "fala_sucesso": "Editado e regravado. Reabra pelo Explorador e veja: a mudanca ficou.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Bloco de Notas",
+     "dica": "Icone de folha.",
+     "app": "notas"
+    },
+    {
+     "acao": "abrir_arquivo",
+     "texto": "Abrir /lar/cadete/documentos/pedido_de_pecas.txt",
+     "dica": "Use Abrir na barra e escreva o caminho completo.",
+     "dica2": "Clique em Abrir, apague o que estiver escrito e digite: /lar/cadete/documentos/pedido_de_pecas.txt",
+     "caminho": "contem:pedido_de_pecas"
+    },
+    {
+     "acao": "editar_texto",
+     "texto": "Acrescentar uma linha ao texto",
+     "dica": "Clique no fim do texto e digite."
+    },
+    {
+     "acao": "salvar_arquivo",
+     "texto": "Salvar por cima",
+     "dica": "Botao Salvar.",
+     "nome": "contem:pedido_de_pecas"
+    }
+   ],
+   "trilhas": [
+    "arquivos",
+    "geral"
+   ]
+  },
+  {
+   "id": "d05",
+   "dificuldade": "facil",
+   "cenario": "oficina-orbital",
+   "titulo": "Retrato do Robo",
+   "fala_intro": "Missao artistica de utilidade duvidosa: desenhe o Robo-Cozinheiro 14, salve como retrato_robo.png e mova o arquivo para o pendrive. A tripulacao merece ver a cara do responsavel pela sopa.",
+   "fala_sucesso": "Retrato entregue. Ninguem reconheceu o robo, mas o esforco foi anotado.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Pinguim Pincel",
+     "dica": "Icone do lapis amarelo.",
+     "app": "desenho"
+    },
+    {
+     "acao": "desenhar",
+     "texto": "Fazer o desenho",
+     "dica": "Segure o botao esquerdo e arraste."
+    },
+    {
+     "acao": "salvar_desenho",
+     "texto": "Salvar como retrato_robo.png",
+     "dica": "Use Salvar como.",
+     "nome": "contem:retrato_robo"
+    },
+    {
+     "acao": "mover",
+     "texto": "Mover o arquivo para /midia/pendrive",
+     "dica": "Ele foi salvo em /lar/cadete/imagens.",
+     "destino": "/midia/pendrive"
+    }
+   ],
+   "trilhas": [
+    "mouse",
+    "arquivos"
+   ],
+   "pontos_base": 55
+  },
+  {
+   "id": "d06",
+   "dificuldade": "normal",
+   "cenario": "oficina-orbital",
+   "titulo": "Anexo Ilustrado",
+   "fala_intro": "A Sargento pediu o desenho por mensagem. Faca o desenho, salve como peca_nova.png e mande em anexo para vilma@frota.orb. Tres programas diferentes numa missao so.",
+   "fala_sucesso": "Desenho feito, salvo e transmitido. Voce encadeou pincel, arquivos e correio sem se perder.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Pinguim Pincel",
+     "dica": "Icone do lapis amarelo.",
+     "app": "desenho"
+    },
+    {
+     "acao": "desenhar",
+     "texto": "Desenhar a peca",
+     "dica": "Segure o botao esquerdo e arraste."
+    },
+    {
+     "acao": "salvar_desenho",
+     "texto": "Salvar como peca_nova.png",
+     "dica": "Use Salvar como.",
+     "nome": "contem:peca_nova"
+    },
+    {
+     "acao": "anexar_arquivo",
+     "texto": "Escolher o desenho como anexo no Correio Orbital",
+     "dica": "Nova mensagem, campo Anexo, procure o arquivo em imagens.",
+     "nome": "contem:peca_nova"
+    },
+    {
+     "acao": "enviar_email",
+     "texto": "Enviar para vilma@frota.orb",
+     "dica": "Preencha o campo Para e clique em Enviar.",
+     "para": "vilma@frota.orb"
+    }
+   ],
+   "trilhas": [
+    "arquivos",
+    "mouse"
+   ],
+   "pontos_base": 75
+  },
+  {
+   "id": "d07",
+   "dificuldade": "normal",
+   "cenario": "oficina-orbital",
+   "titulo": "Copia Fiel do Codigo",
+   "fala_intro": "O codigo do container esta no relatorio da ponte. Abra o relatorio, copie o codigo com o mouse usando Ctrl+C, e escreva ele num arquivo novo chamado codigo_container.txt no Bloco de Notas. Copiar texto selecionando com o mouse e habilidade de todo dia.",
+   "fala_sucesso": "Codigo transcrito. Selecionar texto arrastando e depois copiar e colar resolve metade dos trabalhos escolares.",
+   "passos": [
+    {
+     "acao": "abrir_arquivo",
+     "texto": "Abrir o relatorio_da_ponte.txt",
+     "dica": "Ele esta em /lar/cadete/documentos.",
+     "nome": "relatorio_da_ponte.txt"
+    },
+    {
+     "acao": "copiar_texto",
+     "texto": "Selecionar o codigo com o mouse e copiar com Ctrl+C",
+     "dica": "Arraste o mouse por cima do texto para selecionar e aperte Ctrl+C.",
+     "dica2": "Clique antes da primeira letra, segure o botao esquerdo, arraste ate o fim do codigo, solte e aperte Ctrl e C juntos.",
+     "nome": "relatorio_da_ponte.txt"
+    },
+    {
+     "acao": "editar_texto",
+     "texto": "Escrever o codigo no Bloco de Notas",
+     "dica": "Abra o Bloco de Notas e cole com Ctrl+V."
+    },
+    {
+     "acao": "salvar_arquivo",
+     "texto": "Salvar como codigo_container.txt",
+     "dica": "Botao Salvar.",
+     "nome": "contem:codigo_container"
+    }
+   ],
+   "trilhas": [
+    "copiar",
+    "arquivos"
+   ],
+   "pontos_base": 70
+  },
+  {
+   "id": "d08",
+   "dificuldade": "normal",
+   "cenario": "estacao-sucata",
+   "titulo": "Catalogo Ilustrado",
+   "fala_intro": "Organizacao com arte. Crie a pasta catalogo em lar/cadete, faca um desenho, salve como capa.png e mova a capa para dentro do catalogo. Depois mande as duas fotos antigas para a mesma pasta.",
+   "fala_sucesso": "Catalogo montado. Pasta com nome claro e conteudo coerente: e assim que se acha coisa depois.",
+   "passos": [
+    {
+     "acao": "criar_pasta",
+     "texto": "Criar a pasta catalogo em /lar/cadete",
+     "dica": "Botao direito no vazio, Nova pasta.",
+     "caminho": "/lar/cadete",
+     "nome": "catalogo"
+    },
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Pinguim Pincel",
+     "dica": "Icone do lapis amarelo.",
+     "app": "desenho"
+    },
+    {
+     "acao": "salvar_desenho",
+     "texto": "Salvar o desenho como capa.png",
+     "dica": "Use Salvar como.",
+     "nome": "contem:capa"
+    },
+    {
+     "acao": "mover",
+     "texto": "Mover a capa para /lar/cadete/catalogo",
+     "dica": "Ela foi salva em imagens.",
+     "destino": "/lar/cadete/catalogo"
+    }
+   ],
+   "trilhas": [
+    "arquivos",
+    "mouse"
+   ],
+   "pontos_base": 70
+  },
+  {
+   "id": "d09",
+   "dificuldade": "facil",
+   "cenario": "oficina-orbital",
+   "titulo": "Faxina Artistica",
+   "fala_intro": "Voce encheu a pasta de imagens de rabiscos. Faca mais um desenho, salve como rascunho.png e mande direto para a lixeira. Depois esvazie. Saber apagar o que nao presta tambem e organizacao.",
+   "fala_sucesso": "Criado e destruido em trinta segundos. A vida de um rascunho.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Pinguim Pincel",
+     "dica": "Icone do lapis amarelo.",
+     "app": "desenho"
+    },
+    {
+     "acao": "salvar_desenho",
+     "texto": "Salvar como rascunho.png",
+     "dica": "Use Salvar como.",
+     "nome": "contem:rascunho"
+    },
+    {
+     "acao": "excluir",
+     "texto": "Mandar o rascunho para a lixeira",
+     "dica": "Ache o arquivo em imagens, selecione e aperte Delete.",
+     "nome": "contem:rascunho"
+    },
+    {
+     "acao": "esvaziar_lixeira",
+     "texto": "Esvaziar a lixeira",
+     "dica": "Abra a Lixeira e use Esvaziar lixeira."
+    }
+   ],
+   "trilhas": [
+    "arquivos",
+    "mouse"
+   ]
+  },
+  {
+   "id": "d10",
+   "dificuldade": "normal",
+   "cenario": "oficina-orbital",
+   "titulo": "Dossie Completo",
+   "fala_intro": "Monte um dossie. Crie a pasta dossie, escreva um arquivo no Bloco de Notas chamado resumo.txt, salve, e mova ele para o dossie. Depois faca um desenho de capa e mande para a mesma pasta. Cinco passos, cadete.",
+   "fala_sucesso": "Dossie montado do zero: pasta, texto, desenho, tudo no lugar certo. Isso e trabalho de verdade.",
+   "passos": [
+    {
+     "acao": "criar_pasta",
+     "texto": "Criar a pasta dossie em /lar/cadete",
+     "dica": "Botao direito no vazio, Nova pasta.",
+     "caminho": "/lar/cadete",
+     "nome": "dossie"
+    },
+    {
+     "acao": "salvar_arquivo",
+     "texto": "Criar e salvar resumo.txt no Bloco de Notas",
+     "dica": "Escreva algo e use Salvar.",
+     "nome": "contem:resumo"
+    },
+    {
+     "acao": "mover",
+     "texto": "Mover resumo.txt para /lar/cadete/dossie",
+     "dica": "Ele foi salvo em documentos.",
+     "nome": "contem:resumo",
+     "destino": "/lar/cadete/dossie"
+    },
+    {
+     "acao": "salvar_desenho",
+     "texto": "Salvar um desenho como capa_dossie.png",
+     "dica": "Pinguim Pincel, Salvar como.",
+     "nome": "contem:capa_dossie"
+    },
+    {
+     "acao": "mover",
+     "texto": "Mover a capa para /lar/cadete/dossie",
+     "dica": "Ela foi salva em imagens.",
+     "nome": "contem:capa_dossie",
+     "destino": "/lar/cadete/dossie"
+    }
+   ],
+   "trilhas": [
+    "arquivos",
+    "mouse"
+   ],
+   "pontos_base": 85
+  }
+ ]
+}

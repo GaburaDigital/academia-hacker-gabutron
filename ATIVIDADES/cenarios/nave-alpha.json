@@ -360,6 +360,14 @@
   "config",
   "manual",
   "pendrive",
+  "desenho",
+  "ftp",
+  "pacotes",
+  "notas",
   "lixeira"
+ ],
+ "pacotes_instalados": [
+  "pinguim-pincel",
+  "transmissor-orbital"
  ]
 }

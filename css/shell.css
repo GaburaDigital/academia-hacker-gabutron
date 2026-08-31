@@ -50,10 +50,12 @@ body[data-crt="1"] #app::before {
 
 #barra-treino {
   flex: none;
-  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
   border-bottom: 1px solid var(--linha);
-  padding: 6px 12px;
+  padding: 4px 10px;
+  font-size: 13px;
 }
+#barra-treino .btn { padding: 3px 9px; font-size: 12px; }
 #barra-treino .marca {
   display: flex; align-items: center; gap: 8px;
   font-size: 13px; letter-spacing: 0.14em; color: var(--destaque);
@@ -77,14 +79,17 @@ body[data-crt="1"] #app::before {
 #faixa-ia {
   flex: none;
   display: grid;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 172px 1fr;
   gap: 8px;
-  padding: 8px 12px 0;
+  padding: 6px 10px 0;
   min-height: 0;
 }
+#faixa-ia .painel__corpo { padding: 6px 8px; }
+#faixa-ia .painel__topo { padding: 2px 8px; font-size: 11px; }
+body[data-foco="1"] #faixa-ia { display: none; }
 #rosto-ia pre {
   margin: 0;
-  font-size: 10px;
+  font-size: 8.6px;
   line-height: 1.05;
   color: var(--destaque);
   text-align: center;
@@ -95,14 +100,17 @@ body[data-crt="1"] #app::before {
 #rosto-ia[data-humor="falando"] pre { animation: respira 1.1s ease-in-out infinite; }
 @keyframes respira { 50% { opacity: 0.62; } }
 
-#fala { display: flex; flex-direction: column; gap: 8px; }
-#fala-texto { flex: 1; min-height: 74px; font-size: 14px; }
+#fala { display: flex; flex-direction: column; gap: 6px; }
+#fala-texto { flex: 1; min-height: 52px; max-height: 108px; overflow: auto; font-size: 13.5px; }
 #fala-texto .missao-nome { color: var(--destaque); }
 #fala-acoes { display: flex; gap: 6px; flex-wrap: wrap; }
 #fala-acoes .btn { font-size: 12px; padding: 4px 10px; }
 
-/* checklist de passos */
-#passos { list-style: none; margin: 8px 0 0; padding: 0; font-size: 12.5px; }
+/* checklist de passos, agora numa coluna propria ao lado do computador */
+#painel-passos { flex: 0 0 252px; min-width: 0; }
+#painel-passos .painel__corpo { padding: 8px 10px; }
+#missao-titulo { margin: 0 0 8px; font-size: 12.5px; color: var(--destaque); }
+#passos { list-style: none; margin: 0; padding: 0; font-size: 12.5px; }
 #passos li {
   display: flex; gap: 8px; align-items: flex-start;
   padding: 2px 0; color: var(--tinta-fraca);
@@ -118,12 +126,21 @@ body[data-crt="1"] #app::before {
 #palco {
   flex: 1;
   min-height: 0;
-  padding: 8px 12px;
+  padding: 6px 10px;
   display: flex;
+  gap: 8px;
+  align-items: stretch;
 }
+/* A tela do Pinguim 95x tem proporcao 4:3 e usa toda a altura disponivel.
+   A largura sai da altura, entao ganhar altura na casca aumenta a tela toda. */
 #moldura {
-  flex: 1;
+  flex: 1 1 auto;
+  min-width: 0;
   min-height: 0;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  max-width: 100%;
+  margin: 0 auto;
   border: 2px solid var(--destaque);
   position: relative;
   display: flex;
@@ -187,9 +204,13 @@ body[data-crt="1"] #app::before {
 /* ---------- 8. adaptacoes de altura ---------- */
 
 @media (max-height: 780px) {
-  #faixa-ia { grid-template-columns: 168px 1fr; }
-  #rosto-ia pre { font-size: 8.5px; }
-  #fala-texto { min-height: 56px; font-size: 13px; }
+  #faixa-ia { grid-template-columns: 150px 1fr; }
+  #rosto-ia pre { font-size: 7.4px; }
+  #fala-texto { min-height: 44px; max-height: 84px; font-size: 12.5px; }
+  #barra-treino { font-size: 12px; }
+}
+@media (max-width: 1200px) {
+  #painel-passos { flex-basis: 210px; }
 }
 @media (max-width: 1080px) {
   #barra-treino .marca span { display: none; }

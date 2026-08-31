@@ -12,6 +12,7 @@ export const sessao = {
 };
 
 export function zerarSessao() {
+  sessao.promovido = null;
   sessao.pontos = 0;
   sessao.concluidas = 0;
   sessao.puladas = 0;
@@ -20,9 +21,31 @@ export function zerarSessao() {
 }
 
 export function somarPontos(n) {
+  const antes = patenteDe(sessao.pontos).nome;
   sessao.pontos += Math.max(0, Math.round(n));
   pintarPontos();
+  const depois = patenteDe(sessao.pontos).nome;
+  if (depois !== antes) sessao.promovido = depois;
   return sessao.pontos;
+}
+
+export const PATENTES = [
+  { pontos: 0,    nome: 'Recruta' },
+  { pontos: 150,  nome: 'Cadete' },
+  { pontos: 400,  nome: 'Aspirante' },
+  { pontos: 800,  nome: 'Sabotador Junior' },
+  { pontos: 1400, nome: 'Fantasma da Orbita' },
+  { pontos: 2200, nome: 'Lenda da Frota' }
+];
+
+export function patenteDe(pontos) {
+  let atual = PATENTES[0];
+  for (const p of PATENTES) if (pontos >= p.pontos) atual = p;
+  return atual;
+}
+
+export function proximaPatente(pontos) {
+  return PATENTES.find(p => p.pontos > pontos) || null;
 }
 
 export function pintarPontos() {
@@ -30,6 +53,8 @@ export function pintarPontos() {
   if (el) el.innerHTML = 'PONTOS <b>' + sessao.pontos + '</b>';
   const m = document.getElementById('leitura-missoes');
   if (m) m.innerHTML = 'MISSOES <b>' + sessao.concluidas + '</b>';
+  const pat = document.getElementById('leitura-patente');
+  if (pat) pat.innerHTML = 'PATENTE <b>' + patenteDe(sessao.pontos).nome + '</b>';
 }
 
 /* pontos = base da missao + bonus por rapidez (so quando ha cronometro) */

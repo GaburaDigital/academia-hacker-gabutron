@@ -2,7 +2,7 @@
    Ao publicar uma atualizacao, mude a VERSAO abaixo.
    Isso e o suficiente para o navegador buscar tudo de novo. */
 
-const VERSAO = 'gabutron-v1';
+const VERSAO = 'gabutron-v2';
 
 const ARQUIVOS = [
   './',
@@ -31,6 +31,10 @@ const ARQUIVOS = [
   './js/apps/email.js',
   './js/apps/navegador.js',
   './js/apps/config95.js',
+  './js/apps/desenho.js',
+  './js/apps/ftp.js',
+  './js/apps/utilitarios.js',
+  './js/apps/interrupcoes.js',
   './assets/icons/favicon.svg',
   './assets/icons/icon-512.svg',
   './assets/icons/icon-maskable.svg',
@@ -45,9 +49,14 @@ const ARQUIVOS = [
   './ATIVIDADES/missoes/arquivos-e-organizacao.json',
   './ATIVIDADES/missoes/terminal-primeiros-passos.json',
   './ATIVIDADES/missoes/rede-email-e-golpes.json',
+  './ATIVIDADES/missoes/desenho-e-documentos.json',
+  './ATIVIDADES/missoes/transmissao-e-servidores.json',
+  './ATIVIDADES/missoes/pacotes-e-manutencao.json',
+  './ATIVIDADES/missoes/missoes-chefe.json',
   './ATIVIDADES/cenarios/nave-alpha.json',
   './ATIVIDADES/cenarios/estacao-sucata.json',
-  './ATIVIDADES/cenarios/laboratorio-beta.json'
+  './ATIVIDADES/cenarios/laboratorio-beta.json',
+  './ATIVIDADES/cenarios/oficina-orbital.json'
 ];
 
 self.addEventListener('install', (ev) => {

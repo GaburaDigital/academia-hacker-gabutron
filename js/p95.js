@@ -16,6 +16,7 @@ const ICONES_PADRAO = ['computador', 'explorador', 'terminal', 'email', 'navegad
 export function montarP95(cenario = {}) {
   fecharTodas();
   fecharMenu();
+  lixeiraEstado = null;
   montarMesa(cenario.icones || ICONES_PADRAO);
   montarInicio();
   relogio();
@@ -34,7 +35,8 @@ function montarMesa(ids) {
     el.tabIndex = 0;
     el.dataset.app = id;
     el.title = app.nome;
-    el.innerHTML = (ICONES95[app.icone] || ICONES95.executavel) + '<span>' + app.nome + '</span>';
+    el.innerHTML = '<span class="p95-arte">' + (ICONES95[app.icone] || ICONES95.executavel) +
+                   '</span><span>' + app.nome + '</span>';
 
     let etiqueta = null;
     el.addEventListener('mouseenter', () => {
@@ -161,9 +163,16 @@ export function prepararP95() {
   document.getElementById('p95').dataset.estado = 'ligado';
 }
 
+let lixeiraEstado = null;
+
+/* Trocar o no do icone no meio de um clique duplo faz o navegador perder o
+   segundo clique. Por isso so redesenhamos quando o estado realmente muda. */
 export function atualizarIconeLixeira() {
-  const el = document.querySelector('.p95-icone[data-app="lixeira"] svg');
-  if (!el) return;
-  const novo = vfs.lixeiraCheia() ? ICONES95.lixeiraCheia : ICONES95.lixeiraVazia;
-  el.outerHTML = novo;
+  const cheia = vfs.lixeiraCheia();
+  if (cheia === lixeiraEstado) return;
+  lixeiraEstado = cheia;
+  const arte = document.querySelector('.p95-icone[data-app="lixeira"] .p95-arte');
+  if (arte) arte.innerHTML = cheia ? ICONES95.lixeiraCheia : ICONES95.lixeiraVazia;
 }
+
+export function zerarEstadoLixeira() { lixeiraEstado = null; }

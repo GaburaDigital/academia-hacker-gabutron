@@ -8,10 +8,12 @@ import * as vfs from './vfs.js';
 import { montarP95, atualizarIconeLixeira } from './p95.js';
 import { carregarEmails } from './apps/email.js';
 import { sistema } from './apps/config95.js';
+import { iniciarInterrupcoes, pararInterrupcoes } from './apps/interrupcoes.js';
+import { PACOTES } from './apps/utilitarios.js';
 import { dizer, humor, completarFala } from './gabutron.js';
 import { tocar } from './sound.js';
 import { ajustes } from './settings.js';
-import { sessao, somarPontos, calcularPontos, pintarPontos } from './score.js';
+import { sessao, somarPontos, calcularPontos, pintarPontos, proximaPatente } from './score.js';
 
 const BASE = new URL('../ATIVIDADES/', import.meta.url);
 
@@ -97,7 +99,11 @@ function montarCenario(id) {
   sistema.bluetooth = !!cenario.bluetooth;
   sistema.pareado = null;
   sistema.atualizado = !!cenario.atualizado;
+  const jaInstalados = cenario.pacotes_instalados || ['pinguim-pincel', 'transmissor-orbital'];
+  for (const pac of PACOTES) pac.instalado = jaInstalados.includes(pac.nome);
+  pararInterrupcoes();
   montarP95(cenario);
+  if (estado.emTreino) iniciarInterrupcoes();
 }
 
 /* ---------- comparacao de acoes ---------- */
@@ -128,6 +134,12 @@ function passoCombina(passo, ev) {
 
 function pintarPassos() {
   const ul = document.getElementById('passos');
+  const titulo = document.getElementById('missao-titulo');
+  if (titulo) {
+    titulo.textContent = estado.atual
+      ? estado.atual.titulo + ' (' + estado.atual.dificuldade + ')'
+      : 'Nenhuma missao em andamento.';
+  }
   if (!ul) return;
   ul.innerHTML = '';
   estado.atual.passos.forEach((p, i) => {
@@ -194,12 +206,34 @@ function concluirMissao() {
   sessao.concluidas++;
   pintarPontos();
   tocar('sucesso');
-  dizer(`${estado.atual.fala_sucesso}\n\n+${ganhos} pontos. Tempo: ${segundos}s.`, 'feliz');
+  let extra = '';
+  if (sessao.promovido) {
+    extra = `\n\nPROMOCAO: voce agora e ${sessao.promovido}.`;
+    sessao.promovido = null;
+  } else {
+    const prox = proximaPatente(sessao.pontos);
+    if (prox) extra = `\n\nFaltam ${prox.pontos - sessao.pontos} pontos para ${prox.nome}.`;
+  }
+  dizer(`${estado.atual.fala_sucesso}\n\n+${ganhos} pontos. Tempo: ${segundos}s.${extra}`, 'feliz');
   document.getElementById('btn-proximo').disabled = false;
 }
 
 function aoAgir(ev) {
-  if (!estado.emTreino || !estado.atual) return;
+  if (!estado.emTreino) return;
+
+  /* fechar uma janela intrometida vale ponto mesmo fora dos passos da missao */
+  if (ev.acao === 'fechar_popup' && ev.correto) {
+    somarPontos(8);
+    dizer('Boa. Janela intrometida fechada sem clicar na isca. Mais 8 pontos.', 'feliz');
+    return;
+  }
+  if (ev.acao === 'cair_no_golpe') {
+    humor('alerta');
+    setTimeout(() => humor('neutro'), 1200);
+    return;
+  }
+
+  if (!estado.atual) return;
   sessao.acoes++;
 
   const livre = estado.atual.ordem === 'livre';
@@ -308,12 +342,14 @@ export function iniciarTreino() {
   estado.usadas.clear();
   estado.pulosRestantes = 2;
   iniciarCronometro();
+  iniciarInterrupcoes();
   proximaMissao();
 }
 
 export function encerrarTreino(motivo = 'manual') {
   estado.emTreino = false;
   clearInterval(estado.timer);
+  pararInterrupcoes();
   bus.emit('treino:fim', { motivo, pontos: sessao.pontos });
 }
 

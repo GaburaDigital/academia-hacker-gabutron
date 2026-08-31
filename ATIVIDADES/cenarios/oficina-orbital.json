@@ -1,0 +1,148 @@
+{
+ "id": "oficina-orbital",
+ "nome": "Oficina Orbital",
+ "arvore": [
+  {
+   "nome": "lar",
+   "tipo": "pasta",
+   "filhos": [
+    {
+     "nome": "cadete",
+     "tipo": "pasta",
+     "filhos": [
+      {
+       "nome": "documentos",
+       "tipo": "pasta",
+       "filhos": [
+        {
+         "nome": "pedido_de_pecas.txt",
+         "tipo": "arquivo",
+         "conteudo": "1 fusivel orbital\n1 cabo laranja (o antigo derreteu)\n1 antena dobravel",
+         "icone": "arquivo"
+        },
+        {
+         "nome": "senha_do_deposito.txt",
+         "tipo": "arquivo",
+         "conteudo": "O deposito 7-B usa o codigo do container como senha, tudo junto e em minusculas.",
+         "icone": "arquivo"
+        },
+        {
+         "nome": "relatorio_da_ponte.txt",
+         "tipo": "arquivo",
+         "conteudo": "Codigo do container: ALPHA-9902\nO cabo laranja segue soltando faisca.",
+         "icone": "arquivo"
+        }
+       ],
+       "protegido": false
+      },
+      {
+       "nome": "imagens",
+       "tipo": "pasta",
+       "filhos": [
+        {
+         "nome": "planta_da_oficina.png",
+         "tipo": "arquivo",
+         "conteudo": "(planta tecnica da oficina)",
+         "icone": "imagem"
+        }
+       ],
+       "protegido": false
+      },
+      {
+       "nome": "projetos",
+       "tipo": "pasta",
+       "filhos": [
+        {
+         "nome": "ideias.txt",
+         "tipo": "arquivo",
+         "conteudo": "Colocar rodinhas na torradeira. Ninguem apoiou.",
+         "icone": "arquivo"
+        }
+       ],
+       "protegido": false
+      },
+      {
+       "nome": "quadro_de_avisos.txt",
+       "tipo": "arquivo",
+       "conteudo": "Oficina Orbital. Se quebrar, conserta. Se nao souber, leia o manual.",
+       "icone": "arquivo"
+      }
+     ],
+     "protegido": false
+    }
+   ],
+   "protegido": false
+  },
+  {
+   "nome": "midia",
+   "tipo": "pasta",
+   "filhos": [
+    {
+     "nome": "pendrive",
+     "tipo": "pasta",
+     "filhos": [],
+     "protegido": false
+    }
+   ],
+   "protegido": false
+  },
+  {
+   "nome": "sistema",
+   "tipo": "pasta",
+   "filhos": [
+    {
+     "nome": "nucleo.bin",
+     "tipo": "arquivo",
+     "conteudo": "(nao mexa)",
+     "icone": "executavel"
+    }
+   ],
+   "protegido": true
+  }
+ ],
+ "emails": [
+  {
+   "id": "o1",
+   "de": "deposito@frota.orb",
+   "assunto": "Liberacao de acesso",
+   "corpo": "Cadete, sua entrada no deposito 7-B foi liberada. A senha esta no relatorio da ponte, tudo junto e em minusculas.",
+   "golpe": false
+  },
+  {
+   "id": "o2",
+   "de": "seguranca@fr0ta-alerta.orb",
+   "assunto": "ACAO NECESSARIA: conta bloqueada",
+   "corpo": "Sua conta sera apagada em 5 minutos. Responda esta mensagem com usuario e senha para manter o acesso.\nEquipe de Seguranca.",
+   "golpe": true
+  },
+  {
+   "id": "o3",
+   "de": "vilma@frota.orb",
+   "assunto": "Desenho da peca",
+   "corpo": "Preciso de um desenho da peca nova para mostrar na reuniao. Faz no Pinguim Pincel e me manda.",
+   "golpe": false
+  }
+ ],
+ "rede": true,
+ "bluetooth": false,
+ "atualizado": false,
+ "pacotes_instalados": [
+  "pinguim-pincel",
+  "transmissor-orbital"
+ ],
+ "icones": [
+  "computador",
+  "explorador",
+  "terminal",
+  "email",
+  "navegador",
+  "config",
+  "manual",
+  "desenho",
+  "ftp",
+  "pacotes",
+  "notas",
+  "pendrive",
+  "lixeira"
+ ]
+}

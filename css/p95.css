@@ -362,3 +362,8 @@
   padding: 20px; white-space: pre-wrap;
 }
 #p95[data-estado="reiniciando"] #p95-reboot { display: flex; }
+
+/* janelas intrometidas (interrupcoes de treino) */
+.p95-popup { width: 366px; border-color: #ffffff #40444a #40444a #ffffff; }
+.p95-popup .p95-barra { background: #7a2f8a; }
+.p95-popup .acoes [data-isca] { min-width: 150px; font-weight: bold; }

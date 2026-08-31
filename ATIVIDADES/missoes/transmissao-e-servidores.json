@@ -1,0 +1,377 @@
+{
+ "pacote": "Transmissao e Servidores",
+ "missoes": [
+  {
+   "id": "s01",
+   "dificuldade": "normal",
+   "cenario": "oficina-orbital",
+   "titulo": "Primeira Conexao",
+   "fala_intro": "Servidor e um computador em outro lugar que guarda arquivos. Abra o Transmissor Orbital, escolha alpha.frota.orb e conecte usando a senha alpha. Sem credencial ninguem entra, nem no treino.",
+   "fala_sucesso": "Conectado. Do lado esquerdo estao os seus arquivos, do direito os do servidor.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Transmissor Orbital",
+     "dica": "Icone dos tres blocos ligados.",
+     "app": "ftp"
+    },
+    {
+     "acao": "ftp_conectar",
+     "texto": "Conectar em alpha.frota.orb",
+     "dica": "Escolha o servidor na lista e digite a senha alpha.",
+     "dica2": "No campo Servidor deixe alpha.frota.orb, no campo Senha escreva alpha e clique em Conectar.",
+     "servidor": "alpha.frota.orb"
+    }
+   ],
+   "trilhas": [
+    "seguranca",
+    "geral"
+   ]
+  },
+  {
+   "id": "s02",
+   "dificuldade": "normal",
+   "cenario": "oficina-orbital",
+   "titulo": "Baixando o Mapa",
+   "fala_intro": "A Nave Alpha guarda o mapa da frota. Conecte em alpha.frota.orb com a senha alpha e baixe o mapa_da_frota.txt para este computador. Baixar traz o arquivo de la para ca.",
+   "fala_sucesso": "Mapa baixado. Ele agora esta em documentos, igualzinho a qualquer outro arquivo seu.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Transmissor Orbital",
+     "dica": "Icone dos tres blocos ligados.",
+     "app": "ftp"
+    },
+    {
+     "acao": "ftp_conectar",
+     "texto": "Conectar em alpha.frota.orb",
+     "dica": "Senha alpha.",
+     "servidor": "alpha.frota.orb"
+    },
+    {
+     "acao": "ftp_baixar",
+     "texto": "Baixar o mapa_da_frota.txt",
+     "dica": "Clique no arquivo na lista da direita e use o botao Baixar.",
+     "nome": "contem:mapa_da_frota"
+    }
+   ],
+   "trilhas": [
+    "seguranca",
+    "arquivos"
+   ]
+  },
+  {
+   "id": "s03",
+   "dificuldade": "normal",
+   "cenario": "oficina-orbital",
+   "titulo": "Entrega para a Beta",
+   "fala_intro": "A Nave Beta implora por pecas ha quatrocentos ciclos. Conecte em beta.frota.orb com a senha beta e envie o pedido_de_pecas.txt para la. Enviar leva o arquivo daqui para o servidor.",
+   "fala_sucesso": "Pedido entregue. Se chegou cafe junto, foi coincidencia.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Transmissor Orbital",
+     "dica": "Icone dos tres blocos ligados.",
+     "app": "ftp"
+    },
+    {
+     "acao": "ftp_conectar",
+     "texto": "Conectar em beta.frota.orb",
+     "dica": "Senha beta.",
+     "servidor": "beta.frota.orb"
+    },
+    {
+     "acao": "ftp_enviar",
+     "texto": "Enviar o pedido_de_pecas.txt",
+     "dica": "Clique no arquivo na lista da esquerda e use o botao Enviar.",
+     "nome": "contem:pedido_de_pecas"
+    }
+   ],
+   "trilhas": [
+    "seguranca",
+    "arquivos"
+   ]
+  },
+  {
+   "id": "s04",
+   "dificuldade": "dificil",
+   "cenario": "oficina-orbital",
+   "titulo": "O Deposito 7-B",
+   "fala_intro": "Missao de detetive. O deposito 7-B tem senha propria: e o codigo do container, tudo junto e em minusculas. O codigo esta no relatorio da ponte. Leia o relatorio, descubra a senha, conecte em deposito.frota.orb e baixe o inventario.",
+   "fala_sucesso": "Deposito aberto e inventario nas suas maos. Quatrocentas latas de sopa de parafuso. Agora sabemos o tamanho do problema.",
+   "passos": [
+    {
+     "acao": "abrir_arquivo",
+     "texto": "Ler o relatorio_da_ponte.txt",
+     "dica": "Ele esta em /lar/cadete/documentos.",
+     "nome": "relatorio_da_ponte.txt"
+    },
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Transmissor Orbital",
+     "dica": "Icone dos tres blocos ligados.",
+     "app": "ftp"
+    },
+    {
+     "acao": "ftp_conectar",
+     "texto": "Conectar em deposito.frota.orb",
+     "dica": "A senha e o codigo do container sem o traco, em minusculas.",
+     "dica2": "O relatorio diz ALPHA-9902. A senha e alpha9902, tudo junto e minusculo.",
+     "servidor": "deposito.frota.orb"
+    },
+    {
+     "acao": "ftp_baixar",
+     "texto": "Baixar o inventario.txt",
+     "dica": "Selecione na lista da direita e clique em Baixar.",
+     "nome": "contem:inventario"
+    }
+   ],
+   "trilhas": [
+    "seguranca",
+    "terminal"
+   ],
+   "pontos_base": 100
+  },
+  {
+   "id": "s05",
+   "dificuldade": "dificil",
+   "cenario": "oficina-orbital",
+   "titulo": "Ponte entre Naves",
+   "fala_intro": "Contrabando logistico. Baixe o mapa_da_frota.txt da Alpha, desconecte, e envie o mesmo mapa para a Beta. A Beta nunca teve mapa e sempre se perde.",
+   "fala_sucesso": "Mapa transferido de uma nave para outra passando por voce. E assim que arquivo viaja entre servidores.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Transmissor Orbital",
+     "dica": "Icone dos tres blocos ligados.",
+     "app": "ftp"
+    },
+    {
+     "acao": "ftp_conectar",
+     "texto": "Conectar em alpha.frota.orb",
+     "dica": "Senha alpha.",
+     "servidor": "alpha.frota.orb"
+    },
+    {
+     "acao": "ftp_baixar",
+     "texto": "Baixar o mapa_da_frota.txt",
+     "dica": "Lista da direita, botao Baixar.",
+     "nome": "contem:mapa_da_frota"
+    },
+    {
+     "acao": "ftp_conectar",
+     "texto": "Conectar em beta.frota.orb",
+     "dica": "Feche e reabra o Transmissor para escolher outro servidor. Senha beta.",
+     "servidor": "beta.frota.orb"
+    },
+    {
+     "acao": "ftp_enviar",
+     "texto": "Enviar o mapa para a Beta",
+     "dica": "Lista da esquerda, botao Enviar.",
+     "nome": "contem:mapa_da_frota"
+    }
+   ],
+   "trilhas": [
+    "seguranca",
+    "arquivos"
+   ],
+   "pontos_base": 115
+  },
+  {
+   "id": "s06",
+   "dificuldade": "normal",
+   "cenario": "laboratorio-beta",
+   "titulo": "Rede Primeiro",
+   "fala_intro": "O Laboratorio Beta esta sem rede de novo. Nenhum servidor responde com a rede desligada. Ligue a rede nas Configuracoes e so entao conecte no alpha.frota.orb com a senha alpha.",
+   "fala_sucesso": "Rede ligada, servidor conectado. Ordem importa: sem conexao, nenhum programa de rede funciona.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir as Configuracoes do Sistema",
+     "dica": "Icone da engrenagem.",
+     "app": "config"
+    },
+    {
+     "acao": "alternar_rede",
+     "texto": "Ligar a rede orbital",
+     "dica": "Aba Rede, botao Conectar.",
+     "estado": "ligada"
+    },
+    {
+     "acao": "ftp_conectar",
+     "texto": "Conectar em alpha.frota.orb",
+     "dica": "Abra o Transmissor Orbital, senha alpha.",
+     "servidor": "alpha.frota.orb"
+    }
+   ],
+   "trilhas": [
+    "seguranca",
+    "geral"
+   ]
+  },
+  {
+   "id": "s07",
+   "dificuldade": "dificil",
+   "cenario": "oficina-orbital",
+   "titulo": "Backup Triplo",
+   "fala_intro": "Paranoia saudavel. Baixe o mapa da Alpha, faca uma copia dele no pendrive e escreva no Bloco de Notas um arquivo chamado backup.txt dizendo onde estao as copias. Arquivo importante mora em tres lugares.",
+   "fala_sucesso": "Tres copias e uma anotacao dizendo onde estao. Voce agora dorme tranquilo, cadete.",
+   "passos": [
+    {
+     "acao": "ftp_conectar",
+     "texto": "Conectar em alpha.frota.orb",
+     "dica": "Transmissor Orbital, senha alpha.",
+     "servidor": "alpha.frota.orb"
+    },
+    {
+     "acao": "ftp_baixar",
+     "texto": "Baixar o mapa_da_frota.txt",
+     "dica": "Lista da direita, botao Baixar.",
+     "nome": "contem:mapa_da_frota"
+    },
+    {
+     "acao": "copiar",
+     "texto": "Copiar o mapa em documentos",
+     "dica": "Selecione e aperte Ctrl+C.",
+     "nome": "contem:mapa_da_frota"
+    },
+    {
+     "acao": "colar",
+     "texto": "Colar no /midia/pendrive",
+     "dica": "Entre no pendrive e aperte Ctrl+V.",
+     "destino": "/midia/pendrive"
+    },
+    {
+     "acao": "salvar_arquivo",
+     "texto": "Criar backup.txt no Bloco de Notas",
+     "dica": "Escreva onde estao as copias e salve.",
+     "nome": "contem:backup"
+    }
+   ],
+   "trilhas": [
+    "seguranca",
+    "copiar"
+   ],
+   "pontos_base": 120
+  },
+  {
+   "id": "s08",
+   "dificuldade": "dificil",
+   "cenario": "oficina-orbital",
+   "titulo": "Acesso Negado, Depois Concedido",
+   "fala_intro": "Vou testar sua teimosia. Tente conectar no deposito.frota.orb com uma senha errada de proposito, veja a recusa, depois leia o email do deposito, descubra a senha certa e entre. Errar e parte do processo, insistir com metodo tambem.",
+   "fala_sucesso": "Negado, investigado e concedido. E exatamente assim que se resolve problema de acesso na vida real.",
+   "passos": [
+    {
+     "acao": "ftp_falha",
+     "texto": "Tentar conectar no deposito com senha errada",
+     "dica": "Escolha deposito.frota.orb e digite qualquer coisa no campo Senha.",
+     "servidor": "deposito.frota.orb"
+    },
+    {
+     "acao": "ler_email",
+     "texto": "Ler a mensagem do deposito no Correio Orbital",
+     "dica": "Assunto sobre liberacao de acesso.",
+     "id": "o1"
+    },
+    {
+     "acao": "abrir_arquivo",
+     "texto": "Ler o relatorio_da_ponte.txt para achar o codigo",
+     "dica": "Ele esta em documentos.",
+     "nome": "relatorio_da_ponte.txt"
+    },
+    {
+     "acao": "ftp_conectar",
+     "texto": "Conectar no deposito com a senha certa",
+     "dica": "A senha e alpha9902.",
+     "servidor": "deposito.frota.orb"
+    }
+   ],
+   "trilhas": [
+    "seguranca",
+    "geral"
+   ],
+   "pontos_base": 105
+  },
+  {
+   "id": "s09",
+   "dificuldade": "dificil",
+   "cenario": "oficina-orbital",
+   "titulo": "Transmissao sob Ataque",
+   "fala_intro": "Missao longa. Marque o email de seguranca falso como golpe, ligue a rede se precisar, conecte na Alpha, baixe a escala_de_turnos.txt e mande ela para o pendrive. E se aparecer alguma janela intrometida no meio, feche sem clicar na isca.",
+   "fala_sucesso": "Golpe barrado, arquivo resgatado e guardado. Voce trabalhou com interferencia e nao caiu em nenhuma.",
+   "passos": [
+    {
+     "acao": "marcar_golpe",
+     "texto": "Marcar como golpe a mensagem de seguranca falsa",
+     "dica": "Correio Orbital, botao direito na mensagem que pede senha.",
+     "id": "o2",
+     "correto": true
+    },
+    {
+     "acao": "ftp_conectar",
+     "texto": "Conectar em alpha.frota.orb",
+     "dica": "Transmissor Orbital, senha alpha.",
+     "servidor": "alpha.frota.orb"
+    },
+    {
+     "acao": "ftp_baixar",
+     "texto": "Baixar a escala_de_turnos.txt",
+     "dica": "Lista da direita, botao Baixar.",
+     "nome": "contem:escala_de_turnos"
+    },
+    {
+     "acao": "mover",
+     "texto": "Mover a escala para /midia/pendrive",
+     "dica": "Ela foi salva em documentos.",
+     "nome": "contem:escala_de_turnos",
+     "destino": "/midia/pendrive"
+    }
+   ],
+   "trilhas": [
+    "seguranca",
+    "arquivos"
+   ],
+   "pontos_base": 110
+  },
+  {
+   "id": "s10",
+   "dificuldade": "dificil",
+   "cenario": "oficina-orbital",
+   "titulo": "Correio e Servidor Juntos",
+   "fala_intro": "Duas formas de mandar arquivo, uma missao so. Envie o pedido_de_pecas.txt para a Beta pelo Transmissor, e mande o mesmo arquivo em anexo por email para vilma@frota.orb. Servidor e email fazem a mesma coisa por caminhos diferentes.",
+   "fala_sucesso": "Entregue por dois caminhos. Agora voce sabe escolher: email para pessoa, servidor para maquina.",
+   "passos": [
+    {
+     "acao": "ftp_conectar",
+     "texto": "Conectar em beta.frota.orb",
+     "dica": "Transmissor Orbital, senha beta.",
+     "servidor": "beta.frota.orb"
+    },
+    {
+     "acao": "ftp_enviar",
+     "texto": "Enviar o pedido_de_pecas.txt",
+     "dica": "Lista da esquerda, botao Enviar.",
+     "nome": "contem:pedido_de_pecas"
+    },
+    {
+     "acao": "anexar_arquivo",
+     "texto": "Anexar o mesmo arquivo numa nova mensagem",
+     "dica": "Correio Orbital, Nova mensagem, campo Anexo.",
+     "nome": "contem:pedido_de_pecas"
+    },
+    {
+     "acao": "enviar_email",
+     "texto": "Enviar para vilma@frota.orb",
+     "dica": "Preencha o campo Para e clique em Enviar.",
+     "para": "vilma@frota.orb"
+    }
+   ],
+   "trilhas": [
+    "seguranca",
+    "arquivos"
+   ],
+   "pontos_base": 105
+  }
+ ]
+}

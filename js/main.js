@@ -6,6 +6,7 @@ import { tocar, destravarAudio, calarVoz } from './sound.js';
 import { rodarBoot } from './boot.js';
 import { iniciarRosto, dizer, ouvirFala, completarFala } from './gabutron.js';
 import { prepararP95, montarP95 } from './p95.js';
+import { encaixarTodas } from './wm.js';
 import * as missao from './mission.js';
 import { sessao, zerarSessao, pintarPontos, lerPlacar, gravarPlacar, zerarPlacar } from './score.js';
 
@@ -194,6 +195,37 @@ function ligarFim() {
   });
 }
 
+/* ---------- modo tela cheia da area do computador ---------- */
+
+function ligarFoco() {
+  const botao = $('btn-foco');
+  botao.addEventListener('click', () => {
+    const ativo = document.body.dataset.foco === '1';
+    document.body.dataset.foco = ativo ? '0' : '1';
+    botao.textContent = ativo ? 'Tela cheia' : 'Voltar ao normal';
+    botao.title = ativo ? 'Ampliar a area do computador' : 'Mostrar o GabuTRON de novo';
+    tocar('clique');
+    requestAnimationFrame(encaixarTodas);
+  });
+  document.addEventListener('keydown', (ev) => {
+    if (ev.key === 'Escape' && document.body.dataset.foco === '1') botao.click();
+  });
+}
+
+/* Se a area do sistema mudar de tamanho, puxa as janelas de volta para dentro. */
+function vigiarTamanho() {
+  const area = $('p95');
+  if (!area || !window.ResizeObserver) {
+    window.addEventListener('resize', () => encaixarTodas());
+    return;
+  }
+  let esperando = null;
+  new ResizeObserver(() => {
+    clearTimeout(esperando);
+    esperando = setTimeout(encaixarTodas, 120);
+  }).observe(area);
+}
+
 /* ---------- PWA ---------- */
 
 function registrarSW() {
@@ -223,6 +255,8 @@ async function iniciar() {
   ligarPlacar();
   ligarGabutron();
   ligarFim();
+  ligarFoco();
+  vigiarTamanho();
   registrarSW();
 
   await rodarBoot();

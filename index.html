@@ -88,7 +88,9 @@
     <span class="leitura" id="leitura-tempo">TEMPO <b>--:--</b></span>
     <span class="leitura" id="leitura-pontos">PONTOS <b>0</b></span>
     <span class="leitura" id="leitura-missoes">MISSOES <b>0</b></span>
+    <span class="leitura" id="leitura-patente">PATENTE <b>Recruta</b></span>
 
+    <button class="btn" id="btn-foco" type="button" title="Ampliar a area do computador">Tela cheia</button>
     <button class="btn" id="btn-placar" type="button" title="Placar da maquina">Placar</button>
     <button class="btn" id="btn-ajustes" type="button" title="Ajustes">Ajustes</button>
   </header>
@@ -113,7 +115,6 @@
           <button class="btn btn--perigo" id="btn-pular" type="button">Pular missao (2)</button>
           <button class="btn btn--perigo" id="btn-desistir" type="button">Desistir</button>
         </div>
-        <ul id="passos"></ul>
       </div>
     </div>
   </section>
@@ -150,6 +151,14 @@
         </div>
       </div>
     </div>
+
+    <aside class="painel" id="painel-passos">
+      <div class="painel__topo">CHECKLIST DA MISSAO</div>
+      <div class="painel__corpo">
+        <p id="missao-titulo">Nenhuma missao em andamento.</p>
+        <ul id="passos"></ul>
+      </div>
+    </aside>
   </main>
 
   <!-- rodape -->

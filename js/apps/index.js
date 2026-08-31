@@ -6,6 +6,9 @@ import { abrirTerminal } from './terminal.js';
 import { abrirEmail } from './email.js';
 import { abrirNavegador } from './navegador.js';
 import { abrirConfig } from './config95.js';
+import { abrirDesenho } from './desenho.js';
+import { abrirFtp } from './ftp.js';
+import { abrirPacotes, abrirNotas } from './utilitarios.js';
 import { criarJanela } from '../wm.js';
 import { acao } from '../bus.js';
 
@@ -41,7 +44,11 @@ export const APPS = {
   lixeira:    { nome: 'Lixeira',                icone: 'lixeiraVazia', abrir: () => abrirLixeira() },
   manual:     { nome: 'Manual da Frota',        icone: 'manual',     abrir: abrirManual },
   computador: { nome: 'Meu Computador',         icone: 'computador', abrir: () => abrirExplorador('/') },
-  pendrive:   { nome: 'Midia Externa',          icone: 'pendrive',   abrir: () => abrirExplorador('/midia/pendrive') }
+  pendrive:   { nome: 'Midia Externa',          icone: 'pendrive',   abrir: () => abrirExplorador('/midia/pendrive') },
+  desenho:    { nome: 'Pinguim Pincel',         icone: 'desenho',    abrir: () => abrirDesenho() },
+  ftp:        { nome: 'Transmissor Orbital',    icone: 'rede',       abrir: () => abrirFtp() },
+  pacotes:    { nome: 'Central de Pacotes',     icone: 'pacote',     abrir: () => abrirPacotes() },
+  notas:      { nome: 'Bloco de Notas',         icone: 'arquivo',    abrir: (c) => abrirNotas(c) }
 };
 
 export function abrirApp(id, ...args) {

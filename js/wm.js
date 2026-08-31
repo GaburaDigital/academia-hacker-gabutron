@@ -52,6 +52,27 @@ export function fecharTodas() {
   z = 10;
 }
 
+/* Mantem a janela inteiramente dentro da area do sistema.
+   Nenhuma janela pode nascer nem ser arrastada para fora: se a barra de titulo
+   sair da tela, o aluno perde o controle dela. */
+export function encaixar(el) {
+  const caixa = camada().getBoundingClientRect();
+  if (!caixa.width || el.dataset.max === '1') return;
+  const largura = Math.min(el.offsetWidth, caixa.width);
+  const altura = Math.min(el.offsetHeight, caixa.height);
+  if (el.offsetWidth > caixa.width) el.style.width = largura + 'px';
+  if (el.offsetHeight > caixa.height) el.style.height = altura + 'px';
+  const x = Math.min(Math.max(0, el.offsetLeft), Math.max(0, caixa.width - largura));
+  const y = Math.min(Math.max(0, el.offsetTop), Math.max(0, caixa.height - altura));
+  el.style.left = x + 'px';
+  el.style.top = y + 'px';
+}
+
+export function encaixarTodas() {
+  for (const j of janelas.values()) encaixar(j.el);
+  for (const d of document.querySelectorAll('.p95-dialogo')) encaixar(d);
+}
+
 function arrastavel(el, alca) {
   alca.addEventListener('mousedown', (ev) => {
     if (ev.button !== 0 || el.dataset.max === '1') return;
@@ -60,8 +81,10 @@ function arrastavel(el, alca) {
     const dx = ev.clientX - el.offsetLeft;
     const dy = ev.clientY - el.offsetTop;
     const mover = (e) => {
-      el.style.left = Math.min(Math.max(0, e.clientX - dx), caixa.width - 60) + 'px';
-      el.style.top = Math.min(Math.max(0, e.clientY - dy), caixa.height - 24) + 'px';
+      const limiteX = Math.max(0, caixa.width - el.offsetWidth);
+      const limiteY = Math.max(0, caixa.height - el.offsetHeight);
+      el.style.left = Math.min(Math.max(0, e.clientX - dx), limiteX) + 'px';
+      el.style.top = Math.min(Math.max(0, e.clientY - dy), limiteY) + 'px';
     };
     const soltar = () => {
       document.removeEventListener('mousemove', mover);
@@ -79,15 +102,18 @@ export function criarJanela(op) {
   if (existente && !op.multipla) { ativar(existente.id); existente.jaExistia = true; return existente; }
 
   const id = 'jan' + (++contador);
+  const area = camada().getBoundingClientRect();
   const el = document.createElement('div');
   el.className = 'p95-janela';
   el.dataset.ativa = '1';
   el.dataset.min = '0';
-  el.style.width = (op.largura || 520) + 'px';
-  el.style.height = (op.altura || 340) + 'px';
+  const largura = Math.min(op.largura || 520, Math.max(260, area.width - 12));
+  const altura = Math.min(op.altura || 340, Math.max(150, area.height - 12));
+  el.style.width = largura + 'px';
+  el.style.height = altura + 'px';
   const desloque = (contador % 6) * 18;
-  el.style.left = (op.x ?? 40 + desloque) + 'px';
-  el.style.top = (op.y ?? 26 + desloque) + 'px';
+  el.style.left = Math.min(op.x ?? 30 + desloque, Math.max(0, area.width - largura)) + 'px';
+  el.style.top = Math.min(op.y ?? 20 + desloque, Math.max(0, area.height - altura)) + 'px';
   el.style.zIndex = ++z;
 
   const icone = ICONES95[op.icone] || ICONES95.executavel;
@@ -153,6 +179,7 @@ export function criarJanela(op) {
     el.dataset.max = el.dataset.max === '1' ? '0' : '1';
   });
 
+  encaixar(el);
   tocar('abrir');
   ativar(id);
   acao('abrir_app', { app: op.app });
@@ -177,6 +204,7 @@ export function dialogoEntrada({ titulo, texto, valor = '' }) {
         <button class="p95-btn" data-cancelar>Cancelar</button>
       </div>`;
     area.appendChild(cx);
+    prepararDialogo(cx, () => { cx.remove(); resolve(null); });
     const campo = cx.querySelector('.entrada');
     campo.value = valor;
     campo.focus();
@@ -211,7 +239,32 @@ export function dialogo({ titulo, texto, icone = 'aviso', botoes = ['OK'] }) {
       acoes.appendChild(b);
     });
     area.appendChild(cx);
+    prepararDialogo(cx, () => { cx.remove(); resolve(botoes.length - 1); });
     tocar('alerta');
     acoes.querySelector('button')?.focus();
   });
+}
+
+
+/* Centraliza o dialogo dentro da area do sistema, deixa arrastavel e garante
+   que os botoes nunca fiquem fora da tela. */
+function prepararDialogo(cx, aoFechar) {
+  const caixa = camada().getBoundingClientRect();
+  cx.style.transform = 'none';
+  cx.style.maxHeight = Math.max(120, caixa.height - 16) + 'px';
+  cx.style.left = Math.max(0, Math.round((caixa.width - cx.offsetWidth) / 2)) + 'px';
+  cx.style.top = Math.max(0, Math.round((caixa.height - cx.offsetHeight) / 2)) + 'px';
+
+  const barra = cx.querySelector('.p95-barra');
+  if (barra && !barra.querySelector('.p95-btn-barra')) {
+    const x = document.createElement('button');
+    x.className = 'p95-btn-barra';
+    x.type = 'button';
+    x.textContent = 'X';
+    x.setAttribute('aria-label', 'Fechar');
+    x.addEventListener('click', aoFechar);
+    barra.appendChild(x);
+  }
+  if (barra) arrastavel(cx, barra);
+  encaixar(cx);
 }

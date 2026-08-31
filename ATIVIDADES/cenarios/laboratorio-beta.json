@@ -112,6 +112,13 @@
   "navegador",
   "config",
   "manual",
+  "ftp",
+  "pacotes",
+  "notas",
   "lixeira"
+ ],
+ "pacotes_instalados": [
+  "pinguim-pincel",
+  "transmissor-orbital"
  ]
 }
