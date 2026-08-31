@@ -1,0 +1,358 @@
+{
+ "pacote": "Terminal - Primeiros Passos",
+ "missoes": [
+  {
+   "id": "t01",
+   "dificuldade": "normal",
+   "cenario": "nave-alpha",
+   "titulo": "Onde Diabos Eu Estou",
+   "fala_intro": "Terminal e so uma janela onde voce escreve em vez de clicar. Nada de misterio. Abra o Terminal, descubra onde voce esta com pwd, liste o que tem ali com ls e entre em documentos com cd documentos.",
+   "fala_sucesso": "Voce se localizou, olhou em volta e andou. E exatamente isso que o terminal faz.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Terminal",
+     "dica": "Icone preto na area de trabalho.",
+     "app": "terminal"
+    },
+    {
+     "acao": "comando_terminal",
+     "texto": "Digitar pwd e apertar Enter",
+     "dica": "pwd mostra o caminho da pasta onde voce esta.",
+     "comando": "re:^pwd"
+    },
+    {
+     "acao": "comando_terminal",
+     "texto": "Digitar ls e apertar Enter",
+     "dica": "ls lista o que existe na pasta atual.",
+     "comando": "re:^ls"
+    },
+    {
+     "acao": "comando_terminal",
+     "texto": "Digitar cd documentos e apertar Enter",
+     "dica": "cd significa entrar. Depois dele vem o nome da pasta.",
+     "dica2": "Escreva exatamente: cd documentos e aperte Enter. Para voltar uma pasta use cd .. com dois pontinhos.",
+     "comando": "re:^cd\\s+documentos"
+    }
+   ]
+  },
+  {
+   "id": "t02",
+   "dificuldade": "normal",
+   "cenario": "nave-alpha",
+   "titulo": "Ler Sem Abrir Janela",
+   "fala_intro": "Existe um jeito de ler um arquivo sem abrir programa nenhum. Entre em documentos pelo terminal e use cat no relatorio_da_ponte.txt. La dentro tem um codigo de container que voce vai precisar um dia.",
+   "fala_sucesso": "Arquivo lido direto no terminal. Anote o codigo do container, ele volta em outra missao.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Terminal",
+     "dica": "Icone preto na area de trabalho.",
+     "app": "terminal"
+    },
+    {
+     "acao": "comando_terminal",
+     "texto": "Entrar em documentos com cd",
+     "dica": "Escreva cd documentos.",
+     "comando": "re:^cd\\s+documentos"
+    },
+    {
+     "acao": "comando_terminal",
+     "texto": "Ler o relatorio com cat",
+     "dica": "Escreva cat relatorio_da_ponte.txt.",
+     "dica2": "cat mostra o conteudo de um arquivo direto na tela. Digite: cat relatorio_da_ponte.txt",
+     "comando": "re:^cat\\s+relatorio"
+    }
+   ]
+  },
+  {
+   "id": "t03",
+   "dificuldade": "normal",
+   "cenario": "nave-alpha",
+   "titulo": "Construindo pelo Teclado",
+   "fala_intro": "Tudo que o mouse faz, o teclado faz mais rapido. Use mkdir para criar uma pasta chamada oficina, entre nela com cd, crie um arquivo vazio com touch e confira com ls.",
+   "fala_sucesso": "Pasta e arquivo criados sem tocar no mouse. Abra o Explorador depois e veja: estao la de verdade.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Terminal",
+     "dica": "Icone preto na area de trabalho.",
+     "app": "terminal"
+    },
+    {
+     "acao": "comando_terminal",
+     "texto": "Criar a pasta oficina com mkdir",
+     "dica": "Escreva mkdir oficina.",
+     "comando": "re:^mkdir\\s+oficina"
+    },
+    {
+     "acao": "comando_terminal",
+     "texto": "Entrar na pasta oficina",
+     "dica": "Escreva cd oficina.",
+     "comando": "re:^cd\\s+oficina"
+    },
+    {
+     "acao": "comando_terminal",
+     "texto": "Criar um arquivo com touch",
+     "dica": "Escreva touch e o nome do arquivo, por exemplo touch plano.txt.",
+     "comando": "re:^touch\\s+\\S+"
+    },
+    {
+     "acao": "comando_terminal",
+     "texto": "Conferir com ls",
+     "dica": "Escreva ls para ver o que apareceu.",
+     "comando": "re:^ls"
+    }
+   ]
+  },
+  {
+   "id": "t04",
+   "dificuldade": "normal",
+   "cenario": "nave-alpha",
+   "titulo": "Mudanca de Endereco",
+   "fala_intro": "O comando mv faz duas coisas: move e renomeia. Depende do que voce escreve depois. Entre em documentos, renomeie a lista_de_compras.txt para lista_secreta.txt e depois mova ela para o pendrive.",
+   "fala_sucesso": "Renomeou e moveu com o mesmo comando. mv e canivete suico do terminal.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Terminal",
+     "dica": "Icone preto na area de trabalho.",
+     "app": "terminal"
+    },
+    {
+     "acao": "comando_terminal",
+     "texto": "Entrar em documentos",
+     "dica": "Escreva cd documentos.",
+     "comando": "re:^cd\\s+documentos"
+    },
+    {
+     "acao": "comando_terminal",
+     "texto": "Renomear com mv",
+     "dica": "Escreva: mv lista_de_compras.txt lista_secreta.txt",
+     "dica2": "A regra e mv nome_antigo nome_novo. Escreva: mv lista_de_compras.txt lista_secreta.txt",
+     "comando": "re:^mv\\s+lista_de_compras"
+    },
+    {
+     "acao": "mover",
+     "texto": "Mover o arquivo para /midia/pendrive",
+     "dica": "Escreva: mv lista_secreta.txt /midia/pendrive",
+     "destino": "/midia/pendrive"
+    }
+   ]
+  },
+  {
+   "id": "t05",
+   "dificuldade": "normal",
+   "cenario": "nave-alpha",
+   "titulo": "Copia Fantasma",
+   "fala_intro": "Copiar pelo terminal usa cp. Faca uma copia da piada_do_capitao.txt para dentro do pendrive. A frota precisa de humor tanto quanto de oxigenio.",
+   "fala_sucesso": "Copia feita. O original continua no lugar, que e a diferenca entre cp e mv.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Terminal",
+     "dica": "Icone preto na area de trabalho.",
+     "app": "terminal"
+    },
+    {
+     "acao": "comando_terminal",
+     "texto": "Entrar em documentos",
+     "dica": "Escreva cd documentos.",
+     "comando": "re:^cd\\s+documentos"
+    },
+    {
+     "acao": "comando_terminal",
+     "texto": "Copiar com cp para o pendrive",
+     "dica": "Escreva: cp piada_do_capitao.txt /midia/pendrive",
+     "dica2": "A regra e cp arquivo pasta_destino. O destino aqui e /midia/pendrive, com barra na frente.",
+     "comando": "re:^cp\\s+piada"
+    }
+   ]
+  },
+  {
+   "id": "t06",
+   "dificuldade": "normal",
+   "cenario": "nave-alpha",
+   "titulo": "Remocao Controlada",
+   "fala_intro": "Neste sistema o comando rm manda para a lixeira em vez de apagar de vez, porque eu sou generoso. Remova o arquivo bolo.txt das receitas pelo terminal e depois abra a Lixeira para confirmar que ele esta la.",
+   "fala_sucesso": "Removido pelo teclado e conferido pelo mouse. Terminal e janela olham para os mesmos arquivos.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Terminal",
+     "dica": "Icone preto na area de trabalho.",
+     "app": "terminal"
+    },
+    {
+     "acao": "comando_terminal",
+     "texto": "Entrar na pasta receitas",
+     "dica": "Escreva cd receitas.",
+     "comando": "re:^cd\\s+receitas"
+    },
+    {
+     "acao": "comando_terminal",
+     "texto": "Remover bolo.txt",
+     "dica": "Escreva rm bolo.txt.",
+     "comando": "re:^rm\\s+bolo"
+    },
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir a Lixeira para conferir",
+     "dica": "Icone da lata na area de trabalho.",
+     "app": "lixeira"
+    }
+   ]
+  },
+  {
+   "id": "t07",
+   "dificuldade": "normal",
+   "cenario": "nave-alpha",
+   "titulo": "Clonando a Frota",
+   "fala_intro": "Repositorio e uma pasta com historico de tudo que ja mudou nela. Clonar e trazer uma copia para a sua maquina. Use git clone com o endereco https://frota.orb/repo/escudo-orbital.git, liste o que apareceu e leia o LEIAME.txt de dentro.",
+   "fala_sucesso": "Repositorio clonado. Isso e literalmente o que programadores fazem todo dia antes do cafe.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Terminal",
+     "dica": "Icone preto na area de trabalho.",
+     "app": "terminal"
+    },
+    {
+     "acao": "clonar_repo",
+     "texto": "Clonar o repositorio escudo-orbital",
+     "dica": "Escreva: git clone https://frota.orb/repo/escudo-orbital.git",
+     "dica2": "git clone traz uma copia de um projeto inteiro. Copie o endereco exatamente como esta na missao.",
+     "nome": "escudo-orbital"
+    },
+    {
+     "acao": "comando_terminal",
+     "texto": "Listar a pasta com ls",
+     "dica": "Escreva ls para ver a pasta nova.",
+     "comando": "re:^ls"
+    },
+    {
+     "acao": "comando_terminal",
+     "texto": "Ler o LEIAME do repositorio",
+     "dica": "Entre com cd escudo-orbital e depois cat LEIAME.txt.",
+     "comando": "re:^cat\\s+LEIAME"
+    }
+   ]
+  },
+  {
+   "id": "t08",
+   "dificuldade": "normal",
+   "cenario": "nave-alpha",
+   "titulo": "Instalando Ferramenta",
+   "fala_intro": "Instalar programa pelo terminal e mais rapido que procurar site duvidoso. Atualize a lista de pacotes com apt update, instale o frota-scan com apt install e depois rode a ferramenta para varrer a frota.",
+   "fala_sucesso": "Ferramenta instalada e frota varrida. Repare na torradeira suspeita no endereco 10.42.7.99.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Terminal",
+     "dica": "Icone preto na area de trabalho.",
+     "app": "terminal"
+    },
+    {
+     "acao": "comando_terminal",
+     "texto": "Atualizar a lista de pacotes",
+     "dica": "Escreva apt update.",
+     "comando": "re:^apt\\s+update"
+    },
+    {
+     "acao": "instalar_pacote",
+     "texto": "Instalar o pacote frota-scan",
+     "dica": "Escreva: apt install frota-scan",
+     "pacote": "frota-scan"
+    },
+    {
+     "acao": "ferramenta_ficticia",
+     "texto": "Rodar o frota-scan",
+     "dica": "Escreva frota-scan e aperte Enter.",
+     "nome": "frota-scan"
+    }
+   ]
+  },
+  {
+   "id": "t09",
+   "dificuldade": "normal",
+   "cenario": "nave-alpha",
+   "titulo": "Quem Responde Ai",
+   "fala_intro": "Todo computador na rede tem um endereco, o tal do IP. Descubra o seu com o comando ip e depois teste se a nave alpha responde usando ping 10.42.7.1.",
+   "fala_sucesso": "Endereco descoberto e alvo respondendo. ping serve para saber se a outra ponta esta viva.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Terminal",
+     "dica": "Icone preto na area de trabalho.",
+     "app": "terminal"
+    },
+    {
+     "acao": "comando_terminal",
+     "texto": "Descobrir o endereco da maquina",
+     "dica": "Escreva ip e aperte Enter.",
+     "comando": "re:^ip$|^ifconfig"
+    },
+    {
+     "acao": "comando_terminal",
+     "texto": "Testar a nave alpha com ping",
+     "dica": "Escreva: ping 10.42.7.1",
+     "comando": "re:^ping\\s+10\\.42\\.7\\.1"
+    }
+   ]
+  },
+  {
+   "id": "t10",
+   "dificuldade": "dificil",
+   "cenario": "nave-alpha",
+   "titulo": "Verme de Brinquedo",
+   "fala_intro": "Missao longa, cadete, respira. Va nas receitas, marque a sopa.txt com a palavra INFECTADA, abra o terminal, entre na pasta, rode o worminator no arquivo, copie ele para o pendrive e mande um aviso para a engenharia. Se der tudo certo, o refeitorio inteiro passa a falar em rima.",
+   "fala_sucesso": "Verme de mentirinha entregue e engenharia avisada. Voce encadeou seis acoes sem se perder. Isso e nivel de sabotador.",
+   "passos": [
+    {
+     "acao": "navegar_pasta",
+     "texto": "Entrar na pasta receitas pelo Explorador",
+     "dica": "Dois cliques na pasta receitas.",
+     "caminho": "/lar/cadete/receitas"
+    },
+    {
+     "acao": "renomear",
+     "texto": "Renomear sopa.txt incluindo INFECTADA",
+     "dica": "Selecione e aperte F2.",
+     "para": "contem:INFECTADA"
+    },
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Terminal",
+     "dica": "Icone preto na area de trabalho.",
+     "app": "terminal"
+    },
+    {
+     "acao": "comando_terminal",
+     "texto": "Entrar na pasta receitas pelo terminal",
+     "dica": "Escreva cd receitas.",
+     "comando": "re:^cd\\s+receitas"
+    },
+    {
+     "acao": "ferramenta_ficticia",
+     "texto": "Rodar o worminator no arquivo",
+     "dica": "Escreva worminator seguido do nome do arquivo.",
+     "dica2": "Digite: worminator sopa_INFECTADA.txt (use o nome exato que voce deu). A ferramenta e falsa e serve so para o exercicio.",
+     "nome": "worminator"
+    },
+    {
+     "acao": "comando_terminal",
+     "texto": "Copiar o arquivo para o pendrive com cp",
+     "dica": "Escreva: cp o_nome_do_arquivo /midia/pendrive",
+     "comando": "re:^cp\\s+"
+    },
+    {
+     "acao": "enviar_email",
+     "texto": "Avisar engenharia@frota.orb",
+     "dica": "Abra o Correio Orbital e envie uma nova mensagem.",
+     "para": "engenharia@frota.orb"
+    }
+   ],
+   "pontos_base": 110
+  }
+ ]
+}

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Academia Hacker GabuTRON</title>
+<meta name="description" content="Aplicacao web de treinamento em uso do computador: mouse, janelas, arquivos, terminal e nocoes de seguranca da informacao.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+<link rel="apple-touch-icon" href="assets/icons/icon-512.svg">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="css/core.css">
+<link rel="stylesheet" href="css/shell.css">
+<link rel="stylesheet" href="css/p95.css">
+<link rel="stylesheet" href="css/themes.css">
+</head>
+<body data-tema="escuro" data-crt="1">
+
+<!-- ============ boot ============ -->
+<div id="boot">
+  <button class="btn" id="boot-pular" type="button">Pular</button>
+  <pre></pre>
+</div>
+
+<!-- ============ aviso em aparelho sem mouse ============ -->
+<div id="bloqueio">
+  <svg viewBox="0 0 32 32" aria-hidden="true">
+    <rect x="2" y="4" width="28" height="20" rx="2" fill="none" stroke="#9aa3ad" stroke-width="1.4"/>
+    <rect x="13" y="24" width="6" height="3" fill="#9aa3ad"/>
+    <rect x="8" y="27" width="16" height="2" rx="1" fill="#9aa3ad"/>
+    <path d="M9 10h6M9 14h4" stroke="#35e07a" stroke-width="1.4"/>
+  </svg>
+  <h1>Este treino precisa de mouse e teclado</h1>
+  <p>Cadete, o simulador da frota nao roda no comunicador de pulso. Abra a Academia
+     em um computador com mouse, teclado e tela de pelo menos 800 pixels de largura.</p>
+  <p><a href="https://sites.google.com/view/links-gabura" target="_blank" rel="noopener"
+        style="color:#35e07a">Outros exercicios do GABURA</a></p>
+</div>
+
+<!-- ============ aplicacao ============ -->
+<div id="app">
+
+  <!-- barra de treino -->
+  <header id="barra-treino">
+    <span class="marca">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <rect x="2" y="4" width="28" height="20" rx="2" fill="none" stroke="#35e07a" stroke-width="1.4"/>
+        <path d="M7 10h9M7 14h6" stroke="#35e07a" stroke-width="1.4"/>
+        <path d="M13 24h6M10 28h12" stroke="#9aa3ad" stroke-width="1.4"/>
+      </svg>
+      ACADEMIA HACKER GABUTRON <span>/ treino de operacao de computador</span>
+    </span>
+
+    <label class="campo">Dificuldade
+      <select id="sel-dificuldade">
+        <option value="facil">Facil</option>
+        <option value="normal">Normal</option>
+        <option value="dificil">Dificil</option>
+        <option value="mista">Mista</option>
+      </select>
+    </label>
+
+    <label class="campo">Trilha
+      <select id="sel-trilha">
+        <option value="geral">Generalista</option>
+        <option value="mouse">Mouse</option>
+        <option value="arquivos">Arquivos</option>
+        <option value="copiar">Copiar e colar</option>
+        <option value="terminal">Terminal</option>
+        <option value="seguranca">Seguranca</option>
+      </select>
+    </label>
+
+    <label class="campo">Turno
+      <select id="sel-minutos">
+        <option value="10">10 min</option>
+        <option value="25" selected>25 min</option>
+        <option value="60">60 min</option>
+      </select>
+    </label>
+
+    <label class="campo interruptor" title="Sem cronometro">
+      <input type="checkbox" id="chk-infinito"> tempo livre
+    </label>
+
+    <button class="btn btn--destaque" id="btn-iniciar" type="button">Iniciar treino</button>
+
+    <span class="leitura" id="leitura-tempo">TEMPO <b>--:--</b></span>
+    <span class="leitura" id="leitura-pontos">PONTOS <b>0</b></span>
+    <span class="leitura" id="leitura-missoes">MISSOES <b>0</b></span>
+
+    <button class="btn" id="btn-placar" type="button" title="Placar da maquina">Placar</button>
+    <button class="btn" id="btn-ajustes" type="button" title="Ajustes">Ajustes</button>
+  </header>
+
+  <!-- GabuTRON -->
+  <section id="faixa-ia">
+    <div class="painel" id="rosto-ia" data-humor="normal">
+      <div class="painel__topo">IA DE TREINO</div>
+      <div class="painel__corpo"><pre aria-hidden="true"></pre></div>
+    </div>
+
+    <div class="painel" id="fala">
+      <div class="painel__topo">TRANSMISSAO</div>
+      <div class="painel__corpo">
+        <div id="fala-texto" role="status" aria-live="polite">
+          Ajuste o treino ali em cima e aperte "Iniciar treino" quando estiver pronto, cadete.
+        </div>
+        <div id="fala-acoes">
+          <button class="btn" id="btn-ouvir" type="button">Ouvir</button>
+          <button class="btn" id="btn-dica" type="button">Dica</button>
+          <button class="btn" id="btn-proximo" type="button" disabled>Proxima missao</button>
+          <button class="btn btn--perigo" id="btn-pular" type="button">Pular missao (2)</button>
+          <button class="btn btn--perigo" id="btn-desistir" type="button">Desistir</button>
+        </div>
+        <ul id="passos"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- computador simulado -->
+  <main id="palco">
+    <div id="moldura">
+      <div id="p95" data-estado="ligado">
+        <div id="p95-mesa"></div>
+        <div id="p95-janelas"></div>
+        <div id="p95-reboot"></div>
+
+        <div id="p95-inicio-painel" data-aberto="0">
+          <div class="faixa">Pinguim 95x</div>
+          <div class="conteudo">
+            <input type="text" placeholder="Pesquisar programa" aria-label="Pesquisar programa">
+            <ul></ul>
+          </div>
+        </div>
+
+        <div id="p95-tarefas">
+          <button class="p95-inicio" id="p95-inicio" type="button">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <ellipse cx="16" cy="19" rx="10" ry="12" fill="#1b1f24"/>
+              <ellipse cx="16" cy="21" rx="6.5" ry="9" fill="#ffffff"/>
+              <circle cx="12.6" cy="12" r="2" fill="#ffffff"/><circle cx="19.4" cy="12" r="2" fill="#ffffff"/>
+              <circle cx="12.8" cy="12.3" r="1" fill="#1b1f24"/><circle cx="19.2" cy="12.3" r="1" fill="#1b1f24"/>
+              <path d="M16 14l-3 2.4h6z" fill="#f0a419"/>
+            </svg>
+            Iniciar
+          </button>
+          <div id="p95-lista-tarefas" style="display:flex;gap:4px;flex:1;overflow:hidden"></div>
+          <div id="p95-relogio">31/02/3026  42:05</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- rodape -->
+  <footer id="rodape">
+    <span>criado por GABURA - estude, aprenda e compartilhe mais exercicio em:
+      <a href="https://sites.google.com/view/links-gabura" target="_blank" rel="noopener">sites.google.com/view/links-gabura</a>
+    </span>
+    <a class="rodape__repo" href="https://github.com/GaburaDigital/academia-hacker-gabutron"
+       target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#9aa3ad" stroke-width="1.6" aria-hidden="true">
+        <path d="M4 4h11l5 5v11H4z"/><path d="M15 4v5h5" stroke="#35e07a"/>
+        <path d="M8 13h8M8 16h5" stroke="#35e07a"/>
+      </svg>
+      Acessar repositorio - CODIGO ABERTO
+    </a>
+  </footer>
+</div>
+
+<!-- ============ modais ============ -->
+<div class="modal" id="modal-ajustes" role="dialog" aria-modal="true" aria-labelledby="t-ajustes">
+  <div class="modal__caixa">
+    <h2 class="modal__titulo" id="t-ajustes">Ajustes</h2>
+    <div id="ajustes">
+      <div class="linha"><span>Efeitos sonoros</span>
+        <label class="interruptor"><input type="checkbox" id="aj-som"> ligados</label></div>
+      <div class="linha"><span>Voz do GabuTRON ao mostrar missao</span>
+        <label class="interruptor"><input type="checkbox" id="aj-voz"> automatica</label></div>
+      <div class="linha"><span>Varredura de tela (efeito CRT)</span>
+        <label class="interruptor"><input type="checkbox" id="aj-crt"> ligada</label></div>
+      <div class="linha"><span>Modo claro</span>
+        <label class="interruptor"><input type="checkbox" id="aj-claro"> ativado</label></div>
+      <div class="linha"><span>Codinome do cadete</span>
+        <input type="text" id="aj-codinome" maxlength="18" placeholder="ex.: Corvo-7"
+               style="background:transparent;color:inherit;border:1px solid var(--linha);padding:3px 6px"></div>
+    </div>
+    <p style="font-size:12px;color:var(--tinta-fraca)">
+      O progresso das missoes nao e guardado: varios alunos usam o mesmo computador.
+      Ficam salvos apenas estes ajustes e o placar.</p>
+    <div class="modal__acoes">
+      <button class="btn btn--perigo" id="btn-limpar-cache" type="button">Limpar cache</button>
+      <button class="btn" id="btn-fechar-ajustes" type="button">Fechar</button>
+      <button class="btn btn--destaque" id="btn-salvar-ajustes" type="button">Salvar preferencias</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal-placar" role="dialog" aria-modal="true" aria-labelledby="t-placar">
+  <div class="modal__caixa">
+    <h2 class="modal__titulo" id="t-placar">Placar da maquina</h2>
+    <ul id="placar-lista"></ul>
+    <p id="placar-vazio">Ninguem pontuou nesta maquina ainda.</p>
+    <div class="modal__acoes">
+      <button class="btn btn--perigo" id="btn-zerar-placar" type="button">Zerar placar</button>
+      <button class="btn" id="btn-fechar-placar" type="button">Fechar</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal-confirma" role="dialog" aria-modal="true" aria-labelledby="t-confirma">
+  <div class="modal__caixa">
+    <h2 class="modal__titulo" id="t-confirma">Confirmar</h2>
+    <p class="modal__texto" id="confirma-texto"></p>
+    <div class="modal__acoes">
+      <button class="btn" id="confirma-nao" type="button">Voltar</button>
+      <button class="btn btn--destaque" id="confirma-sim" type="button">Confirmar</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal-fim" role="dialog" aria-modal="true" aria-labelledby="t-fim">
+  <div class="modal__caixa">
+    <h2 class="modal__titulo" id="t-fim">Fim do turno</h2>
+    <p class="modal__texto" id="fim-texto"></p>
+    <div class="modal__acoes">
+      <button class="btn" id="btn-fim-placar" type="button">Ver placar</button>
+      <button class="btn btn--destaque" id="btn-fim-novo" type="button">Novo treino</button>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+/* ==========================================================================
+   themes.css - modo claro
+   Muda so a casca. O Pinguim 95x continua cinza para nao se confundir
+   com o resto da interface, que e o ponto pedagogico da atividade.
+   ========================================================================== */
+
+body[data-tema="claro"] {
+  --fundo: #f2f4f2;
+  --frente: #14180f;
+  --linha: #b4bcb4;
+  --tinta-fraca: #5c665c;
+  --destaque: #0d7a3c;
+  --alerta: #9a5b00;
+  --erro: #b21f17;
+}
+
+body[data-tema="claro"] #boot { background: #f2f4f2; color: #0d7a3c; }
+body[data-tema="claro"] #boot .cursor { background: #0d7a3c; }
+body[data-tema="claro"] #bloqueio { background: #f2f4f2; color: #14180f; }
+body[data-tema="claro"] .modal { background: rgba(230, 234, 230, 0.86); }
+
+/* no modo claro a moldura do sistema fica mais espessa para continuar separando
+   visualmente "o site" de "o computador dentro do site" */
+body[data-tema="claro"] #moldura { border-width: 3px; border-color: #14180f; }
+body[data-tema="claro"] #moldura::before { background: #f2f4f2; color: #14180f; }
+
+body[data-tema="claro"] #app::before { display: none; }

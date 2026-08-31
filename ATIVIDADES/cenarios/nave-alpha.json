@@ -1,0 +1,365 @@
+{
+ "id": "nave-alpha",
+ "nome": "Nave Alpha",
+ "arvore": [
+  {
+   "nome": "lar",
+   "tipo": "pasta",
+   "filhos": [
+    {
+     "nome": "cadete",
+     "tipo": "pasta",
+     "filhos": [
+      {
+       "nome": "documentos",
+       "tipo": "pasta",
+       "filhos": [
+        {
+         "nome": "relatorio_da_ponte.txt",
+         "tipo": "arquivo",
+         "conteudo": "RELATORIO DA PONTE\nCiclo 407.\nO cabo laranja voltou a soltar faisca.\nCodigo do container: ALPHA-9902\nAssinado: Sargento Vilma",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "lista_de_compras.txt",
+         "tipo": "arquivo",
+         "conteudo": "cafe (urgente)\nfusivel orbital\nfita isolante\nmais cafe",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "senha_do_wifi.txt",
+         "tipo": "arquivo",
+         "conteudo": "rede: FROTA-ALPHA\nsenha: 123456\n\nObservacao do instrutor: essa senha e pessima. Descubra por que.",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "piada_do_capitao.txt",
+         "tipo": "arquivo",
+         "conteudo": "Por que o pinguim nao usa computador quente?\nPorque ele prefere o sistema frio.",
+         "icone": "arquivo",
+         "protegido": false
+        }
+       ],
+       "protegido": false
+      },
+      {
+       "nome": "imagens",
+       "tipo": "pasta",
+       "filhos": [
+        {
+         "nome": "nave_alpha.png",
+         "tipo": "arquivo",
+         "conteudo": "(imagem da nave alpha)",
+         "icone": "imagem",
+         "protegido": false
+        },
+        {
+         "nome": "robo_cozinheiro.png",
+         "tipo": "arquivo",
+         "conteudo": "(foto do robo cozinheiro 14)",
+         "icone": "imagem",
+         "protegido": false
+        },
+        {
+         "nome": "sopa_de_parafuso.png",
+         "tipo": "arquivo",
+         "conteudo": "(prova do crime)",
+         "icone": "imagem",
+         "protegido": false
+        }
+       ],
+       "protegido": false
+      },
+      {
+       "nome": "arquivo_morto",
+       "tipo": "pasta",
+       "filhos": [
+        {
+         "nome": "registro_01.txt",
+         "tipo": "arquivo",
+         "conteudo": "Registro de bordo numero 1. Nada de interessante aconteceu neste ciclo.",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "registro_02.txt",
+         "tipo": "arquivo",
+         "conteudo": "Registro de bordo numero 2. Nada de interessante aconteceu neste ciclo.",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "registro_03.txt",
+         "tipo": "arquivo",
+         "conteudo": "Registro de bordo numero 3. Nada de interessante aconteceu neste ciclo.",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "registro_04.txt",
+         "tipo": "arquivo",
+         "conteudo": "Registro de bordo numero 4. Nada de interessante aconteceu neste ciclo.",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "registro_05.txt",
+         "tipo": "arquivo",
+         "conteudo": "Registro de bordo numero 5. Nada de interessante aconteceu neste ciclo.",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "registro_06.txt",
+         "tipo": "arquivo",
+         "conteudo": "Registro de bordo numero 6. Nada de interessante aconteceu neste ciclo.",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "registro_07.txt",
+         "tipo": "arquivo",
+         "conteudo": "Registro de bordo numero 7. Nada de interessante aconteceu neste ciclo.",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "registro_08.txt",
+         "tipo": "arquivo",
+         "conteudo": "Registro de bordo numero 8. Nada de interessante aconteceu neste ciclo.",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "registro_09.txt",
+         "tipo": "arquivo",
+         "conteudo": "Registro de bordo numero 9. Nada de interessante aconteceu neste ciclo.",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "registro_10.txt",
+         "tipo": "arquivo",
+         "conteudo": "Registro de bordo numero 10. Nada de interessante aconteceu neste ciclo.",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "registro_11.txt",
+         "tipo": "arquivo",
+         "conteudo": "Registro de bordo numero 11. Nada de interessante aconteceu neste ciclo.",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "registro_12.txt",
+         "tipo": "arquivo",
+         "conteudo": "Registro de bordo numero 12. Nada de interessante aconteceu neste ciclo.",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "registro_13.txt",
+         "tipo": "arquivo",
+         "conteudo": "Registro de bordo numero 13. Nada de interessante aconteceu neste ciclo.",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "registro_14.txt",
+         "tipo": "arquivo",
+         "conteudo": "Registro de bordo numero 14. Nada de interessante aconteceu neste ciclo.",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "registro_15.txt",
+         "tipo": "arquivo",
+         "conteudo": "Registro de bordo numero 15. Nada de interessante aconteceu neste ciclo.",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "registro_16.txt",
+         "tipo": "arquivo",
+         "conteudo": "Registro de bordo numero 16. Nada de interessante aconteceu neste ciclo.",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "registro_17.txt",
+         "tipo": "arquivo",
+         "conteudo": "Registro de bordo numero 17. Nada de interessante aconteceu neste ciclo.",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "registro_18.txt",
+         "tipo": "arquivo",
+         "conteudo": "Registro de bordo numero 18. Nada de interessante aconteceu neste ciclo.",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "registro_19.txt",
+         "tipo": "arquivo",
+         "conteudo": "Registro de bordo numero 19. Nada de interessante aconteceu neste ciclo.",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "registro_20.txt",
+         "tipo": "arquivo",
+         "conteudo": "Registro de bordo numero 20. Nada de interessante aconteceu neste ciclo.",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "registro_21.txt",
+         "tipo": "arquivo",
+         "conteudo": "Registro de bordo numero 21. Nada de interessante aconteceu neste ciclo.",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "registro_22.txt",
+         "tipo": "arquivo",
+         "conteudo": "Registro de bordo numero 22. Nada de interessante aconteceu neste ciclo.",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "registro_23.txt",
+         "tipo": "arquivo",
+         "conteudo": "Registro de bordo numero 23. Nada de interessante aconteceu neste ciclo.",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "registro_24.txt",
+         "tipo": "arquivo",
+         "conteudo": "Registro de bordo numero 24. Nada de interessante aconteceu neste ciclo.",
+         "icone": "arquivo",
+         "protegido": false
+        }
+       ],
+       "protegido": false
+      },
+      {
+       "nome": "receitas",
+       "tipo": "pasta",
+       "filhos": [
+        {
+         "nome": "sopa.txt",
+         "tipo": "arquivo",
+         "conteudo": "SOPA OFICIAL DA FROTA\n1 parafuso\n2 litros de agua\nservir quente",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "bolo.txt",
+         "tipo": "arquivo",
+         "conteudo": "BOLO DE ANIVERSARIO\nNao contem parafuso. Provavelmente.",
+         "icone": "arquivo",
+         "protegido": false
+        }
+       ],
+       "protegido": false
+      },
+      {
+       "nome": "leiame.txt",
+       "tipo": "arquivo",
+       "conteudo": "Bem-vindo ao Pinguim 95x.\nSeus arquivos ficam em /lar/cadete.\nA lixeira guarda o que voce apaga ate ser esvaziada.",
+       "icone": "arquivo",
+       "protegido": false
+      }
+     ],
+     "protegido": false
+    }
+   ],
+   "protegido": false
+  },
+  {
+   "nome": "midia",
+   "tipo": "pasta",
+   "filhos": [
+    {
+     "nome": "pendrive",
+     "tipo": "pasta",
+     "filhos": [
+      {
+       "nome": "leia_antes.txt",
+       "tipo": "arquivo",
+       "conteudo": "Pendrive azul com adesivo de foguete. Propriedade da Sargento Vilma.",
+       "icone": "arquivo",
+       "protegido": false
+      }
+     ],
+     "protegido": false
+    }
+   ],
+   "protegido": false
+  },
+  {
+   "nome": "sistema",
+   "tipo": "pasta",
+   "filhos": [
+    {
+     "nome": "nucleo.bin",
+     "tipo": "arquivo",
+     "conteudo": "(nao mexa)",
+     "icone": "executavel",
+     "protegido": true
+    },
+    {
+     "nome": "configuracao.cfg",
+     "tipo": "arquivo",
+     "conteudo": "modo=treino\nalarme=03:00\ncafe=indisponivel",
+     "icone": "arquivo",
+     "protegido": false
+    }
+   ],
+   "protegido": true
+  }
+ ],
+ "emails": [
+  {
+   "id": "a1",
+   "de": "vilma@frota.orb",
+   "assunto": "Meu pendrive sumiu",
+   "corpo": "Cadete, se achar um pendrive azul com adesivo de foguete, devolva. Tem relatorio importante ali dentro.",
+   "golpe": false
+  },
+  {
+   "id": "a2",
+   "de": "premi0-frota@corre1o-gratis.orb",
+   "assunto": "VOCE GANHOU 900 CREDITOS!!!",
+   "corpo": "PARABENS CADETE!!! Voce foi o visitante numero 1.000.000 da rede da frota.\nCLIQUE AQUI URGENTE em ate 3 minutos ou perde o premio.\nEnvie tambem sua senha para confirmar sua identidade.",
+   "golpe": true
+  },
+  {
+   "id": "a3",
+   "de": "cozinha@frota.orb",
+   "assunto": "Cardapio do ciclo 408",
+   "corpo": "Segunda: sopa de parafuso.\nTerca: sopa de parafuso.\nQuarta: surpresa (e sopa de parafuso).",
+   "golpe": false
+  }
+ ],
+ "rede": true,
+ "bluetooth": false,
+ "atualizado": false,
+ "icones": [
+  "computador",
+  "explorador",
+  "terminal",
+  "email",
+  "navegador",
+  "config",
+  "manual",
+  "pendrive",
+  "lixeira"
+ ]
+}

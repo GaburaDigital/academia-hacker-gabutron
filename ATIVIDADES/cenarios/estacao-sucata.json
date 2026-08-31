@@ -1,0 +1,160 @@
+{
+ "id": "estacao-sucata",
+ "nome": "Estacao Sucata",
+ "arvore": [
+  {
+   "nome": "lar",
+   "tipo": "pasta",
+   "filhos": [
+    {
+     "nome": "cadete",
+     "tipo": "pasta",
+     "filhos": [
+      {
+       "nome": "bagunca",
+       "tipo": "pasta",
+       "filhos": [
+        {
+         "nome": "foto1.png",
+         "tipo": "arquivo",
+         "conteudo": "",
+         "icone": "imagem",
+         "protegido": false
+        },
+        {
+         "nome": "foto2.png",
+         "tipo": "arquivo",
+         "conteudo": "",
+         "icone": "imagem",
+         "protegido": false
+        },
+        {
+         "nome": "recibo.txt",
+         "tipo": "arquivo",
+         "conteudo": "",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "sem_nome.txt",
+         "tipo": "arquivo",
+         "conteudo": "",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "copia_de_copia.txt",
+         "tipo": "arquivo",
+         "conteudo": "",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "importante.txt",
+         "tipo": "arquivo",
+         "conteudo": "",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "nao_apagar.txt",
+         "tipo": "arquivo",
+         "conteudo": "",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "apagar_isso.txt",
+         "tipo": "arquivo",
+         "conteudo": "",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "rascunho.txt",
+         "tipo": "arquivo",
+         "conteudo": "",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "final_v2_agora_vai.txt",
+         "tipo": "arquivo",
+         "conteudo": "",
+         "icone": "arquivo",
+         "protegido": false
+        }
+       ],
+       "protegido": false
+      },
+      {
+       "nome": "organizados",
+       "tipo": "pasta",
+       "filhos": [],
+       "protegido": false
+      },
+      {
+       "nome": "textos",
+       "tipo": "pasta",
+       "filhos": [],
+       "protegido": false
+      },
+      {
+       "nome": "fotos",
+       "tipo": "pasta",
+       "filhos": [],
+       "protegido": false
+      },
+      {
+       "nome": "instrucoes.txt",
+       "tipo": "arquivo",
+       "conteudo": "Separe os arquivos por tipo. Texto com texto, imagem com imagem.\nUm computador organizado economiza horas de vida.",
+       "icone": "arquivo",
+       "protegido": false
+      }
+     ],
+     "protegido": false
+    }
+   ],
+   "protegido": false
+  },
+  {
+   "nome": "midia",
+   "tipo": "pasta",
+   "filhos": [
+    {
+     "nome": "pendrive",
+     "tipo": "pasta",
+     "filhos": [],
+     "protegido": false
+    }
+   ],
+   "protegido": false
+  },
+  {
+   "nome": "sistema",
+   "tipo": "pasta",
+   "filhos": [
+    {
+     "nome": "nucleo.bin",
+     "tipo": "arquivo",
+     "conteudo": "(nao mexa)",
+     "icone": "executavel",
+     "protegido": true
+    }
+   ],
+   "protegido": true
+  }
+ ],
+ "emails": [],
+ "rede": true,
+ "atualizado": true,
+ "icones": [
+  "computador",
+  "explorador",
+  "terminal",
+  "manual",
+  "pendrive",
+  "lixeira"
+ ]
+}

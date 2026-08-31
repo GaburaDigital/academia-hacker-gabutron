@@ -1,0 +1,334 @@
+{
+ "pacote": "Arquivos e Organizacao",
+ "missoes": [
+  {
+   "id": "a01",
+   "dificuldade": "facil",
+   "cenario": "estacao-sucata",
+   "titulo": "Contrabando Organizado",
+   "fala_intro": "A Estacao Sucata e uma vergonha. Crie uma pasta chamada contrabando dentro de lar/cadete e jogue o recibo la dentro, longe dos olhos da auditoria da frota.",
+   "fala_sucesso": "Pasta criada e recibo escondido. A auditoria vai passar batido. Provavelmente.",
+   "passos": [
+    {
+     "acao": "criar_pasta",
+     "texto": "Criar uma pasta chamada contrabando em /lar/cadete",
+     "dica": "Botao direito no fundo vazio da pasta, opcao Nova pasta.",
+     "dica2": "Dentro do Explorador, em /lar/cadete, clique com o botao direito num espaco vazio, escolha Nova pasta e escreva contrabando.",
+     "caminho": "/lar/cadete",
+     "nome": "contrabando"
+    },
+    {
+     "acao": "mover",
+     "texto": "Mover o recibo para dentro de contrabando",
+     "dica": "Arraste recibo.txt para cima da pasta contrabando.",
+     "dica2": "Entre em bagunca, segure o botao esquerdo em recibo.txt, arraste ate a pasta contrabando e solte. Recortar e colar tambem funciona.",
+     "nome": "contem:recibo",
+     "destino": "/lar/cadete/contrabando"
+    }
+   ],
+   "trilhas": [
+    "arquivos",
+    "geral"
+   ]
+  },
+  {
+   "id": "a02",
+   "dificuldade": "facil",
+   "cenario": "estacao-sucata",
+   "titulo": "Cada Foto no Seu Lugar",
+   "fala_intro": "Duas fotos perdidas no meio da bagunca. Mande as duas para a pasta fotos. Ordem nao importa, so nao me venha dizer depois que sumiu.",
+   "fala_sucesso": "Fotos arquivadas. Isso e organizacao, cadete: cada coisa numa pasta com nome que faz sentido.",
+   "passos": [
+    {
+     "acao": "mover",
+     "texto": "Mover foto1.png para a pasta fotos",
+     "dica": "Arraste o arquivo ate a pasta fotos.",
+     "nome": "contem:foto1",
+     "destino": "/lar/cadete/fotos"
+    },
+    {
+     "acao": "mover",
+     "texto": "Mover foto2.png para a pasta fotos",
+     "dica": "Arraste o arquivo ate a pasta fotos.",
+     "nome": "contem:foto2",
+     "destino": "/lar/cadete/fotos"
+    }
+   ],
+   "trilhas": [
+    "arquivos",
+    "geral"
+   ],
+   "ordem": "livre"
+  },
+  {
+   "id": "a03",
+   "dificuldade": "facil",
+   "cenario": "estacao-sucata",
+   "titulo": "Renomeacao Suspeita",
+   "fala_intro": "Todo bom saboteador marca o territorio. Renomeie o arquivo apagar_isso.txt colocando a palavra INFECTADO no nome. E so uma etiqueta, calma, nada foi infectado de verdade.",
+   "fala_sucesso": "Arquivo marcado. Renomear e uma das coisas que mais se faz num computador, e voce acabou de dominar.",
+   "passos": [
+    {
+     "acao": "renomear",
+     "texto": "Renomear apagar_isso.txt incluindo a palavra INFECTADO",
+     "dica": "Clique no arquivo e aperte F2, ou use botao direito e Renomear.",
+     "dica2": "Selecione apagar_isso.txt com um clique, aperte a tecla F2, escreva o nome novo com a palavra INFECTADO e aperte Enter.",
+     "para": "contem:INFECTADO"
+    }
+   ],
+   "trilhas": [
+    "arquivos",
+    "geral"
+   ]
+  },
+  {
+   "id": "a04",
+   "dificuldade": "facil",
+   "cenario": "estacao-sucata",
+   "titulo": "Copia de Seguranca",
+   "fala_intro": "Arquivo importante que existe em um lugar so e arquivo que ja era. Copie o importante.txt e cole dentro da midia externa, aquele pendrive azul.",
+   "fala_sucesso": "Copia feita. Backup nao e paranoia, e experiencia.",
+   "passos": [
+    {
+     "acao": "copiar",
+     "texto": "Copiar o arquivo importante.txt",
+     "dica": "Clique nele e use Ctrl+C, ou botao direito e Copiar.",
+     "nome": "contem:importante"
+    },
+    {
+     "acao": "colar",
+     "texto": "Colar dentro de /midia/pendrive",
+     "dica": "Entre no pendrive e use Ctrl+V, ou botao direito e Colar.",
+     "dica2": "Volte com o botao Acima ate a raiz, entre em midia, depois em pendrive, e aperte Ctrl+V.",
+     "destino": "/midia/pendrive"
+    }
+   ],
+   "trilhas": [
+    "copiar",
+    "arquivos"
+   ]
+  },
+  {
+   "id": "a05",
+   "dificuldade": "facil",
+   "cenario": "estacao-sucata",
+   "titulo": "Faxina Definitiva",
+   "fala_intro": "O rascunho.txt nao serve para nada e ocupa espaco na minha paciencia. Mande para a lixeira, abra a lixeira e esvazie. Dessa vez e para valer: nao tem volta.",
+   "fala_sucesso": "Espaco liberado. Repare que so o segundo passo apaga de verdade. A lixeira e a sua chance de mudar de ideia.",
+   "passos": [
+    {
+     "acao": "excluir",
+     "texto": "Enviar rascunho.txt para a lixeira",
+     "dica": "Selecione e aperte Delete.",
+     "nome": "contem:rascunho"
+    },
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir a Lixeira",
+     "dica": "Icone da lata na area de trabalho.",
+     "app": "lixeira"
+    },
+    {
+     "acao": "esvaziar_lixeira",
+     "texto": "Esvaziar a lixeira",
+     "dica": "Use o botao Esvaziar lixeira e confirme."
+    }
+   ],
+   "trilhas": [
+    "arquivos",
+    "geral"
+   ]
+  },
+  {
+   "id": "a06",
+   "dificuldade": "facil",
+   "cenario": "estacao-sucata",
+   "titulo": "Resgate Antes do Desastre",
+   "fala_intro": "Simulacao de arrependimento: apague o importante.txt, entre em panico por dois segundos e traga ele de volta da lixeira antes que alguem perceba.",
+   "fala_sucesso": "Resgatado. Agora voce sabe o que fazer quando apagar algo por engano. E vai acontecer.",
+   "passos": [
+    {
+     "acao": "excluir",
+     "texto": "Enviar importante.txt para a lixeira",
+     "dica": "Selecione e aperte Delete.",
+     "nome": "contem:importante"
+    },
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir a Lixeira",
+     "dica": "Icone da lata.",
+     "app": "lixeira"
+    },
+    {
+     "acao": "restaurar",
+     "texto": "Restaurar importante.txt",
+     "dica": "Selecione o arquivo na lixeira e clique em Restaurar selecionado.",
+     "nome": "contem:importante"
+    }
+   ],
+   "trilhas": [
+    "arquivos",
+    "geral"
+   ]
+  },
+  {
+   "id": "a07",
+   "dificuldade": "normal",
+   "cenario": "estacao-sucata",
+   "titulo": "Operacao Arquivo Limpo",
+   "fala_intro": "Missao de organizacao completa, cadete. Crie a pasta relatorios em lar/cadete, mova para dentro dela o final_v2_agora_vai.txt, renomeie o coitado para relatorio_final.txt e depois mande a copia_de_copia.txt para a lixeira. Sim, sao quatro passos. Voce aguenta.",
+   "fala_sucesso": "Pasta criada, arquivo movido, nome decente e lixo fora. Isso e um computador organizado.",
+   "passos": [
+    {
+     "acao": "criar_pasta",
+     "texto": "Criar a pasta relatorios em /lar/cadete",
+     "dica": "Botao direito no vazio, Nova pasta.",
+     "caminho": "/lar/cadete",
+     "nome": "relatorios"
+    },
+    {
+     "acao": "mover",
+     "texto": "Mover final_v2_agora_vai.txt para relatorios",
+     "dica": "Arraste ou use recortar e colar.",
+     "nome": "contem:final_v2",
+     "destino": "/lar/cadete/relatorios"
+    },
+    {
+     "acao": "renomear",
+     "texto": "Renomear o arquivo para relatorio_final.txt",
+     "dica": "Selecione e aperte F2.",
+     "para": "contem:relatorio_final"
+    },
+    {
+     "acao": "excluir",
+     "texto": "Enviar copia_de_copia.txt para a lixeira",
+     "dica": "Selecione e aperte Delete.",
+     "nome": "contem:copia_de_copia"
+    }
+   ],
+   "trilhas": [
+    "arquivos",
+    "copiar"
+   ],
+   "pontos_base": 60
+  },
+  {
+   "id": "a08",
+   "dificuldade": "normal",
+   "cenario": "nave-alpha",
+   "titulo": "Sabotagem no Refeitorio",
+   "fala_intro": "Atencao, cadete. O Robo-Cozinheiro 14 serve sopa de parafuso ha quatrocentos ciclos e a tripulacao ja range ao andar. Entre nas receitas, renomeie a sopa.txt colocando INFECTADA no nome, mova o arquivo para o pendrive e depois envie um aviso para a cozinha contando o que voce fez. Confessar faz parte do treinamento.",
+   "fala_sucesso": "Amanha a tripulacao almoca poesia. Missao cumprida com estilo.",
+   "passos": [
+    {
+     "acao": "navegar_pasta",
+     "texto": "Entrar na pasta receitas",
+     "dica": "Dois cliques na pasta receitas dentro de /lar/cadete.",
+     "caminho": "/lar/cadete/receitas"
+    },
+    {
+     "acao": "renomear",
+     "texto": "Renomear sopa.txt incluindo INFECTADA",
+     "dica": "Selecione e aperte F2.",
+     "para": "contem:INFECTADA"
+    },
+    {
+     "acao": "mover",
+     "texto": "Mover o arquivo para /midia/pendrive",
+     "dica": "Arraste ate o icone do pendrive, ou use recortar e colar.",
+     "destino": "/midia/pendrive"
+    },
+    {
+     "acao": "enviar_email",
+     "texto": "Enviar mensagem para cozinha@frota.orb",
+     "dica": "Abra o Correio Orbital, clique em Nova mensagem.",
+     "dica2": "No campo Para escreva exatamente cozinha@frota.orb, escreva qualquer assunto e clique em Enviar.",
+     "para": "cozinha@frota.orb"
+    }
+   ],
+   "trilhas": [
+    "arquivos",
+    "geral"
+   ],
+   "pontos_base": 70
+  },
+  {
+   "id": "a09",
+   "dificuldade": "normal",
+   "cenario": "nave-alpha",
+   "titulo": "Do Fundo do Arquivo Morto",
+   "fala_intro": "Existe um registro perdido no arquivo morto que a auditoria nunca vai achar. Entre la, role ate o fundo, escolha qualquer registro, marque com a palavra RESGATADO no nome e traga ele para documentos.",
+   "fala_sucesso": "Registro resgatado das profundezas. Rolar, renomear e mover: o kit basico de quem trabalha com arquivos.",
+   "passos": [
+    {
+     "acao": "navegar_pasta",
+     "texto": "Entrar na pasta arquivo_morto",
+     "dica": "Dois cliques na pasta.",
+     "caminho": "/lar/cadete/arquivo_morto"
+    },
+    {
+     "acao": "rolar",
+     "texto": "Rolar a lista ate o fim",
+     "dica": "Use a roda do mouse dentro da lista.",
+     "area": "explorador"
+    },
+    {
+     "acao": "renomear",
+     "texto": "Renomear um registro incluindo RESGATADO",
+     "dica": "Selecione e aperte F2.",
+     "para": "contem:RESGATADO"
+    },
+    {
+     "acao": "mover",
+     "texto": "Mover o registro para /lar/cadete/documentos",
+     "dica": "Recorte com Ctrl+X e cole com Ctrl+V na pasta documentos.",
+     "destino": "/lar/cadete/documentos"
+    }
+   ],
+   "trilhas": [
+    "arquivos",
+    "mouse"
+   ],
+   "pontos_base": 65
+  },
+  {
+   "id": "a10",
+   "dificuldade": "normal",
+   "cenario": "estacao-sucata",
+   "titulo": "Atalhos de Guerra",
+   "fala_intro": "Chega de menu. Esta missao e no teclado. Selecione tudo com Ctrl+A, copie com Ctrl+C e cole no pendrive com Ctrl+V. Quem usa atalho termina a aula mais cedo.",
+   "fala_sucesso": "Tres atalhos, uma pasta inteira copiada. O mouse ficou com inveja.",
+   "passos": [
+    {
+     "acao": "navegar_pasta",
+     "texto": "Entrar na pasta bagunca",
+     "dica": "Dois cliques na pasta bagunca.",
+     "caminho": "/lar/cadete/bagunca"
+    },
+    {
+     "acao": "atalho",
+     "texto": "Selecionar tudo com Ctrl+A",
+     "dica": "Clique dentro da lista primeiro, depois Ctrl+A.",
+     "tecla": "ctrl+a"
+    },
+    {
+     "acao": "atalho",
+     "texto": "Copiar com Ctrl+C",
+     "dica": "Segure Ctrl e aperte C.",
+     "tecla": "ctrl+c"
+    },
+    {
+     "acao": "colar",
+     "texto": "Colar dentro de /midia/pendrive",
+     "dica": "Entre no pendrive e aperte Ctrl+V.",
+     "destino": "/midia/pendrive"
+    }
+   ],
+   "trilhas": [
+    "copiar",
+    "arquivos"
+   ],
+   "pontos_base": 60
+  }
+ ]
+}

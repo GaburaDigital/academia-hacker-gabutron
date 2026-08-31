@@ -1,0 +1,287 @@
+{
+ "pacote": "Mouse e Janelas",
+ "missoes": [
+  {
+   "id": "f01",
+   "dificuldade": "facil",
+   "cenario": "nave-alpha",
+   "titulo": "Primeiro Contato com a Nave Alpha",
+   "fala_intro": "Cadete, bem-vindo a Academia. Antes de sabotarmos qualquer coisa, preciso saber se voce sabe abrir uma pasta. Sim, e humilhante. Sim, metade da frota reprova aqui. Abra o Explorador de Arquivos com dois cliques rapidos, entre em documentos e leia o relatorio da ponte.",
+   "fala_sucesso": "Voce abriu, entrou e leu. Tres coisas que o Robo-Cozinheiro 14 nunca conseguiu fazer.",
+   "passos": [
+    {
+     "acao": "duplo_clique",
+     "texto": "Abrir o Explorador de Arquivos com clique duplo",
+     "dica": "Na area de trabalho, o icone da pasta amarela com a lupa.",
+     "dica2": "Aponte o mouse no icone Explorador de Arquivos e clique duas vezes bem rapido, sem mover o mouse entre os cliques.",
+     "alvo": "explorador"
+    },
+    {
+     "acao": "navegar_pasta",
+     "texto": "Entrar na pasta documentos",
+     "dica": "Dentro do Explorador, de dois cliques na pasta documentos.",
+     "dica2": "As pastas aparecem primeiro na lista. Clique duas vezes em 'documentos'.",
+     "caminho": "/lar/cadete/documentos"
+    },
+    {
+     "acao": "abrir_arquivo",
+     "texto": "Abrir o relatorio da ponte",
+     "dica": "Clique duas vezes no arquivo relatorio_da_ponte.txt.",
+     "nome": "relatorio_da_ponte.txt"
+    }
+   ]
+  },
+  {
+   "id": "f02",
+   "dificuldade": "facil",
+   "cenario": "nave-alpha",
+   "titulo": "A Etiqueta Escondida",
+   "fala_intro": "Todo icone tem um nome completo escondido. Passe o mouse por cima do Terminal e espere um instante sem clicar: a etiqueta aparece. Depois clique com o botao direito nele para ver o que da para fazer, e so entao abra o programa.",
+   "fala_sucesso": "Etiqueta lida, menu aberto, programa em pe. Voce ja sabe mais que meio pelotao.",
+   "passos": [
+    {
+     "acao": "hover_tooltip",
+     "texto": "Passar o mouse sobre o icone do Terminal e esperar",
+     "dica": "Deixe o ponteiro parado em cima do icone por um segundo.",
+     "dica2": "Nao clique. So encoste o ponteiro no icone preto do Terminal e conte ate dois.",
+     "alvo": "terminal"
+    },
+    {
+     "acao": "menu_contexto",
+     "texto": "Clicar com o botao direito no icone do Terminal",
+     "dica": "Botao direito do mouse em cima do icone abre o menu de opcoes.",
+     "alvo": "terminal"
+    },
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Terminal",
+     "dica": "Escolha Abrir no menu, ou de dois cliques no icone.",
+     "app": "terminal"
+    }
+   ]
+  },
+  {
+   "id": "f03",
+   "dificuldade": "facil",
+   "cenario": "nave-alpha",
+   "titulo": "Janela Rebelde",
+   "fala_intro": "Uma janela nao e um poster colado na tela: da para encolher, esticar e fechar. Abra o Correio Orbital, minimize ele na barra de tarefas e depois maximize para ocupar a tela toda. Sim, aqueles tres botoezinhos no canto servem para alguma coisa.",
+   "fala_sucesso": "Minimizada, maximizada e sob controle. A janela obedeceu voce, e nao o contrario.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Correio Orbital",
+     "dica": "Icone do envelope na area de trabalho.",
+     "app": "email"
+    },
+    {
+     "acao": "minimizar",
+     "texto": "Minimizar a janela",
+     "dica": "O botao com o tracinho, no canto superior direito da janela.",
+     "dica2": "Sao tres botoes. O primeiro, com o tracinho baixo, esconde a janela na barra de baixo. Clique nele e depois no nome dela na barra para voltar.",
+     "app": "email"
+    },
+    {
+     "acao": "maximizar",
+     "texto": "Maximizar a janela",
+     "dica": "O botao do meio, com o quadradinho, estica a janela.",
+     "app": "email",
+     "estado": "1"
+    }
+   ]
+  },
+  {
+   "id": "f04",
+   "dificuldade": "facil",
+   "cenario": "nave-alpha",
+   "titulo": "Rolagem Profunda",
+   "fala_intro": "O arquivo morto da nave tem tanto registro que nao cabe na tela. Voce vai precisar da roda do mouse. Entre na pasta arquivo_morto e role ate o fundo. Dica de veterano: a barra cinza da direita faz a mesma coisa.",
+   "fala_sucesso": "Voce rolou ate o porao da nave. Nada de interessante la, como sempre. Mas agora voce sabe rolar.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Explorador de Arquivos",
+     "dica": "Icone da pasta com lupa.",
+     "app": "explorador"
+    },
+    {
+     "acao": "navegar_pasta",
+     "texto": "Entrar na pasta arquivo_morto",
+     "dica": "Dois cliques na pasta arquivo_morto.",
+     "caminho": "/lar/cadete/arquivo_morto"
+    },
+    {
+     "acao": "rolar",
+     "texto": "Rolar a lista de arquivos",
+     "dica": "Gire a roda do meio do mouse para baixo.",
+     "dica2": "Coloque o ponteiro dentro da lista de arquivos e gire a rodinha do mouse para baixo. Se o mouse nao tiver roda, arraste a barra cinza da direita.",
+     "area": "explorador"
+    }
+   ]
+  },
+  {
+   "id": "f05",
+   "dificuldade": "facil",
+   "cenario": "nave-alpha",
+   "titulo": "Manual Obrigatorio",
+   "fala_intro": "Cadetes que leem o manual sobrevivem mais. Abra o menu Iniciar la no canto do Pinguim 95x, procure o Manual da Frota na lista e leia. Depois nao me venha dizer que ninguem avisou.",
+   "fala_sucesso": "Manual aberto. Guarde o endereco dele: quando travar numa missao, a resposta costuma estar ali.",
+   "passos": [
+    {
+     "acao": "abrir_menu_iniciar",
+     "texto": "Abrir o menu Iniciar",
+     "dica": "Botao com o pinguim, no canto inferior esquerdo do Pinguim 95x."
+    },
+    {
+     "acao": "menu_iniciar",
+     "texto": "Escolher o Manual da Frota na lista",
+     "dica": "Use a barra de pesquisa do menu se preferir: digite manual.",
+     "alvo": "manual"
+    }
+   ]
+  },
+  {
+   "id": "f06",
+   "dificuldade": "facil",
+   "cenario": "nave-alpha",
+   "titulo": "Selecao em Massa",
+   "fala_intro": "Selecionar um por um e coisa de amador. Entre no arquivo_morto e selecione tudo de uma vez com Ctrl e A ao mesmo tempo. Sao dez ou mais registros de uma tacada so.",
+   "fala_sucesso": "Tudo selecionado num toque. Ctrl+A e o atalho que salva domingos inteiros.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Explorador de Arquivos",
+     "dica": "Icone da pasta com lupa.",
+     "app": "explorador"
+    },
+    {
+     "acao": "navegar_pasta",
+     "texto": "Entrar na pasta arquivo_morto",
+     "dica": "Dois cliques na pasta arquivo_morto.",
+     "caminho": "/lar/cadete/arquivo_morto"
+    },
+    {
+     "acao": "atalho",
+     "texto": "Selecionar todos os arquivos com Ctrl+A",
+     "dica": "Clique uma vez em qualquer arquivo e depois segure Ctrl e aperte A.",
+     "dica2": "Primeiro clique dentro da lista para o computador saber onde voce esta. Depois segure a tecla Ctrl e, sem soltar, aperte a letra A.",
+     "tecla": "ctrl+a",
+     "quantidade": "min:10"
+    }
+   ]
+  },
+  {
+   "id": "f07",
+   "dificuldade": "facil",
+   "cenario": "nave-alpha",
+   "titulo": "Clique Direito na Area de Trabalho",
+   "fala_intro": "O fundo da area de trabalho tambem tem menu. Clique com o botao direito num lugar vazio da mesa do Pinguim 95x, abra o terminal por ali e digite o comando pinguim para ver quem manda nesta maquina.",
+   "fala_sucesso": "Voce descobriu que o vazio tambem tem opcoes. E conheceu o mascote. Ele nao pisca.",
+   "passos": [
+    {
+     "acao": "menu_contexto",
+     "texto": "Clicar com o botao direito num espaco vazio da area de trabalho",
+     "dica": "Escolha uma parte da mesa sem nenhum icone e clique com o botao direito.",
+     "alvo": "mesa"
+    },
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Terminal pelo menu",
+     "dica": "A opcao 'Abrir terminal aqui'.",
+     "app": "terminal"
+    },
+    {
+     "acao": "comando_terminal",
+     "texto": "Digitar o comando pinguim e apertar Enter",
+     "dica": "Escreva pinguim na linha do terminal e aperte Enter.",
+     "comando": "re:^pinguim"
+    }
+   ]
+  },
+  {
+   "id": "f08",
+   "dificuldade": "facil",
+   "cenario": "nave-alpha",
+   "titulo": "Duas Janelas, Um Cadete",
+   "fala_intro": "Trabalhar com uma janela so e para quem tem tempo sobrando. Abra o Explorador e o Terminal ao mesmo tempo e arraste uma das janelas pela barra de titulo ate um canto livre da tela.",
+   "fala_sucesso": "Duas janelas lado a lado. Voce acaba de dobrar sua produtividade e sua confusao.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Explorador de Arquivos",
+     "dica": "Icone da pasta com lupa.",
+     "app": "explorador"
+    },
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Terminal",
+     "dica": "Icone preto com o sinal de maior.",
+     "app": "terminal"
+    },
+    {
+     "acao": "mover_janela",
+     "texto": "Arrastar uma janela pela barra de titulo",
+     "dica": "Segure o botao esquerdo na faixa azul do topo da janela e arraste.",
+     "dica2": "Coloque o ponteiro na barra azul escura do alto da janela, segure o botao esquerdo, mova o mouse sem soltar e solte no lugar novo."
+    }
+   ]
+  },
+  {
+   "id": "f09",
+   "dificuldade": "facil",
+   "cenario": "estacao-sucata",
+   "titulo": "Lixeira Curiosa",
+   "fala_intro": "Nada some de verdade na primeira tentativa. Mande o arquivo apagar_isso.txt para a lixeira, abra a lixeira e traga ele de volta. Isso mesmo: ressuscite o defunto.",
+   "fala_sucesso": "Apagado e recuperado. Agora voce sabe que a lixeira e uma sala de espera, nao um buraco negro.",
+   "passos": [
+    {
+     "acao": "excluir",
+     "texto": "Enviar apagar_isso.txt para a lixeira",
+     "dica": "Clique no arquivo, aperte Delete. Ou botao direito, Excluir.",
+     "nome": "contem:apagar_isso"
+    },
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir a Lixeira",
+     "dica": "Icone da lata na area de trabalho.",
+     "app": "lixeira"
+    },
+    {
+     "acao": "restaurar",
+     "texto": "Restaurar o arquivo",
+     "dica": "Selecione o arquivo dentro da lixeira e use Restaurar selecionado.",
+     "nome": "contem:apagar_isso"
+    }
+   ]
+  },
+  {
+   "id": "f10",
+   "dificuldade": "facil",
+   "cenario": "nave-alpha",
+   "titulo": "Reconhecimento de Terreno",
+   "fala_intro": "Antes de invadir qualquer coisa, o bom saboteador conhece o terreno. Passe o mouse por cima de tres icones da area de trabalho e leia as etiquetas: Correio Orbital, Orbital Explorer e Configuracoes do Sistema. Pode fazer na ordem que quiser.",
+   "fala_sucesso": "Terreno mapeado. Voce agora sabe o que cada icone faz sem precisar clicar em nada e torcer.",
+   "passos": [
+    {
+     "acao": "hover_tooltip",
+     "texto": "Passar o mouse sobre o Correio Orbital",
+     "dica": "Encoste e espere a etiqueta.",
+     "alvo": "email"
+    },
+    {
+     "acao": "hover_tooltip",
+     "texto": "Passar o mouse sobre o Orbital Explorer",
+     "dica": "Encoste e espere a etiqueta.",
+     "alvo": "navegador"
+    },
+    {
+     "acao": "hover_tooltip",
+     "texto": "Passar o mouse sobre as Configuracoes do Sistema",
+     "dica": "Encoste e espere a etiqueta.",
+     "alvo": "config"
+    }
+   ],
+   "ordem": "livre"
+  }
+ ]
+}

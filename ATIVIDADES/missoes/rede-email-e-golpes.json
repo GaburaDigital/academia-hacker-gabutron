@@ -1,0 +1,420 @@
+{
+ "pacote": "Rede, Email e Golpes",
+ "missoes": [
+  {
+   "id": "r01",
+   "dificuldade": "normal",
+   "cenario": "nave-alpha",
+   "titulo": "Correio da Sargento",
+   "fala_intro": "A Sargento Vilma perdeu o pendrive e esta insuportavel. Abra o Correio Orbital, leia a mensagem dela e responda avisando que o pendrive esta com voce. Conte a verdade, ela descobre de qualquer jeito.",
+   "fala_sucesso": "Mensagem enviada. Comunicacao tambem e habilidade tecnica, cadete.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Correio Orbital",
+     "dica": "Icone do envelope.",
+     "app": "email"
+    },
+    {
+     "acao": "ler_email",
+     "texto": "Ler a mensagem da Sargento Vilma",
+     "dica": "Clique na mensagem com assunto sobre o pendrive.",
+     "id": "a1"
+    },
+    {
+     "acao": "enviar_email",
+     "texto": "Enviar uma resposta para vilma@frota.orb",
+     "dica": "Clique em Nova mensagem, preencha o campo Para e envie.",
+     "dica2": "No campo Para escreva exatamente vilma@frota.orb, coloque um assunto qualquer e clique em Enviar.",
+     "para": "vilma@frota.orb"
+    }
+   ],
+   "trilhas": [
+    "seguranca",
+    "geral"
+   ]
+  },
+  {
+   "id": "r02",
+   "dificuldade": "normal",
+   "cenario": "nave-alpha",
+   "titulo": "Olho no Golpe",
+   "fala_intro": "Chegou uma mensagem dizendo que voce ganhou novecentos creditos e pedindo sua senha com urgencia. Cadete, ninguem da dinheiro de graca no espaco. Leia a mensagem inteira e marque como golpe usando o botao direito do mouse.",
+   "fala_sucesso": "Golpe identificado. Pressa, premio facil, erro de escrita e pedido de senha: quatro sinais de que a mensagem e falsa.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Correio Orbital",
+     "dica": "Icone do envelope.",
+     "app": "email"
+    },
+    {
+     "acao": "ler_email",
+     "texto": "Ler a mensagem do premio",
+     "dica": "Clique na mensagem com assunto em letras maiusculas.",
+     "id": "a2"
+    },
+    {
+     "acao": "marcar_golpe",
+     "texto": "Marcar a mensagem como golpe",
+     "dica": "Clique com o botao direito na mensagem e escolha Marcar como golpe.",
+     "id": "a2",
+     "correto": true
+    }
+   ],
+   "trilhas": [
+    "seguranca",
+    "mouse"
+   ]
+  },
+  {
+   "id": "r03",
+   "dificuldade": "normal",
+   "cenario": "laboratorio-beta",
+   "titulo": "Anexo para a Engenharia",
+   "fala_intro": "A engenharia precisa do arquivo de erro para descobrir por que o escudo orbital desliga sozinho. Ache o erro.log nos projetos, e mande ele em anexo para engenharia@frota.orb. Anexar e o que separa quem resolve de quem so reclama.",
+   "fala_sucesso": "Anexo entregue. Agora a engenharia tem material para trabalhar em vez de adivinhar.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Correio Orbital",
+     "dica": "Icone do envelope.",
+     "app": "email"
+    },
+    {
+     "acao": "anexar_arquivo",
+     "texto": "Escolher o erro.log como anexo",
+     "dica": "Em Nova mensagem, use a lista Anexo e escolha o erro.log.",
+     "dica2": "Clique em Nova mensagem. No campo Anexo abra a lista e procure /lar/cadete/projetos/erro.log",
+     "nome": "erro.log"
+    },
+    {
+     "acao": "enviar_email",
+     "texto": "Enviar para engenharia@frota.orb",
+     "dica": "Preencha o campo Para e clique em Enviar.",
+     "para": "engenharia@frota.orb",
+     "anexo": "erro.log"
+    }
+   ],
+   "trilhas": [
+    "seguranca",
+    "arquivos"
+   ],
+   "pontos_base": 55
+  },
+  {
+   "id": "r04",
+   "dificuldade": "normal",
+   "cenario": "laboratorio-beta",
+   "titulo": "Sem Rede, Sem Choro",
+   "fala_intro": "O Laboratorio Beta esta sem rede e o cadete anterior passou duas horas culpando o navegador. Nao seja ele. Abra as Configuracoes do Sistema, ligue a rede e so entao acesse frota.orb no navegador.",
+   "fala_sucesso": "Rede ligada e portal aberto. Quando um site nao abre, o primeiro suspeito e a conexao, nao o site.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir as Configuracoes do Sistema",
+     "dica": "Icone da engrenagem.",
+     "app": "config"
+    },
+    {
+     "acao": "alternar_rede",
+     "texto": "Ligar a rede orbital",
+     "dica": "Na aba Rede, clique no botao Conectar.",
+     "estado": "ligada"
+    },
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Orbital Explorer",
+     "dica": "Icone do globo azul.",
+     "app": "navegador"
+    },
+    {
+     "acao": "navegar_url",
+     "texto": "Acessar frota.orb",
+     "dica": "Escreva frota.orb na barra de endereco e aperte Enter.",
+     "url": "frota.orb"
+    }
+   ],
+   "trilhas": [
+    "seguranca",
+    "geral"
+   ]
+  },
+  {
+   "id": "r05",
+   "dificuldade": "normal",
+   "cenario": "nave-alpha",
+   "titulo": "Segredo no Codigo da Pagina",
+   "fala_intro": "Todo site tem codigo escondido por tras do que voce ve. Abra o navegador, va ao mural da tripulacao, clique com o botao direito na pagina e escolha Inspecionar codigo. Tem um endereco secreto ali. Depois visite ele.",
+   "fala_sucesso": "Voce achou uma pagina que nao aparece em menu nenhum. Inspecionar o codigo e legal, publico e muito util.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Orbital Explorer",
+     "dica": "Icone do globo azul.",
+     "app": "navegador"
+    },
+    {
+     "acao": "navegar_url",
+     "texto": "Acessar mural.frota.orb",
+     "dica": "Digite mural.frota.orb na barra de endereco ou clique no link do portal.",
+     "url": "mural.frota.orb"
+    },
+    {
+     "acao": "abrir_inspetor",
+     "texto": "Inspecionar o codigo da pagina",
+     "dica": "Botao direito em cima do texto da pagina, opcao Inspecionar codigo.",
+     "url": "mural.frota.orb"
+    },
+    {
+     "acao": "navegar_url",
+     "texto": "Visitar o endereco secreto",
+     "dica": "O codigo revelou deposito.frota.orb. Digite na barra de endereco.",
+     "url": "deposito.frota.orb"
+    }
+   ],
+   "trilhas": [
+    "seguranca",
+    "mouse"
+   ],
+   "pontos_base": 60
+  },
+  {
+   "id": "r06",
+   "dificuldade": "normal",
+   "cenario": "nave-alpha",
+   "titulo": "Pareamento Suspeito",
+   "fala_intro": "Bluetooth e como um aperto de mao entre aparelhos. Va nas Configuracoes, ligue o radio bluetooth, pareie com o Robo-Cozinheiro 14 e depois desfaca o pareamento. Ele fica ofendido, mas supera.",
+   "fala_sucesso": "Pareado e desparelhado. Saber desconectar um aparelho e tao importante quanto saber conectar.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir as Configuracoes do Sistema",
+     "dica": "Icone da engrenagem.",
+     "app": "config"
+    },
+    {
+     "acao": "bluetooth",
+     "texto": "Ligar o radio bluetooth",
+     "dica": "Na aba Bluetooth, clique em Ligar radio.",
+     "estado": "ligado"
+    },
+    {
+     "acao": "parear",
+     "texto": "Parear com o Robo-Cozinheiro 14",
+     "dica": "Clique em Parear na linha do robo.",
+     "dispositivo": "Robo-Cozinheiro 14"
+    },
+    {
+     "acao": "desparear",
+     "texto": "Desfazer o pareamento",
+     "dica": "Clique de novo no mesmo botao, agora escrito Desparear.",
+     "dispositivo": "Robo-Cozinheiro 14"
+    }
+   ],
+   "trilhas": [
+    "seguranca",
+    "geral"
+   ]
+  },
+  {
+   "id": "r07",
+   "dificuldade": "normal",
+   "cenario": "laboratorio-beta",
+   "titulo": "Sistema em Dia",
+   "fala_intro": "Computador desatualizado e porta aberta. Abra as Configuracoes, veja as informacoes do computador na aba Sobre, instale as atualizacoes pendentes e reinicie a maquina. Sim, reiniciar resolve mesmo. As vezes.",
+   "fala_sucesso": "Maquina atualizada e reiniciada. Voce tambem descobriu que ela tem 32 MB de memoria, quatro deles gastos num jogo de cartas.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir as Configuracoes do Sistema",
+     "dica": "Icone da engrenagem.",
+     "app": "config"
+    },
+    {
+     "acao": "config_ver",
+     "texto": "Ver as informacoes do computador",
+     "dica": "Clique na aba Sobre o computador.",
+     "secao": "hardware"
+    },
+    {
+     "acao": "atualizar_sistema",
+     "texto": "Instalar as atualizacoes",
+     "dica": "Na aba Manutencao, clique em Atualizar sistema."
+    },
+    {
+     "acao": "reiniciar",
+     "texto": "Reiniciar o computador",
+     "dica": "Ainda na aba Manutencao, clique em Reiniciar computador e confirme."
+    }
+   ],
+   "trilhas": [
+    "seguranca",
+    "geral"
+   ]
+  },
+  {
+   "id": "r08",
+   "dificuldade": "dificil",
+   "cenario": "nave-alpha",
+   "titulo": "Auditoria Relampago",
+   "fala_intro": "Auditoria chegando, cadete. Precisamos de tres coisas ao mesmo tempo: identifique o golpe na caixa de entrada, mande a lista de compras para o pendrive e apague a prova, quero dizer, a imagem da sopa de parafuso. Depois esvazie a lixeira. Nao existiu sopa nenhuma.",
+   "fala_sucesso": "Golpe marcado, arquivo escondido e prova destruida. Se alguem perguntar, foi o Robo-Cozinheiro 14.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir o Correio Orbital",
+     "dica": "Icone do envelope.",
+     "app": "email"
+    },
+    {
+     "acao": "marcar_golpe",
+     "texto": "Marcar a mensagem falsa do premio",
+     "dica": "Botao direito na mensagem, Marcar como golpe.",
+     "id": "a2",
+     "correto": true
+    },
+    {
+     "acao": "mover",
+     "texto": "Mover a lista de compras para o pendrive",
+     "dica": "Ela esta em /lar/cadete/documentos.",
+     "nome": "contem:lista_de_compras",
+     "destino": "/midia/pendrive"
+    },
+    {
+     "acao": "excluir",
+     "texto": "Apagar a imagem sopa_de_parafuso.png",
+     "dica": "Ela esta em /lar/cadete/imagens. Selecione e aperte Delete.",
+     "nome": "contem:sopa_de_parafuso"
+    },
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir a Lixeira",
+     "dica": "Icone da lata.",
+     "app": "lixeira"
+    },
+    {
+     "acao": "esvaziar_lixeira",
+     "texto": "Esvaziar a lixeira",
+     "dica": "Botao Esvaziar lixeira e confirmar."
+    }
+   ],
+   "trilhas": [
+    "seguranca",
+    "arquivos"
+   ],
+   "pontos_base": 95
+  },
+  {
+   "id": "r09",
+   "dificuldade": "dificil",
+   "cenario": "laboratorio-beta",
+   "titulo": "Operacao Escudo Orbital",
+   "fala_intro": "Missao longa e de verdade util. O escudo orbital cai sozinho. Ligue a rede, clone o repositorio escudo-orbital, atualize com git pull, leia o log de erro pelo terminal e mande o arquivo em anexo para a engenharia. Cinco passos, cadete. Faca direito e ganhe muitos pontos.",
+   "fala_sucesso": "Rede ligada, repositorio clonado, log lido e anexo entregue. Voce acabou de fazer o fluxo de trabalho real de uma equipe tecnica.",
+   "passos": [
+    {
+     "acao": "abrir_app",
+     "texto": "Abrir as Configuracoes do Sistema",
+     "dica": "Icone da engrenagem.",
+     "app": "config"
+    },
+    {
+     "acao": "alternar_rede",
+     "texto": "Ligar a rede orbital",
+     "dica": "Aba Rede, botao Conectar.",
+     "estado": "ligada"
+    },
+    {
+     "acao": "clonar_repo",
+     "texto": "Clonar o repositorio escudo-orbital",
+     "dica": "No Terminal: git clone https://frota.orb/repo/escudo-orbital.git",
+     "dica2": "O endereco esta anotado em /lar/cadete/projetos/notas.txt. Abra o Terminal e use git clone com esse endereco.",
+     "nome": "escudo-orbital"
+    },
+    {
+     "acao": "git_pull",
+     "texto": "Atualizar o repositorio com git pull",
+     "dica": "No Terminal escreva: git pull"
+    },
+    {
+     "acao": "comando_terminal",
+     "texto": "Ler o erro.log com cat",
+     "dica": "Entre em projetos com cd e use cat erro.log.",
+     "comando": "re:^cat\\s+erro"
+    },
+    {
+     "acao": "enviar_email",
+     "texto": "Enviar o erro.log em anexo para engenharia@frota.orb",
+     "dica": "Correio Orbital, Nova mensagem, escolha o anexo e envie.",
+     "para": "engenharia@frota.orb",
+     "anexo": "erro.log"
+    }
+   ],
+   "trilhas": [
+    "seguranca",
+    "terminal"
+   ],
+   "pontos_base": 130
+  },
+  {
+   "id": "r10",
+   "dificuldade": "dificil",
+   "cenario": "laboratorio-beta",
+   "titulo": "Contra-Ataque Total",
+   "fala_intro": "Missao final do turno, cadete, e nao vou facilitar. Identifique o golpe de suporte tecnico falso, ligue a rede, instale o frota-scan, varra a frota, crie a pasta quarentena_2 nos seus arquivos, mande o aviso.txt para dentro dela e reinicie a maquina para fechar tudo. Se conseguir, eu paro de te chamar de recruta.",
+   "fala_sucesso": "Golpe barrado, rede varrida, arquivos em quarentena e maquina reiniciada. Voce nao e mais recruta. Ainda nao e bom, mas nao e mais recruta.",
+   "passos": [
+    {
+     "acao": "marcar_golpe",
+     "texto": "Marcar como golpe a mensagem do suporte falso",
+     "dica": "No Correio Orbital, botao direito na mensagem que pede sua senha.",
+     "id": "b2",
+     "correto": true
+    },
+    {
+     "acao": "alternar_rede",
+     "texto": "Ligar a rede orbital",
+     "dica": "Configuracoes do Sistema, aba Rede.",
+     "estado": "ligada"
+    },
+    {
+     "acao": "instalar_pacote",
+     "texto": "Instalar o frota-scan pelo terminal",
+     "dica": "Escreva: apt install frota-scan",
+     "pacote": "frota-scan"
+    },
+    {
+     "acao": "ferramenta_ficticia",
+     "texto": "Rodar o frota-scan",
+     "dica": "Escreva frota-scan e aperte Enter.",
+     "nome": "frota-scan"
+    },
+    {
+     "acao": "criar_pasta",
+     "texto": "Criar a pasta quarentena_2 em /lar/cadete",
+     "dica": "Botao direito no vazio do Explorador, Nova pasta.",
+     "caminho": "/lar/cadete",
+     "nome": "quarentena_2"
+    },
+    {
+     "acao": "mover",
+     "texto": "Mover o aviso.txt para quarentena_2",
+     "dica": "Arraste ou use recortar e colar.",
+     "nome": "contem:aviso",
+     "destino": "/lar/cadete/quarentena_2"
+    },
+    {
+     "acao": "reiniciar",
+     "texto": "Reiniciar o computador",
+     "dica": "Configuracoes do Sistema, aba Manutencao."
+    }
+   ],
+   "trilhas": [
+    "seguranca",
+    "terminal"
+   ],
+   "pontos_base": 150
+  }
+ ]
+}

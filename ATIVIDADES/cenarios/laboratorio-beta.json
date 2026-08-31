@@ -1,0 +1,117 @@
+{
+ "id": "laboratorio-beta",
+ "nome": "Laboratorio Beta",
+ "arvore": [
+  {
+   "nome": "lar",
+   "tipo": "pasta",
+   "filhos": [
+    {
+     "nome": "cadete",
+     "tipo": "pasta",
+     "filhos": [
+      {
+       "nome": "projetos",
+       "tipo": "pasta",
+       "filhos": [
+        {
+         "nome": "notas.txt",
+         "tipo": "arquivo",
+         "conteudo": "O repositorio da frota fica em https://frota.orb/repo/escudo-orbital.git",
+         "icone": "arquivo",
+         "protegido": false
+        },
+        {
+         "nome": "erro.log",
+         "tipo": "arquivo",
+         "conteudo": "linha 42: escudo orbital desligou sozinho\nlinha 43: de novo\nlinha 44: alguem tentou ligar com o pe",
+         "icone": "arquivo",
+         "protegido": false
+        }
+       ],
+       "protegido": false
+      },
+      {
+       "nome": "quarentena",
+       "tipo": "pasta",
+       "filhos": [],
+       "protegido": false
+      },
+      {
+       "nome": "aviso.txt",
+       "tipo": "arquivo",
+       "conteudo": "Laboratorio Beta. Nao instale nada sem avisar a engenharia. Ninguem le este arquivo.",
+       "icone": "arquivo",
+       "protegido": false
+      }
+     ],
+     "protegido": false
+    }
+   ],
+   "protegido": false
+  },
+  {
+   "nome": "midia",
+   "tipo": "pasta",
+   "filhos": [
+    {
+     "nome": "pendrive",
+     "tipo": "pasta",
+     "filhos": [],
+     "protegido": false
+    }
+   ],
+   "protegido": false
+  },
+  {
+   "nome": "sistema",
+   "tipo": "pasta",
+   "filhos": [
+    {
+     "nome": "nucleo.bin",
+     "tipo": "arquivo",
+     "conteudo": "(nao mexa)",
+     "icone": "executavel",
+     "protegido": true
+    }
+   ],
+   "protegido": true
+  }
+ ],
+ "emails": [
+  {
+   "id": "b1",
+   "de": "engenharia@frota.orb",
+   "assunto": "Escudo orbital instavel",
+   "corpo": "Precisamos do arquivo erro.log para analisar. Mande em anexo assim que puder.",
+   "golpe": false
+  },
+  {
+   "id": "b2",
+   "de": "suporte-tecnico@fr0ta-oficial.orb",
+   "assunto": "Sua conta sera desativada hoje",
+   "corpo": "Detectamos atividade estranha. Confirme seu usuario e sua senha respondendo esta mensagem em ate 10 minutos.\nAtenciosamente, Suporte Tecnico Oficial da Fr0ta.",
+   "golpe": true
+  },
+  {
+   "id": "b3",
+   "de": "biblioteca@frota.orb",
+   "assunto": "Manual atualizado",
+   "corpo": "O capitulo sobre caminhos de arquivo foi reescrito. Disponivel em manual.frota.orb.",
+   "golpe": false
+  }
+ ],
+ "rede": false,
+ "bluetooth": false,
+ "atualizado": false,
+ "icones": [
+  "computador",
+  "explorador",
+  "terminal",
+  "email",
+  "navegador",
+  "config",
+  "manual",
+  "lixeira"
+ ]
+}

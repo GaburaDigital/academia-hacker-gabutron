@@ -1,0 +1,40 @@
+{
+  "titulo": "Academia Hacker GabuTRON",
+  "versao": 1,
+  "cenario_padrao": "nave-alpha",
+  "cenarios": [
+    "nave-alpha.json",
+    "estacao-sucata.json",
+    "laboratorio-beta.json"
+  ],
+  "pacotes": [
+    {
+      "arquivo": "mouse-e-janelas.json",
+      "nome": "Mouse e Janelas",
+      "descricao": "Clique simples, clique duplo, botao direito, etiquetas, rolagem e janelas.",
+      "dificuldade": "facil",
+      "trilhas": ["mouse", "geral"]
+    },
+    {
+      "arquivo": "arquivos-e-organizacao.json",
+      "nome": "Arquivos e Organizacao",
+      "descricao": "Criar, renomear, mover, copiar, colar, excluir e resgatar da lixeira.",
+      "dificuldade": "facil",
+      "trilhas": ["arquivos", "copiar", "geral"]
+    },
+    {
+      "arquivo": "terminal-primeiros-passos.json",
+      "nome": "Terminal - Primeiros Passos",
+      "descricao": "Comandos reais de navegacao, criacao, copia, git e instalacao de pacotes.",
+      "dificuldade": "normal",
+      "trilhas": ["terminal", "geral"]
+    },
+    {
+      "arquivo": "rede-email-e-golpes.json",
+      "nome": "Rede, Email e Golpes",
+      "descricao": "Enviar mensagens com anexo, reconhecer golpe, rede, bluetooth e manutencao.",
+      "dificuldade": "normal",
+      "trilhas": ["seguranca", "geral"]
+    }
+  ]
+}
