@@ -54,6 +54,8 @@ ensina invasão, ela usa a fantasia para forçar o aluno a operar o computador.
 - No fim do turno o aluno pode **emitir um diploma** com o codinome, a patente e
   os números da sessão. O botão Imprimir manda só o diploma para o papel.
 - O terminal tem **comandos escondidos**. Alunos que exploram acabam achando.
+- Ao concluir uma missão aparece um **aviso de parabéns** listando o que o aluno
+  praticou naquele exercício, com botão para ir direto à próxima missão.
 - Som ligado por padrão, com efeitos curtos gerados pelo próprio navegador.
   A voz do GabuTRON só toca quando o aluno clica em Ouvir.
 
@@ -183,7 +185,29 @@ acrescente um campo `falha` à missão:
 por fazer para a regra valer. Sem esse campo, a regra vale a qualquer momento
 enquanto a missão estiver em andamento.
 
-### 4. Vocabulário de ações
+### 4. Como as dicas funcionam
+
+O botão Dica monta uma escada e desce um degrau a cada clique, sem repetir. A
+ideia é preservar o prazer de procurar sozinho para quem não precisa de ajuda, e
+só abrir o jogo para quem insistiu:
+
+1. `dica` do passo, escrita no JSON. Curta, aponta a direção.
+2. `dica2` do passo, quando existe.
+3. **Conceito** da ação, vindo de `js/didatica.js`, mais os alvos concretos da
+   missão (nome do arquivo, pasta de destino, endereço, atalho).
+4. **Receita** clique a clique, também de `js/didatica.js`. Por exemplo, para
+   `mover`: recortar na origem com Ctrl+X e colar no destino com Ctrl+V.
+5. Sugestão de mudar de estratégia, consultar o Manual da Frota, refazer ou pular.
+
+Para ajustar como uma ação é explicada a todos os alunos de uma vez, edite
+`EXPLICACOES` em `js/didatica.js`. Cada entrada tem `conceito` (o que a ação
+significa) e `receita` (como fazer). Não é preciso mexer em missão nenhuma.
+
+O mesmo arquivo tem `HABILIDADES`, que traduz cada ação numa frase do tipo "mover
+arquivos de uma pasta para outra". É dessa lista que sai o aviso de parabéns.
+Uma missão pode sobrescrever a lista com o campo `praticou`.
+
+### 5. Vocabulário de ações
 
 O sistema simulado emite estes eventos. Use o nome exato em `"acao"`.
 
@@ -230,7 +254,7 @@ O sistema simulado emite estes eventos. Use o nome exato em `"acao"`.
 | `fechar_popup` | `tipo`, `correto` |
 | `popup_apareceu`, `cair_no_golpe` | `tipo` |
 
-### 5. Criar um cenário
+### 6. Criar um cenário
 
 ```json
 {
@@ -262,7 +286,7 @@ naquele cenário. Sem ele, o padrão é `pinguim-pincel` e `transmissor-orbital`
 A pasta `/lixeira` é criada sozinha. Marque `"protegido": true` no que não pode
 ser apagado nem renomeado.
 
-### 6. Publicar a atualização
+### 7. Publicar a atualização
 
 Depois de mudar qualquer arquivo, abra `sw.js` e incremente a constante `VERSAO`
 (por exemplo de `gabutron-v1` para `gabutron-v2`). Sem isso, quem já abriu a
@@ -297,6 +321,7 @@ js/sound.js             bipes gerados por Web Audio e voz opcional
 js/icons.js             dois conjuntos de ícones SVG, um para cada estética
 js/boot.js              sequência de inicialização
 js/diploma.js           certificado SVG imprimível
+js/didatica.js          o que cada ação ensina e como explicá-la por níveis
 js/main.js              liga tudo
 js/apps/                explorador, terminal, email, navegador, configurações,
                         desenho, ftp, utilitarios (pacotes e notas), interrupcoes
@@ -360,6 +385,13 @@ cheia e checklist na lateral.
 
 **Fase 3.** Sistema de missão falhada com explicação e botão de refazer,
 diploma imprimível, comandos escondidos no terminal e limpeza de ouvintes.
+
+**Ajustes pós-teste em sala.** Documentos de texto passaram a abrir no Bloco de
+Notas, onde dá para escrever, em vez de um visor somente leitura. O Abrir do
+Bloco de Notas virou uma lista de documentos em vez de exigir o caminho digitado.
+Aviso de missão cumprida com o resumo do que foi praticado. Cursor corrigido
+sobre os botões de minimizar, maximizar e fechar. Dicas em cinco degraus, com as
+explicações detalhadas reservadas para quem pede ajuda mais de uma vez.
 
 **Conteúdo:** 120 missões e 477 passos, distribuídas em 12 pacotes e 4 cenários,
 com 40 missões em cada dificuldade.

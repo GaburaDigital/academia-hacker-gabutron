@@ -13,7 +13,8 @@ import { PACOTES } from './apps/utilitarios.js';
 import { dizer, humor, completarFala } from './gabutron.js';
 import { tocar } from './sound.js';
 import { ajustes } from './settings.js';
-import { sessao, somarPontos, calcularPontos, pintarPontos, proximaPatente } from './score.js';
+import { habilidadesDaMissao, alvosDoPasso, conceitoDe, receitaDe } from './didatica.js';
+import { sessao, somarPontos, calcularPontos, pintarPontos, proximaPatente, patenteDe } from './score.js';
 
 const BASE = new URL('../ATIVIDADES/', import.meta.url);
 
@@ -259,6 +260,8 @@ export function refazerMissao() {
 /* ---------- ciclo da missao ---------- */
 
 export function proximaMissao() {
+  const aviso = document.getElementById('modal-parabens');
+  if (aviso) aviso.dataset.aberto = '0';
   const missao = sortear();
   if (!missao) {
     dizer('Acabaram as missoes deste filtro, cadete. Troque a dificuldade ou a trilha ali em cima.', 'alerta');
@@ -299,6 +302,13 @@ function concluirMissao() {
   }
   dizer(`${estado.atual.fala_sucesso}\n\n+${ganhos} pontos. Tempo: ${segundos}s.${extra}`, 'feliz');
   document.getElementById('btn-proximo').disabled = false;
+  bus.emit('missao:concluida', {
+    missao: estado.atual,
+    pontos: ganhos,
+    segundos,
+    habilidades: habilidadesDaMissao(estado.atual),
+    promocao: extra.includes('PROMOCAO') ? patenteDe(sessao.pontos).nome : null
+  });
 }
 
 function aoAgir(ev) {
@@ -362,14 +372,42 @@ export function pedirDica() {
   if (!passo) return;
   estado.nivelDica++;
 
-  if (estado.nivelDica === 1) {
-    dizer('Foco no passo marcado com [>] na lista. ' + (passo.dica || 'Procure o aplicativo certo para essa acao.'), 'pensando');
-  } else if (estado.nivelDica === 2 && passo.dica2) {
-    dizer(passo.dica2, 'pensando');
-  } else {
-    dizer(`Passo a passo: ${passo.dica2 || passo.dica || descreverPasso(passo)}. ` +
-          `A acao esperada e "${descreverPasso(passo).toLowerCase()}". Se travar, use o Manual da Frota no menu iniciar.`, 'pensando');
+  /* Monta a escada de ajuda com o que existe para este passo e nunca repete
+     um degrau. Quem gosta de procurar sozinho para no primeiro; quem precisa
+     de mais vai descendo ate a receita clique a clique. */
+  const alvos = alvosDoPasso(passo);
+  const escada = [];
+
+  escada.push('Foco no passo marcado com [>] na lista. ' +
+    (passo.dica || 'Procure o programa certo para essa acao.'));
+
+  if (passo.dica2) escada.push(passo.dica2);
+
+  const conceito = conceitoDe(passo);
+  if (conceito) {
+    escada.push(conceito + (alvos.length ? '\n\nNesta missao: ' + alvos.join('; ') + '.' : ''));
   }
+
+  const receita = receitaDe(passo);
+  if (receita) {
+    let texto = 'Vou abrir o jogo, cadete.\n\n' + receita;
+    if (alvos.length) texto += '\n\nOs alvos desta missao: ' + alvos.join('; ') + '.';
+    escada.push(texto);
+  } else if (alvos.length) {
+    escada.push('Vou abrir o jogo, cadete.\n\nOs alvos desta missao: ' + alvos.join('; ') + '.');
+  }
+
+  /* Ultimo degrau: nao repete a receita, muda de estrategia e oferece saida. */
+  escada.push(
+    'Ja te contei tudo que eu sabia sobre este passo, cadete.\n\n' +
+    'Tente assim: reveja a lista de passos ao lado e faca so o que esta marcado com [>], ' +
+    'um de cada vez. Abra o Manual da Frota no menu Iniciar, ele explica os movimentos ' +
+    'basicos do mouse e do teclado.\n\n' +
+    'Se mesmo assim nao sair, use Refazer missao para comecar limpo, ou Pular missao. ' +
+    'Pular nao e vergonha: e informacao de que essa aqui ficou dificil demais para agora.');
+
+  const grau = Math.min(estado.nivelDica, escada.length) - 1;
+  dizer(escada[grau], 'pensando');
 }
 
 /* ---------- pular e desistir ---------- */

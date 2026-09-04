@@ -28,15 +28,32 @@
   cursor: url("../assets/cursors/seta.svg") 3 2, default;
 }
 
+/* campos de escrita precisam de selecao e cursor de texto */
+#p95 input, #p95 textarea, #p95 select, #p95 option { user-select: text; }
+
+/* Qualquer coisa clicavel dentro do sistema usa a mao. Os botoes de minimizar,
+   maximizar e fechar entram aqui: antes herdavam o cursor de mover da barra de
+   titulo e a aparencia piscava ao passar por cima deles. */
 #p95 a,
+#p95 button,
+#p95 select,
 #p95 .p95-icone,
 #p95 .p95-btn,
+#p95 .p95-btn-barra,
 #p95 .p95-inicio,
 #p95 .p95-tarefa,
 #p95 .p95-menu li,
-#p95 .p95-arquivo { cursor: url("../assets/cursors/mao.svg") 10 4, pointer; }
+#p95 .p95-email-item,
+#p95 .p95-arquivo,
+#p95 [data-paleta] button,
+#p95 input[type="range"],
+#p95 input[type="checkbox"] { cursor: url("../assets/cursors/mao.svg") 10 4, pointer; }
+
+/* a barra de titulo mantem o cursor de mover, mas os botoes dela nao */
+.p95-barra .p95-btn-barra { cursor: url("../assets/cursors/mao.svg") 10 4, pointer; }
 
 #p95 input[type="text"],
+#p95 input[type="password"],
 #p95 textarea { cursor: url("../assets/cursors/texto.svg") 16 16, text; }
 
 #p95[data-ocupado="1"] { cursor: url("../assets/cursors/ocupado.svg") 16 16, progress; }

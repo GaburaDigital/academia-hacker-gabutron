@@ -73,23 +73,77 @@ export function abrirPacotes() {
   return jan;
 }
 
+/* Lista os documentos de texto do computador para o aluno escolher.
+   Digitar o caminho inteiro trava quem esta comecando. */
+function escolherArquivo() {
+  const arquivos = [];
+  (function varrer(caminho) {
+    for (const item of vfs.listar(caminho)) {
+      const c = vfs.normalizar(caminho + '/' + item.nome);
+      if (item.tipo === 'pasta') varrer(c);
+      else if (/\.(txt|log|cfg|md)$/i.test(item.nome)) arquivos.push(c);
+    }
+  })('/lar');
+
+  return new Promise((resolve) => {
+    const area = document.getElementById('p95');
+    const cx = document.createElement('div');
+    cx.className = 'p95-dialogo';
+    cx.style.width = '400px';
+    cx.innerHTML = `
+      <div class="p95-barra">${ICONES95.pasta}<span>Abrir documento</span></div>
+      <div class="conteudo" style="display:block">
+        <p style="margin:0 0 6px;font-size:11.5px">Escolha o documento que voce quer editar:</p>
+        <select data-arq size="8" style="width:100%;font-family:inherit;font-size:11.5px">
+          ${arquivos.map(a => `<option value="${a}">${a}</option>`).join('')}
+        </select>
+      </div>
+      <div class="acoes">
+        <button class="p95-btn" data-ok>Abrir</button>
+        <button class="p95-btn" data-cancelar>Cancelar</button>
+      </div>`;
+    area.appendChild(cx);
+    const caixa = area.getBoundingClientRect();
+    cx.style.transform = 'none';
+    cx.style.left = Math.max(0, Math.round((caixa.width - cx.offsetWidth) / 2)) + 'px';
+    cx.style.top = Math.max(0, Math.round((caixa.height - cx.offsetHeight) / 2)) + 'px';
+
+    const sel = cx.querySelector('[data-arq]');
+    if (arquivos.length) sel.value = arquivos[0];
+    const ok = () => { const v = sel.value; cx.remove(); resolve(v || null); };
+    cx.querySelector('[data-ok]').addEventListener('click', ok);
+    cx.querySelector('[data-cancelar]').addEventListener('click', () => { cx.remove(); resolve(null); });
+    sel.addEventListener('dblclick', ok);
+  });
+}
+
 /* ---------------------------------------------------------------- notas */
+
+/* Referencia da janela aberta, para que abrir outro arquivo reaproveite a mesma
+   janela em vez de devolver uma janela antiga com o texto errado. */
+let notasAberto = null;
 
 export function abrirNotas(caminhoArquivo = null) {
   const jan = criarJanela({
     app: 'notas', titulo: 'Bloco de Notas', icone: 'arquivo',
-    largura: 440, altura: 320, corpoFace: true,
+    largura: 460, altura: 340, corpoFace: true,
     menu: '<button data-fita="abrir">Abrir</button><button data-fita="salvar">Salvar</button>' +
           '<button data-fita="novo">Novo</button>'
   });
-  if (jan.jaExistia) return jan;
+  if (jan.jaExistia) {
+    if (caminhoArquivo && notasAberto) notasAberto.carregar(caminhoArquivo);
+    return jan;
+  }
 
   let atual = caminhoArquivo;
 
-  jan.corpo.innerHTML = `<textarea data-texto style="width:100%;height:100%;font-family:monospace;
-    font-size:12px;padding:5px;background:#ffffff;border:2px solid;
-    border-color:#40444a #ffffff #ffffff #40444a;resize:none"></textarea>`;
+  jan.corpo.innerHTML = `<textarea data-texto spellcheck="false"
+    aria-label="conteudo do documento"
+    style="width:100%;height:100%;font-family:monospace;font-size:12.5px;padding:6px;
+    background:#ffffff;border:2px solid;border-color:#40444a #ffffff #ffffff #40444a;
+    resize:none;user-select:text"></textarea>`;
   const campo = jan.corpo.querySelector('[data-texto]');
+  campo.readOnly = false;
 
   function carregar(caminho) {
     const n = vfs.no(caminho);
@@ -102,10 +156,23 @@ export function abrirNotas(caminhoArquivo = null) {
     return true;
   }
 
+  notasAberto = { jan, carregar };
+  jan.aoFechar = () => { notasAberto = null; };
+
   if (atual) carregar(atual);
-  else jan.definirStatus('Documento novo. Use Salvar para gravar.');
+  else jan.definirStatus('Documento novo. Clique na area branca e escreva.');
 
   campo.addEventListener('input', () => acao('editar_texto', { caminho: atual || '' }));
+
+  /* selecionar e copiar texto com o mouse continua sendo um treino da missao */
+  campo.addEventListener('copy', () => {
+    acao('copiar_texto', { caminho: atual || '', nome: atual ? vfs.nomeDe(atual) : '' });
+  });
+  campo.addEventListener('paste', () => acao('atalho', { tecla: 'ctrl+v' }));
+  campo.addEventListener('keydown', (ev) => {
+    if ((ev.ctrlKey || ev.metaKey) && ev.key.toLowerCase() === 'c') acao('atalho', { tecla: 'ctrl+c' });
+    if ((ev.ctrlKey || ev.metaKey) && ev.key.toLowerCase() === 'a') acao('atalho', { tecla: 'ctrl+a' });
+  });
 
   jan.fita.addEventListener('click', async (ev) => {
     const f = ev.target.dataset.fita;
@@ -113,14 +180,11 @@ export function abrirNotas(caminhoArquivo = null) {
     if (f === 'novo') { atual = null; campo.value = ''; jan.definirTitulo('Bloco de Notas'); }
 
     if (f === 'abrir') {
-      const caminho = await dialogoEntrada({
-        titulo: 'Abrir arquivo', texto: 'Caminho completo do arquivo:',
-        valor: '/lar/cadete/documentos/'
-      });
+      const caminho = await escolherArquivo();
       if (!caminho) return;
       if (!carregar(caminho)) {
         await dialogo({ titulo: 'Nao encontrado', icone: 'aviso',
-          texto: 'Nao existe arquivo em ' + caminho + '. Confira o caminho no Explorador.' });
+          texto: 'Nao consegui abrir ' + caminho + '. Confira no Explorador.' });
       }
     }
 

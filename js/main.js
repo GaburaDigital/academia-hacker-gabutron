@@ -175,6 +175,33 @@ function ligarGabutron() {
   $('fala-texto').addEventListener('click', completarFala);
 }
 
+/* ---------- aviso de missao cumprida ---------- */
+
+bus.on('missao:concluida', ({ missao, pontos, segundos, habilidades, promocao }) => {
+  $('parabens-titulo').textContent = 'Parabens, cadete. Voce concluiu "' + missao.titulo + '".';
+  const ul = $('parabens-lista');
+  ul.innerHTML = '';
+  for (const h of habilidades) {
+    const li = document.createElement('li');
+    li.append(document.createTextNode(h));
+    ul.appendChild(li);
+  }
+  $('parabens-pontos').innerHTML =
+    'Pontos ganhos: <b>' + pontos + '</b> &nbsp; Tempo: <b>' + segundos + 's</b>' +
+    (promocao ? '<br>Nova patente: <b>' + promocao + '</b>' : '');
+  $('modal-parabens').dataset.aberto = '1';
+});
+
+function ligarParabens() {
+  $('btn-parabens-ficar').addEventListener('click', () => {
+    $('modal-parabens').dataset.aberto = '0';
+  });
+  $('btn-parabens-proxima').addEventListener('click', () => {
+    $('modal-parabens').dataset.aberto = '0';
+    missao.proximaMissao();
+  });
+}
+
 /* ---------- fim de turno ---------- */
 
 function encerrar(motivo) {
@@ -271,6 +298,7 @@ async function iniciar() {
   ligarPlacar();
   ligarGabutron();
   ligarFim();
+  ligarParabens();
   ligarDiploma();
   ligarFoco();
   vigiarTamanho();

@@ -169,6 +169,15 @@ body[data-foco="1"] #faixa-ia { display: none; }
 }
 .interruptor input { accent-color: var(--destaque); width: 15px; height: 15px; }
 
+/* ---------- 5b. aviso de missao cumprida ---------- */
+
+#parabens-titulo { color: var(--destaque); margin: 0 0 12px; }
+#parabens-lista { list-style: none; margin: 0 0 14px; padding: 0; font-size: 13px; }
+#parabens-lista li { display: flex; gap: 8px; padding: 2px 0; }
+#parabens-lista li::before { content: "[x]"; color: var(--destaque); flex: none; }
+#parabens-pontos { font-size: 13px; color: var(--tinta-fraca); }
+#parabens-pontos b { color: var(--destaque); font-weight: normal; }
+
 /* ---------- 6. placar ---------- */
 
 #placar-lista { list-style: none; margin: 0; padding: 0; font-size: 13px; }

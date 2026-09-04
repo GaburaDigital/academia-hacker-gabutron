@@ -8,6 +8,7 @@ import { criarJanela, dialogo, dialogoEntrada } from '../wm.js';
 import { abrirMenu } from '../ctxmenu.js';
 import { ICONES95 } from '../icons.js';
 import { tocar } from '../sound.js';
+import { abrirNotas } from './utilitarios.js';
 
 export function abrirExplorador(caminhoInicial = '/lar/cadete') {
   const jan = criarJanela({
@@ -108,6 +109,12 @@ export function abrirExplorador(caminhoInicial = '/lar/cadete') {
     acao('duplo_clique', { alvo: item.nome, caminho: caminhoItem });
     if (item.tipo === 'pasta') { irPara(caminhoItem); return; }
     acao('abrir_arquivo', { caminho: caminhoItem, nome: item.nome });
+
+    /* Documento de texto abre no Bloco de Notas, que permite escrever.
+       Antes abria num visor so de leitura e o aluno travava quando a missao
+       pedia para acrescentar uma linha. */
+    if (/\.(txt|log|cfg|md)$/i.test(item.nome)) { abrirNotas(caminhoItem); return; }
+
     const visor = criarJanela({
       app: 'visor:' + caminhoItem,
       multipla: true,
@@ -119,7 +126,7 @@ export function abrirExplorador(caminhoInicial = '/lar/cadete') {
     p.style.cssText = 'padding:10px;font-size:12px;white-space:pre-wrap;user-select:text;font-family:monospace';
     p.textContent = item.conteudo || '(arquivo vazio)';
     visor.corpo.appendChild(p);
-    visor.definirStatus('Selecione o texto e use Ctrl+C para copiar.');
+    visor.definirStatus('Selecione o conteudo e use Ctrl+C para copiar.');
     p.addEventListener('copy', () => acao('copiar_texto', { caminho: caminhoItem, nome: item.nome }));
   }
 
